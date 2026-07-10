@@ -530,6 +530,25 @@ section{padding:4rem 2rem;flex-shrink:0;flex-grow:0;height:auto!important}
 
 /* Adjustment for content under fixed header */
 body{padding-top:0}
+
+/* ── À propos (menu identique aux autres pages) ── */
+.about__inner{ display:grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(2rem, 4vw, 4rem); max-width: 1480px; margin: 0 auto; align-items: start; }
+.about__left .eyebrow{ color: var(--mute); }
+.about__left h3{ font-weight:700; letter-spacing:-.035em; font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1; margin: .75rem 0 1rem; max-width: 14ch; }
+.about__left p{ color: var(--mute); font-size: .92rem; line-height: 1.5; margin: 0; max-width: 34ch; }
+.about__rows{ display:flex; flex-direction:column; border-top: 1px solid var(--rule-strong); }
+.about-row{ color: var(--ink); text-decoration: none; display:grid; grid-template-columns: minmax(0,1fr) auto; gap: clamp(1rem, 2vw, 2rem); align-items: center; padding: clamp(1.25rem, 2vw, 1.75rem) .25rem; border-bottom: 1px solid var(--rule); position: relative; isolation: isolate; transition: padding .45s var(--ease), color .35s var(--ease); }
+.about-row::before{ content:""; position:absolute; inset:0; background: var(--ink); transform: scaleY(0); transform-origin: bottom; transition: transform .5s var(--ease); z-index:-1; }
+.about-row:hover{ padding-left: 1rem; padding-right: 1rem; color: var(--paper); }
+.about-row:hover::before{ transform: scaleY(1); transform-origin: top; }
+.about-row .body{ display:flex; flex-direction:column; gap:.25rem; }
+.about-row .title{ font-weight:700; letter-spacing:-.025em; font-size: clamp(1.2rem, 1.8vw, 1.7rem); line-height:1.1; }
+.about-row .desc{ font-size: .9rem; color: var(--mute); transition: color .35s var(--ease); }
+.about-row:hover .desc{ color: rgba(255,255,255,.65); }
+.about-row .arr{ width: 44px; height: 44px; border-radius:50%; border:1px solid var(--rule-strong); display:flex; align-items:center; justify-content:center; transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease), transform .5s var(--ease); }
+.about-row .arr svg{ width:16px; height:16px; }
+.about-row:hover .arr{ background: var(--accent); border-color: var(--accent); color: var(--ink); transform: rotate(-45deg); }
+@media (max-width: 900px){ .about__inner{ grid-template-columns: 1fr; } }
 </style>
 
 <!-- Meta Pixel Code -->
@@ -604,27 +623,28 @@ src="https://www.facebook.com/tr?id=2440628703062561&ev=PageView&noscript=1"
 
 <!-- ─── MEGA MENU — INFORMATION ─── -->
 <div class="mega mega--about" id="megaAbout" role="region" aria-label="About" hidden>
-  <div class="mega__inner" style="grid-template-columns:1fr">
-    <div class="mega__left">
+  <div class="about__inner">
+    <div class="about__left">
       <div class="eyebrow"><span class="dot"></span>About</div>
-      <h3 style="margin-bottom:1rem">Understand before choosing.</h3>
+      <h3>Understand before choosing.</h3>
+      <p>Guides and references to demystify the microbiota and find the formula that fits your need.</p>
     </div>
-    <div class="mega__grid" style="grid-template-columns:repeat(4,1fr)">
-      <a class="mega__help" href="en/choisir.html" style="text-decoration:none;color:inherit">
-        <h4>Choosing the right probiotic</h4>
-        <p>An interactive guide based on your age or condition.</p>
+    <div class="about__rows">
+      <a class="about-row" href="en/choisir.html">
+        <span class="body"><span class="title">Choosing the right probiotic</span><span class="desc">A two-question interactive guide, based on your age or condition.</span></span>
+        <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="mega__help" href="en/microbiote.html" style="text-decoration:none;color:inherit">
-        <h4>Human Microbiota</h4>
-        <p>Five microflora, one ecosystem — zone by zone.</p>
+      <a class="about-row" href="en/microbiote.html">
+        <span class="body"><span class="title">Human Microbiota</span><span class="desc">Five microflora, one ecosystem — zone by zone, species and pathogens.</span></span>
+        <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="mega__help" href="en/diarrhee-du-voyageur.html" style="text-decoration:none;color:inherit">
-        <h4>Traveler's diarrhea</h4>
-        <p>How to avoid traveler’s diarrhea — risk zones and prevention.</p>
+      <a class="about-row" href="en/diarrhee-du-voyageur.html">
+        <span class="body"><span class="title">Traveler's diarrhea</span><span class="desc">How to avoid traveler’s diarrhea — risk zones, symptoms and prevention.</span></span>
+        <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="mega__help" href="en/histoire.html" style="text-decoration:none;color:inherit">
-        <h4>Our story</h4>
-        <p>A Québec family adventure, born in the early 2000s.</p>
+      <a class="about-row" href="en/histoire.html">
+        <span class="body"><span class="title">Our story</span><span class="desc">A Québec family adventure, born in the early 2000s.</span></span>
+        <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
     </div>
   </div>

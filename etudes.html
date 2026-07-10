@@ -530,6 +530,25 @@ section{padding:4rem 2rem;flex-shrink:0;flex-grow:0;height:auto!important}
 
 /* Adjustment for content under fixed header */
 body{padding-top:0}
+
+/* ── À propos (menu identique aux autres pages) ── */
+.about__inner{ display:grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(2rem, 4vw, 4rem); max-width: 1480px; margin: 0 auto; align-items: start; }
+.about__left .eyebrow{ color: var(--mute); }
+.about__left h3{ font-weight:700; letter-spacing:-.035em; font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1; margin: .75rem 0 1rem; max-width: 14ch; }
+.about__left p{ color: var(--mute); font-size: .92rem; line-height: 1.5; margin: 0; max-width: 34ch; }
+.about__rows{ display:flex; flex-direction:column; border-top: 1px solid var(--rule-strong); }
+.about-row{ color: var(--ink); text-decoration: none; display:grid; grid-template-columns: minmax(0,1fr) auto; gap: clamp(1rem, 2vw, 2rem); align-items: center; padding: clamp(1.25rem, 2vw, 1.75rem) .25rem; border-bottom: 1px solid var(--rule); position: relative; isolation: isolate; transition: padding .45s var(--ease), color .35s var(--ease); }
+.about-row::before{ content:""; position:absolute; inset:0; background: var(--ink); transform: scaleY(0); transform-origin: bottom; transition: transform .5s var(--ease); z-index:-1; }
+.about-row:hover{ padding-left: 1rem; padding-right: 1rem; color: var(--paper); }
+.about-row:hover::before{ transform: scaleY(1); transform-origin: top; }
+.about-row .body{ display:flex; flex-direction:column; gap:.25rem; }
+.about-row .title{ font-weight:700; letter-spacing:-.025em; font-size: clamp(1.2rem, 1.8vw, 1.7rem); line-height:1.1; }
+.about-row .desc{ font-size: .9rem; color: var(--mute); transition: color .35s var(--ease); }
+.about-row:hover .desc{ color: rgba(255,255,255,.65); }
+.about-row .arr{ width: 44px; height: 44px; border-radius:50%; border:1px solid var(--rule-strong); display:flex; align-items:center; justify-content:center; transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease), transform .5s var(--ease); }
+.about-row .arr svg{ width:16px; height:16px; }
+.about-row:hover .arr{ background: var(--accent); border-color: var(--accent); color: var(--ink); transform: rotate(-45deg); }
+@media (max-width: 900px){ .about__inner{ grid-template-columns: 1fr; } }
 </style>
 
 <!-- Meta Pixel Code -->
@@ -604,27 +623,28 @@ src="https://www.facebook.com/tr?id=2440628703062561&ev=PageView&noscript=1"
 
 <!-- ─── MEGA MENU — À PROPOS ─── -->
 <div class="mega mega--about" id="megaAbout" role="region" aria-label="À propos" hidden>
-  <div class="mega__inner" style="grid-template-columns:1fr">
-    <div class="mega__left">
+  <div class="about__inner">
+    <div class="about__left">
       <div class="eyebrow"><span class="dot"></span>À propos</div>
-      <h3 style="margin-bottom:1rem">Comprendre avant de choisir.</h3>
+      <h3>Comprendre avant de choisir.</h3>
+      <p>Guides et références pour démystifier le microbiote et trouver la formule qui correspond à votre besoin.</p>
     </div>
-    <div class="mega__grid" style="grid-template-columns:repeat(4,1fr)">
-      <a class="mega__help" href="https://www.probaclac.ca/" style="text-decoration:none;color:inherit">
-        <h4>Choisir le bon probiotique</h4>
-        <p>Un guide interactif selon votre âge ou votre condition.</p>
+    <div class="about__rows">
+      <a class="about-row" href="choisir.html">
+        <span class="body"><span class="title">Choisir le bon probiotique</span><span class="desc">Un guide interactif de deux questions, selon votre âge ou votre condition.</span></span>
+        <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="mega__help" href="https://www.probaclac.ca/microbiote-probiotiques" style="text-decoration:none;color:inherit">
-        <h4>Le microbiote humain</h4>
-        <p>Cinq microflores, un même écosystème — zone par zone.</p>
+      <a class="about-row" href="microbiote.html">
+        <span class="body"><span class="title">Le microbiote humain</span><span class="desc">Cinq microflores, un même écosystème — zone par zone, espèces et pathogènes.</span></span>
+        <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="mega__help" href="https://www.probaclac.ca/diarrhee-du-voyageur" style="text-decoration:none;color:inherit">
-        <h4>Diarrhée du voyageur</h4>
-        <p>Comment éviter la tourista — zones à risque et prévention.</p>
+      <a class="about-row" href="diarrhee-du-voyageur.html">
+        <span class="body"><span class="title">Diarrhée du voyageur</span><span class="desc">Comment éviter la tourista — zones à risque, symptômes et prévention.</span></span>
+        <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="mega__help" href="https://www.probaclac.ca/histoire" style="text-decoration:none;color:inherit">
-        <h4>Notre histoire</h4>
-        <p>Une aventure québécoise et familiale, née au début des années 2000.</p>
+      <a class="about-row" href="histoire.html">
+        <span class="body"><span class="title">Notre histoire</span><span class="desc">Une aventure québécoise et familiale, née au début des années 2000.</span></span>
+        <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
     </div>
   </div>
