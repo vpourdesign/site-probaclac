@@ -1,0 +1,30 @@
+# ─── Redirections 301 : anciennes URL Wix → nouveau site ───
+# Les URL produit (/probiotique-* et /en/probiotique-*) sont IDENTIQUES au live :
+# aucune redirection nécessaire, le jus SEO est préservé automatiquement.
+
+# FR — pages fusionnées / renommées
+/avantages                        /choisir           301
+/meilleur-probiotique-pour-vous   /choisir           301
+/microbiote-probiotiques          /microbiote        301
+/etudes2                          /etudes            301
+/etudes2-1                        /etudes            301
+/politique-de-confidentialite     /privacy-policy    301
+
+# EN — pages fusionnées / renommées
+/en/meilleur-probiotique-pour-vous  /en/choisir      301
+/en/avantages                       /en/choisir      301
+/en/microbiote-probiotiques         /en/microbiote   301
+/en/etudes                          /studies         301
+
+# Blog — le préfixe passe de /blog (Wix) à /blogue (nouveau site)
+/blog        /blogue       301
+/en/blog     /en/blogue    301
+# TODO articles : /post/<slug-wix> → /blogue/<slug>  (à mapper 1:1 pour garder le SEO des articles)
+
+# Conditions d'utilisation — page NON recréée (le live ne contenait qu'un gabarit Wix vide).
+# Décommente quand tu auras tranché :
+# /terms-and-coniditions      /privacy-policy      301
+# /en/terms-and-coniditions   /en/privacy-policy   301
+
+# Note : le sous-domaine etudes.probaclac.ca (choisir.html / choose.html / studies)
+# se redirige côté DNS/hébergeur de CE sous-domaine, pas dans ce fichier.

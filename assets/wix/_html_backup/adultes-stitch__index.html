@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="light" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Probaclac Adultes — Probiotique de grade pharmaceutique</title>
+<meta name="description" content="Probaclac Adultes — 7 souches, 6,5 milliards de cellules actives. Formulé au Québec. NPN 80013765."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          brand: {
+            ink: "#0a0a0a",
+            paper: "#fafaf7",
+            orange: "#ff5b04",
+            "orange-deep": "#E06432",
+            muted: "rgba(10,10,10,0.56)",
+            hairline: "rgba(10,10,10,0.12)",
+            "hairline-strong": "rgba(10,10,10,0.22)"
+          }
+        },
+        fontFamily: {
+          headline: ["Arimo", "Helvetica Neue", "Arial", "sans-serif"],
+          body: ["Arimo", "Helvetica Neue", "Arial", "sans-serif"]
+        },
+        maxWidth: { container: "1480px" },
+        transitionTimingFunction: { spring: "cubic-bezier(.16,1,.3,1)" }
+      }
+    }
+  }
+</script>
+<style>
+  :root { --spring: cubic-bezier(.16,1,.3,1); }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Arimo','Helvetica Neue',Arial,sans-serif; -webkit-font-smoothing: antialiased; background:#fafaf7; color:#0a0a0a; }
+  .material-symbols-outlined { font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24; vertical-align: middle; }
+  .eyebrow { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.22em; }
+  .display { font-weight:700; letter-spacing:-.04em; line-height:.98; }
+  .halftone { background-color:#E06432; background-image: radial-gradient(circle, rgba(0,0,0,.10) 1.4px, transparent 1.5px); background-size: 14px 14px; }
+  /* word-mask reveal for headings */
+  .wm > span { display:inline-block; overflow:hidden; vertical-align:top; }
+  .wm > span > span { display:inline-block; transform: translateY(110%); transition: transform .9s var(--spring); }
+  .wm.is-in > span > span { transform: translateY(0); }
+  /* generic reveal */
+  .reveal { opacity:0; transform: translateY(26px); transition: opacity .9s var(--spring), transform .9s var(--spring); }
+  .reveal.is-in { opacity:1; transform:none; }
+  [data-stagger] > * { opacity:0; transform: translateY(20px); transition: opacity .7s var(--spring), transform .7s var(--spring); }
+  [data-stagger].is-in > * { opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){ .reveal,.wm>span>span,[data-stagger]>*{ transition:none!important; opacity:1!important; transform:none!important; } }
+  .btn-pill { transition: background .5s var(--spring), color .5s var(--spring), transform .5s var(--spring); }
+  .btn-pill .arr { transition: transform .4s var(--spring); }
+  .btn-pill:hover .arr { transform: translateX(.3em); }
+  .nav-link::after { content:""; position:absolute; left:0; right:100%; bottom:-2px; height:1.5px; background: currentColor; transition: right .45s var(--spring); }
+  .nav-link:hover::after { right:0; }
+</style>
+</head>
+<body class="bg-brand-paper">
+
+<!-- ══════════ NAV ══════════ -->
+<nav id="nav" class="fixed top-0 inset-x-0 z-50 bg-brand-paper/80 backdrop-blur-md border-b border-transparent transition-all duration-500">
+  <div class="max-w-container mx-auto h-20 px-6 md:px-8 flex justify-between items-center transition-all duration-500" id="navInner">
+    <a href="/" aria-label="Probaclac" class="shrink-0">
+      <img src="../assets/logo.png" alt="Probaclac" class="h-7 md:h-8 w-auto"/>
+    </a>
+    <div class="hidden lg:flex items-center gap-10">
+      <a href="#" class="nav-link relative text-brand-orange font-bold eyebrow">Nos produits</a>
+      <a href="#" class="nav-link relative text-brand-muted hover:text-brand-ink transition-colors eyebrow font-bold">À propos des probiotiques</a>
+      <a href="https://etudes.probaclac.ca/" class="nav-link relative text-brand-muted hover:text-brand-ink transition-colors eyebrow font-bold">Études</a>
+      <a href="#" class="nav-link relative text-brand-muted hover:text-brand-ink transition-colors eyebrow font-bold">FAQ</a>
+    </div>
+    <div class="flex items-center gap-5">
+      <button class="eyebrow text-brand-ink hover:text-brand-orange transition-colors">FR<span class="opacity-40 mx-1">/</span><span class="opacity-40">EN</span></button>
+      <a href="#" class="w-9 h-9 rounded-full border border-brand-hairline-strong grid place-items-center text-brand-ink hover:bg-brand-ink hover:text-brand-paper transition-colors"><span class="material-symbols-outlined text-[18px]">person</span></a>
+      <a href="#" class="w-9 h-9 rounded-full border border-brand-hairline-strong grid place-items-center text-brand-ink hover:bg-brand-ink hover:text-brand-paper transition-colors"><span class="material-symbols-outlined text-[18px]">shopping_bag</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ 1 · HERO (light) ══════════ -->
+<header class="pt-32 md:pt-36 pb-16 md:pb-24 px-6 md:px-8">
+  <div class="max-w-container mx-auto">
+    <div class="grid grid-cols-12 gap-8 lg:gap-14 items-stretch">
+      <!-- product card -->
+      <div class="col-span-12 lg:col-span-6 reveal">
+        <div class="halftone rounded-[28px] h-full min-h-[420px] md:min-h-[520px] grid place-items-center p-8 md:p-12 ring-1 ring-black/5 shadow-[0_2px_6px_rgba(10,10,10,.06),0_30px_70px_rgba(10,10,10,.16)] overflow-hidden">
+          <img src="../assets/bottle-adultes-trim.png" alt="Probaclac Adultes — probiotique multi-souches"
+               class="w-auto max-h-[340px] md:max-h-[460px] object-contain drop-shadow-[0_34px_52px_rgba(10,10,10,.30)]"/>
+        </div>
+      </div>
+      <!-- copy -->
+      <div class="col-span-12 lg:col-span-6 flex flex-col justify-center">
+        <div class="flex items-center gap-2 mb-6 reveal">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
+          <span class="eyebrow text-brand-ink">Probiotique Adultes · Quotidien</span>
+        </div>
+        <h1 class="display text-4xl md:text-5xl lg:text-[3.4rem] text-brand-ink mb-8 wm" data-wm>Pour un usage quotidien</h1>
+        <dl class="border-t border-brand-hairline mb-8 reveal">
+          <div class="flex justify-between gap-6 py-4 border-b border-brand-hairline items-baseline">
+            <dt class="eyebrow text-brand-muted text-[.62rem]">Formule</dt>
+            <dd class="text-sm font-bold text-brand-ink text-right">Probiotique adultes</dd>
+          </div>
+          <div class="flex justify-between gap-6 py-4 border-b border-brand-hairline items-baseline">
+            <dt class="eyebrow text-brand-muted text-[.62rem] shrink-0">Formats disponibles</dt>
+            <dd class="text-sm text-brand-muted text-right">30 / 60 capsules · <b class="text-brand-ink font-bold">120 capsules</b> seulement chez Costco</dd>
+          </div>
+          <div class="flex justify-between gap-6 py-4 border-b border-brand-hairline items-baseline">
+            <dt class="eyebrow text-brand-muted text-[.62rem]">NPN</dt>
+            <dd class="text-sm font-bold text-brand-ink">80013765</dd>
+          </div>
+        </dl>
+        <p class="text-[1.02rem] leading-relaxed text-brand-ink mb-8 reveal">
+          Contribue à soutenir votre santé gastro-intestinale avec ce complexe probiotique multi-souches, regroupant <b class="font-bold">7 souches</b> soigneusement sélectionnées. Sa formule, composée de souches naturelles de Bifidobactéries, résidentes du côlon, et de Lactobacilles, habitants de l'intestin grêle, assure une couverture optimale de l'ensemble du tractus intestinal. Chaque capsule contient <b class="font-bold">6,5 milliards de cellules actives</b>, jusqu'à la date de péremption. Ne nécessite aucune réfrigération.
+        </p>
+        <div class="flex flex-wrap gap-3 mb-9 reveal" data-stagger>
+          <span class="flex items-center gap-2 py-2 px-4 border border-brand-hairline rounded-full bg-white/60"><span class="material-symbols-outlined text-[18px] text-brand-muted">eco</span><span class="text-[.66rem] font-bold uppercase tracking-wider">Sans gluten</span></span>
+          <span class="flex items-center gap-2 py-2 px-4 border border-brand-hairline rounded-full bg-white/60"><span class="material-symbols-outlined text-[18px] text-brand-muted">grass</span><span class="text-[.66rem] font-bold uppercase tracking-wider">Sans soya</span></span>
+          <span class="flex items-center gap-2 py-2 px-4 border border-brand-hairline rounded-full bg-white/60"><span class="material-symbols-outlined text-[18px] text-brand-muted">water_drop</span><span class="text-[.66rem] font-bold uppercase tracking-wider">Sans protéines laitières</span></span>
+          <span class="flex items-center gap-2 py-2 px-4 border border-brand-hairline rounded-full bg-white/60"><span class="material-symbols-outlined text-[18px] text-brand-muted">spa</span><span class="text-[.66rem] font-bold uppercase tracking-wider">Capsules végétales</span></span>
+        </div>
+        <div class="reveal">
+          <a href="#composition" class="btn-pill inline-flex items-center gap-4 bg-brand-ink text-brand-paper hover:bg-brand-orange hover:text-brand-ink px-8 py-4 rounded-full">
+            <span class="font-bold uppercase tracking-[.22em] text-[.72rem]">Voir les ingrédients</span>
+            <span class="material-symbols-outlined arr text-[20px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════ 2 · COMPOSITION & POSOLOGIE (orange) ══════════ -->
+<section id="composition" class="halftone text-brand-ink py-20 md:py-28 px-6 md:px-8">
+  <div class="max-w-container mx-auto">
+    <div class="grid grid-cols-12 gap-6 lg:gap-12 items-end mb-12 md:mb-16">
+      <div class="col-span-12 lg:col-span-7">
+        <div class="flex items-center gap-2 mb-4 reveal"><span class="w-1.5 h-1.5 rounded-full bg-brand-ink"></span><span class="eyebrow">Composition &amp; posologie</span></div>
+        <h2 class="display text-3xl md:text-5xl wm" data-wm>7 souches, 6,5 milliards de cellules actives.</h2>
+      </div>
+      <p class="col-span-12 lg:col-span-5 text-[.98rem] leading-relaxed text-black/70 reveal">Un complexe multi-souches qui couvre l'ensemble du tractus intestinal — Bifidobactéries résidentes du côlon, Lactobacilles de l'intestin grêle.</p>
+    </div>
+
+    <div class="grid grid-cols-12 gap-8 lg:gap-16 items-center">
+      <!-- strain list -->
+      <div class="col-span-12 lg:col-span-7">
+        <div class="flex justify-between items-baseline py-3 border-t border-black/30 eyebrow text-black/60">
+          <span>Ingrédients médicinaux</span><span>par capsule</span>
+        </div>
+        <div data-stagger>
+          <div class="flex justify-between items-baseline gap-4 py-[.85rem] border-b border-black/15"><span class="text-[1.02rem]"><span class="italic">Lacticaseibacillus rhamnosus</span> <span class="text-[.72rem] text-black/50 tracking-wide ml-1">NL-228</span></span><span class="font-bold whitespace-nowrap tabular-nums">2,5 milliards ufc</span></div>
+          <div class="flex justify-between items-baseline gap-4 py-[.85rem] border-b border-black/15"><span class="text-[1.02rem]"><span class="italic">Lactobacillus acidophilus</span> <span class="text-[.72rem] text-black/50 tracking-wide ml-1">NL-214</span></span><span class="font-bold whitespace-nowrap tabular-nums">1,2 milliard ufc</span></div>
+          <div class="flex justify-between items-baseline gap-4 py-[.85rem] border-b border-black/15"><span class="text-[1.02rem]"><span class="italic">Bifidobacterium bifidum</span> <span class="text-[.72rem] text-black/50 tracking-wide ml-1">NL-236</span></span><span class="font-bold whitespace-nowrap tabular-nums">1 milliard ufc</span></div>
+          <div class="flex justify-between items-baseline gap-4 py-[.85rem] border-b border-black/15"><span class="text-[1.02rem]"><span class="italic">Bifidobacterium longum</span> <span class="text-[.72rem] text-black/50 tracking-wide ml-1">NL-235</span></span><span class="font-bold whitespace-nowrap tabular-nums">1 milliard ufc</span></div>
+          <div class="flex justify-between items-baseline gap-4 py-[.85rem] border-b border-black/15"><span class="text-[1.02rem]"><span class="italic">Streptococcus thermophilus</span> <span class="text-[.72rem] text-black/50 tracking-wide ml-1">NL-231</span></span><span class="font-bold whitespace-nowrap tabular-nums">490 millions ufc</span></div>
+          <div class="flex justify-between items-baseline gap-4 py-[.85rem] border-b border-black/15"><span class="text-[1.02rem]"><span class="italic">Lacticaseibacillus paracasei</span> <span class="text-[.72rem] text-black/50 tracking-wide ml-1">NL-211</span></span><span class="font-bold whitespace-nowrap tabular-nums">300 millions ufc</span></div>
+          <div class="flex justify-between items-baseline gap-4 py-[.85rem] border-b border-black/15"><span class="text-[1.02rem]"><span class="italic">Lactobacillus bulgaricus</span> <span class="text-[.72rem] text-black/50 tracking-wide ml-1">NL-287</span></span><span class="font-bold whitespace-nowrap tabular-nums">10 millions ufc</span></div>
+        </div>
+      </div>
+      <!-- posology + nonmed -->
+      <div class="col-span-12 lg:col-span-5 flex flex-col gap-6 reveal">
+        <div class="bg-brand-paper rounded-[24px] p-7 md:p-9 shadow-[0_2px_6px_rgba(10,10,10,.10),0_28px_64px_rgba(10,10,10,.22)]">
+          <h3 class="text-xl font-bold tracking-[-.02em] mb-4">Posologie</h3>
+          <p class="leading-relaxed"><b class="font-bold">Adolescents (12 ans et plus) et adultes :</b> prendre une capsule deux fois par jour, au déjeuner et au souper.</p>
+          <p class="mt-4 text-[.92rem] text-brand-muted leading-relaxed">Prendre au moins 2 à 3 heures avant ou après la prise d'antibiotiques. Prendre pendant le repas pour une assimilation améliorée.</p>
+        </div>
+        <p class="text-[.86rem] leading-relaxed text-black/65">Ingrédients non-médicinaux — maltodextrine, capsules végétales (hypromellose), inuline, stéarate de magnésium, acide ascorbique.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 3 · ÉTUDE (slim band) ══════════ -->
+<section class="px-6 md:px-8 py-12 md:py-16">
+  <div class="max-w-container mx-auto">
+    <div class="reveal flex flex-col md:flex-row items-center gap-6 md:gap-8 border border-brand-hairline-strong rounded-[24px] bg-white px-6 md:px-8 py-5 md:py-6 shadow-[0_1px_2px_rgba(10,10,10,.04),0_18px_44px_rgba(10,10,10,.06)]">
+      <img src="../assets/cdn/pblx-card-adultes.jpg" alt="Probaclac Adultes" class="w-20 h-20 md:w-24 md:h-24 rounded-2xl object-cover border border-brand-hairline shrink-0"/>
+      <p class="flex-1 text-center md:text-left font-bold tracking-[-.03em] text-xl md:text-2xl leading-tight"><span class="text-brand-orange">−61&nbsp;%</span> de réduction des cas d'infection au <span class="italic font-normal">C.&nbsp;difficile</span></p>
+      <a href="https://etudes.probaclac.ca/" class="btn-pill inline-flex items-center gap-3 bg-brand-ink text-brand-paper hover:bg-brand-orange hover:text-brand-ink px-7 py-4 rounded-full shrink-0">
+        <span class="font-bold uppercase tracking-[.22em] text-[.72rem]">Voir nos études</span>
+        <span class="material-symbols-outlined arr text-[18px]">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 4 · POUR QUI (light) ══════════ -->
+<section class="px-6 md:px-8 py-20 md:py-28">
+  <div class="max-w-container mx-auto">
+    <div class="grid grid-cols-12 gap-10 lg:gap-16 items-center">
+      <div class="col-span-12 lg:col-span-5 order-1 reveal grid place-items-center">
+        <img src="https://static.wixstatic.com/media/623234_9f990f1bc9534aa4aea99a4b0d9809d8~mv2.png" alt="Probaclac Adultes — bouclier santé" class="w-[min(280px,76%)] drop-shadow-[0_28px_52px_rgba(10,10,10,.20)]"/>
+      </div>
+      <div class="col-span-12 lg:col-span-7">
+        <div class="flex items-center gap-2 mb-4 reveal"><span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span><span class="eyebrow">Pour qui</span></div>
+        <h2 class="display text-3xl md:text-[2.7rem] mb-6 wm" data-wm>Probaclac maintient votre santé.</h2>
+        <p class="text-brand-muted leading-relaxed mb-4 reveal">Tout adulte ayant subi un traitement antibiotique, éprouvant des troubles digestifs (ballonnements, constipation, diarrhée) ou des problèmes intestinaux (maladie de Crohn, syndrome de l'intestin irritable), ou vulnérable aux infections, aurait intérêt à se munir de probiotiques.</p>
+        <p class="text-brand-muted leading-relaxed reveal">Les changements environnementaux — transformation alimentaire, pollution atmosphérique, mode de vie effréné — affectent l'équilibre du microbiote intestinal et hypothèquent la protection contre les bactéries pathogènes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 5 · MODE D'EMPLOI (light) ══════════ -->
+<section class="px-6 md:px-8 py-20 md:py-28 border-t border-brand-hairline">
+  <div class="max-w-container mx-auto">
+    <div class="flex items-center gap-2 mb-4 reveal"><span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span><span class="eyebrow">Mode d'emploi</span></div>
+    <h2 class="display text-3xl md:text-[2.7rem] mb-5 wm" data-wm>Comment prendre Probaclac Adulte ?</h2>
+    <p class="max-w-[66ch] text-brand-muted leading-relaxed mb-12 reveal">Prendre Probaclac Adultes deux fois par jour, au déjeuner et au souper, à l'année longue permet de bénéficier pleinement des bienfaits des probiotiques — autant pour les personnes qui souffrent de troubles digestifs ou qui suivent un traitement antibiotique que pour celles qui veulent simplement un système digestif en santé. La gamme Probaclac est éprouvée depuis plus de 20 ans et utilisée dans les hôpitaux, recommandée par les pharmaciens, médecins, infirmières et nutritionnistes.</p>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-10 border-t border-brand-hairline" data-stagger>
+      <div class="flex flex-col gap-3"><span class="material-symbols-outlined text-[34px] text-brand-ink">ac_unit</span><p class="font-bold text-sm leading-snug">Ne nécessite pas de réfrigération</p></div>
+      <div class="flex flex-col gap-3"><span class="material-symbols-outlined text-[34px] text-brand-ink">water_drop</span><p class="font-bold text-sm leading-snug">Conserver à l'abri de l'humidité</p></div>
+      <div class="flex flex-col gap-3"><span class="material-symbols-outlined text-[34px] text-brand-ink">restaurant</span><p class="font-bold text-sm leading-snug">Prendre après le repas pour une assimilation améliorée</p></div>
+      <div class="flex flex-col gap-3"><span class="material-symbols-outlined text-[34px] text-brand-ink">schedule</span><p class="font-bold text-sm leading-snug">Au moins 2 h après la prise d'antibiotiques</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 6 · ALLERGÈNES (full-bleed) ══════════ -->
+<section class="relative grid place-items-center px-6 md:px-8 py-24 md:py-32 overflow-hidden">
+  <video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/11062b_3da4a26484194105bde5b3935f5afb7bf000.jpg" class="absolute inset-0 w-full h-full object-cover">
+    <source src="https://video.wixstatic.com/video/11062b_3da4a26484194105bde5b3935f5afb7b/1080p/mp4/file.mp4" type="video/mp4"/>
+  </video>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/35"></div>
+  <div class="relative z-10 max-w-[760px] text-center bg-brand-paper/85 backdrop-blur-xl border border-white/60 rounded-[34px] p-8 md:p-12 shadow-[0_30px_80px_rgba(10,10,10,.22)] reveal">
+    <div class="flex justify-center gap-5 mb-6 text-brand-ink">
+      <span class="material-symbols-outlined text-[30px]">eco</span>
+      <span class="material-symbols-outlined text-[30px]">water_drop</span>
+      <span class="material-symbols-outlined text-[30px]">grass</span>
+    </div>
+    <h2 class="display text-2xl md:text-4xl mb-5">Probiotiques sans allergènes</h2>
+    <p class="text-brand-ink/80 leading-relaxed mb-3">Probaclac est fier d'offrir des probiotiques sans allergènes*. Tout au long de la production, les allergènes alimentaires prioritaires sont évités.</p>
+    <p class="text-brand-ink/80 leading-relaxed mb-4">Nous sommes engagés à fournir des suppléments adaptés à tous, peu importe la sensibilité. Probaclac est la référence pour des probiotiques sans protéines laitières, sans gluten, sans soya et sans tous les allergènes classiques.</p>
+    <p class="text-xs text-brand-muted">*Probaclac Croquable pour enfants peut contenir des traces de protéines laitières. Probaclac Medic peut contenir des traces de soya.</p>
+  </div>
+</section>
+
+<!-- ══════════ 7 · CTA (orange band) ══════════ -->
+<section class="bg-brand-orange text-brand-ink px-6 md:px-8 py-20 md:py-28">
+  <div class="max-w-container mx-auto text-center">
+    <h2 class="display text-3xl md:text-5xl mb-5 wm" data-wm>Soutenez votre santé intestinale.</h2>
+    <p class="max-w-[52ch] mx-auto text-lg leading-relaxed mb-9 reveal">Probaclac Adulte — 7 souches, 6,5 milliards de cellules actives, sans réfrigération. Offert en 30 et 60 capsules.</p>
+    <a href="https://www.monprobiotique.ca" class="btn-pill inline-flex items-center gap-4 bg-brand-ink text-brand-paper hover:bg-brand-paper hover:text-brand-ink px-8 py-4 rounded-full reveal">
+      <span class="font-bold uppercase tracking-[.22em] text-[.72rem]">Voir au magasin en ligne</span>
+      <span class="material-symbols-outlined arr text-[20px]">arrow_forward</span>
+    </a>
+  </div>
+</section>
+
+<!-- ══════════ 8 · FOOTER (ink) ══════════ -->
+<footer class="bg-brand-ink text-brand-paper px-6 md:px-8 pt-16 md:pt-20 pb-8">
+  <div class="max-w-container mx-auto">
+    <div class="flex items-center gap-4 pb-6 border-b border-white/15">
+      <img src="../assets/logo-blanc.png" alt="Probaclac" class="h-8 w-auto"/>
+      <img src="../assets/faitqc.png" alt="Fabriqué au Québec" class="h-11 w-auto"/>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 py-10">
+      <div>
+        <h5 class="eyebrow text-white/55 mb-5">Nos produits</h5>
+        <div class="columns-2 gap-6 text-[.92rem] text-white/80">
+          <a href="https://www.probaclac.ca/probiotique-adulte" class="block py-1 hover:text-brand-orange transition-colors">Adultes</a>
+          <a href="https://www.probaclac.ca/probiotique-50-et-plus" class="block py-1 hover:text-brand-orange transition-colors">50 ans et +</a>
+          <a href="https://www.probaclac.ca/probiotique-voyage" class="block py-1 hover:text-brand-orange transition-colors">Voyageurs</a>
+          <a href="https://www.probaclac.ca/probiotique-colon-irritable" class="block py-1 hover:text-brand-orange transition-colors">Côlon irritable</a>
+          <a href="https://www.probaclac.ca/probiotique-bebes" class="block py-1 hover:text-brand-orange transition-colors">Enfants 1 à 3 ans</a>
+          <a href="https://www.probaclac.ca/probiotique-enfant" class="block py-1 hover:text-brand-orange transition-colors">Croquable</a>
+          <a href="https://www.probaclac.ca/probiotique-extra-fort" class="block py-1 hover:text-brand-orange transition-colors">Extra-fort</a>
+          <a href="https://www.probaclac.ca/probiotique-antibiotique" class="block py-1 hover:text-brand-orange transition-colors">Medic</a>
+          <a href="https://www.probaclac.ca/probiotique-gastro-intestinal" class="block py-1 hover:text-brand-orange transition-colors">Gastro intestinal</a>
+          <a href="https://www.probaclac.ca/probiotique-vaginal" class="block py-1 hover:text-brand-orange transition-colors">Vaginose bactérienne</a>
+          <a href="https://www.probaclac.ca/probiotique-infection-a-levure" class="block py-1 hover:text-brand-orange transition-colors">Infection à levure</a>
+          <a href="https://www.probaclac.ca/probiotique-infection-urinaire" class="block py-1 hover:text-brand-orange transition-colors">Infection urinaire</a>
+        </div>
+      </div>
+      <div>
+        <h5 class="eyebrow text-white/55 mb-5">Nous joindre</h5>
+        <p class="text-[.92rem] leading-[1.85] text-white/80">Tél. <a href="tel:18005679683" class="hover:text-brand-orange transition-colors">1.800.567.9683</a><br/>31 Rue Gaston-Dumoulin, suite 103<br/>Blainville, QC J7C 6B4<br/>Canada</p>
+        <div class="flex gap-3 mt-5">
+          <a href="https://www.instagram.com/probaclac.ca" aria-label="Instagram" class="w-10 h-10 grid place-items-center rounded-full border border-white/20 hover:bg-brand-orange hover:text-brand-ink transition-colors"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-[18px] h-[18px]"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="https://www.facebook.com/Probaclac" aria-label="Facebook" class="w-10 h-10 grid place-items-center rounded-full border border-white/20 hover:bg-brand-orange hover:text-brand-ink transition-colors"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-[18px] h-[18px]"><path d="M15 3h-3a4 4 0 0 0-4 4v3H5v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5 class="eyebrow text-white/55 mb-5">À propos</h5>
+        <a href="https://etudes.probaclac.ca/choisir.html" class="block py-1 text-[.92rem] text-white/80 hover:text-brand-orange transition-colors">Choisir le bon probiotique</a>
+        <a href="https://www.probaclac.ca/microbiote-probiotiques" class="block py-1 text-[.92rem] text-white/80 hover:text-brand-orange transition-colors">Le microbiote humain</a>
+        <a href="https://www.probaclac.ca/diarrhee-du-voyageur" class="block py-1 text-[.92rem] text-white/80 hover:text-brand-orange transition-colors">Diarrhée du voyageur</a>
+        <a href="https://etudes.probaclac.ca" class="block py-1 text-[.92rem] text-white/80 hover:text-brand-orange transition-colors">Études</a>
+        <a href="https://www.probaclac.ca/foire-aux-questions" class="block py-1 text-[.92rem] text-white/80 hover:text-brand-orange transition-colors">FAQ</a>
+        <p class="text-[.78rem] text-white/50 mt-5">Fier partenaire d'Allergies Québec.</p>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-center gap-3 pt-6 border-t border-white/15 text-[.82rem] text-white/55">
+      <span>© 2025 Laboratoires Nicar. <a href="https://www.probaclac.ca/privacy-policy" class="text-white/80 hover:text-brand-orange transition-colors">Politique de confidentialité</a></span>
+      <span>Site web : <a href="https://www.vpourdesign.com" class="text-white/80 hover:text-brand-orange transition-colors">V pour Design</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // word-mask: wrap each word into <span><span>word</span></span>
+  document.querySelectorAll('[data-wm]').forEach(el => {
+    const words = el.textContent.trim().split(/\s+/);
+    el.innerHTML = words.map(w => `<span><span>${w}</span></span>`).join(' ');
+  });
+  // reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal, .wm, [data-stagger]').forEach(el => io.observe(el));
+  // stagger children delay
+  document.querySelectorAll('[data-stagger]').forEach(group => {
+    [...group.children].forEach((c, i) => c.style.transitionDelay = (i * 60) + 'ms');
+  });
+  // hero is above the fold → reveal immediately
+  requestAnimationFrame(() => document.querySelectorAll('header .reveal, header .wm, header [data-stagger]').forEach(el => el.classList.add('is-in')));
+  // nav scroll state
+  const nav = document.getElementById('nav'), navInner = document.getElementById('navInner');
+  addEventListener('scroll', () => {
+    const s = scrollY > 16;
+    nav.classList.toggle('border-brand-hairline', s);
+    nav.classList.toggle('shadow-[0_1px_0_rgba(10,10,10,.04)]', s);
+    navInner.classList.toggle('h-16', s);
+    navInner.classList.toggle('h-20', !s);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+#!/bin/bash
+cd "$(dirname "$0")" || exit 1
+echo "Telechargement des medias du blogue Probaclac vers: $(pwd)"
+ITEMS=( \
+  "https://static.wixstatic.com/media/623234_128f51486f084f20a48f895e6bb1488c~mv2.jpg|623234_128f51486f084f20a48f895e6bb1488c.jpg" \
+  "https://static.wixstatic.com/media/623234_1614c37b08034b528258633ec642418c~mv2.png|623234_1614c37b08034b528258633ec642418c.png" \
+  "https://static.wixstatic.com/media/623234_192d24e19e164a02a43cc0d2a84addf8~mv2.jpg|623234_192d24e19e164a02a43cc0d2a84addf8.jpg" \
+  "https://static.wixstatic.com/media/623234_1a032a984f454603ba0b6ec437f948e6~mv2.jpg|623234_1a032a984f454603ba0b6ec437f948e6.jpg" \
+  "https://static.wixstatic.com/media/623234_24eecd05b0cd4c5d90ac9e2a5ba01354~mv2.jpg|623234_24eecd05b0cd4c5d90ac9e2a5ba01354.jpg" \
+  "https://static.wixstatic.com/media/623234_2960a20c11664213ba05c61b0b84c11e~mv2.jpg|623234_2960a20c11664213ba05c61b0b84c11e.jpg" \
+  "https://static.wixstatic.com/media/623234_2c49bfbfc1d2404fa8994bfe80d9cc2a~mv2.png|623234_2c49bfbfc1d2404fa8994bfe80d9cc2a.png" \
+  "https://static.wixstatic.com/media/623234_3d3ef7aade3044fe91ea7809a3d6fb6c~mv2.jpg|623234_3d3ef7aade3044fe91ea7809a3d6fb6c.jpg" \
+  "https://static.wixstatic.com/media/623234_4c01c63f7327468f904d3f5d4f3a2080~mv2.jpg|623234_4c01c63f7327468f904d3f5d4f3a2080.jpg" \
+  "https://static.wixstatic.com/media/623234_4e21776cd7b34172b17ee271ffed8bfc~mv2.png|623234_4e21776cd7b34172b17ee271ffed8bfc.png" \
+  "https://static.wixstatic.com/media/623234_58895096c0a34596bceecfb9fbcba556~mv2.jpg|623234_58895096c0a34596bceecfb9fbcba556.jpg" \
+  "https://static.wixstatic.com/media/623234_675813098fc147a5b1301738fae8dfbc~mv2.jpg|623234_675813098fc147a5b1301738fae8dfbc.jpg" \
+  "https://static.wixstatic.com/media/623234_6a10332b4b7345c78b7131612203c0e1~mv2.png|623234_6a10332b4b7345c78b7131612203c0e1.png" \
+  "https://static.wixstatic.com/media/623234_767c54cf621145ec8fd00510bd8a3011~mv2.jpg|623234_767c54cf621145ec8fd00510bd8a3011.jpg" \
+  "https://static.wixstatic.com/media/623234_8295dd4d756c4d71a7f473053b43a234~mv2.jpg|623234_8295dd4d756c4d71a7f473053b43a234.jpg" \
+  "https://static.wixstatic.com/media/623234_855a763aa4954cff90467e003a89280e~mv2.jpg|623234_855a763aa4954cff90467e003a89280e.jpg" \
+  "https://static.wixstatic.com/media/623234_90a29fc1c0dc45d2b10b17e6343ca373~mv2.jpg|623234_90a29fc1c0dc45d2b10b17e6343ca373.jpg" \
+  "https://static.wixstatic.com/media/623234_910f9dff0e544aeaad8913c00f3c0b42~mv2.jpg|623234_910f9dff0e544aeaad8913c00f3c0b42.jpg" \
+  "https://static.wixstatic.com/media/623234_915c7d76b8f94548a29fc93f9e54c7d2~mv2.jpg|623234_915c7d76b8f94548a29fc93f9e54c7d2.jpg" \
+  "https://static.wixstatic.com/media/623234_96e0ce1fb802418a8d3a4cb794ce3dcb~mv2.png|623234_96e0ce1fb802418a8d3a4cb794ce3dcb.png" \
+  "https://static.wixstatic.com/media/623234_9d02cd8da2394885bb5b665172f67b1d~mv2.jpg|623234_9d02cd8da2394885bb5b665172f67b1d.jpg" \
+  "https://static.wixstatic.com/media/623234_9f4142f68ff94783b190b782c14a0c19~mv2.jpg|623234_9f4142f68ff94783b190b782c14a0c19.jpg" \
+  "https://static.wixstatic.com/media/623234_a219e7c76e624e379fe3f576c45516e5~mv2.jpg|623234_a219e7c76e624e379fe3f576c45516e5.jpg" \
+  "https://static.wixstatic.com/media/623234_af5299d4c6544b50a6112fee93afe1c7~mv2.jpg|623234_af5299d4c6544b50a6112fee93afe1c7.jpg" \
+  "https://static.wixstatic.com/media/623234_b1b42b7fa75e4f55bc96ed7e4301b2e8~mv2.jpg|623234_b1b42b7fa75e4f55bc96ed7e4301b2e8.jpg" \
+  "https://static.wixstatic.com/media/623234_c6b4e26d063a4e4fbd7d397bdcd528b7~mv2.jpg|623234_c6b4e26d063a4e4fbd7d397bdcd528b7.jpg" \
+  "https://static.wixstatic.com/media/623234_c7f9a801c52f4f9a97860884a59ed86c~mv2.jpg|623234_c7f9a801c52f4f9a97860884a59ed86c.jpg" \
+  "https://static.wixstatic.com/media/623234_ccd68b0e86984e969f64e600de9e0706~mv2.png|623234_ccd68b0e86984e969f64e600de9e0706.png" \
+  "https://static.wixstatic.com/media/623234_d4bdb00e6b924d239b6229b6c65cfe1c~mv2.jpg|623234_d4bdb00e6b924d239b6229b6c65cfe1c.jpg" \
+  "https://static.wixstatic.com/media/623234_d83748e52a0c485bb9dac9d9908f21aa~mv2.jpg|623234_d83748e52a0c485bb9dac9d9908f21aa.jpg" \
+  "https://static.wixstatic.com/media/623234_dc586a08903a4a0bac182fbbd8576d5e~mv2.jpg|623234_dc586a08903a4a0bac182fbbd8576d5e.jpg" \
+  "https://static.wixstatic.com/media/623234_dd90e0324121467fb72ba0f938d20a49~mv2.jpg|623234_dd90e0324121467fb72ba0f938d20a49.jpg" \
+  "https://static.wixstatic.com/media/623234_de07ee2d78d0431aa71a940ecf41c12f~mv2.png|623234_de07ee2d78d0431aa71a940ecf41c12f.png" \
+  "https://static.wixstatic.com/media/623234_de84aa354d684825a303fbbd2b9b22b1~mv2.jpg|623234_de84aa354d684825a303fbbd2b9b22b1.jpg" \
+  "https://static.wixstatic.com/media/623234_e0e355bf84e44de4b909c22fbb6304c0~mv2.jpg|623234_e0e355bf84e44de4b909c22fbb6304c0.jpg" \
+  "https://static.wixstatic.com/media/623234_e2056a3e7bf148e8aaca2cf7d1ac66b3~mv2.png|623234_e2056a3e7bf148e8aaca2cf7d1ac66b3.png" \
+  "https://static.wixstatic.com/media/623234_e93b9f18a9f342eaa8cc8a22bb961ee9~mv2.png|623234_e93b9f18a9f342eaa8cc8a22bb961ee9.png" \
+  "https://static.wixstatic.com/media/623234_f59e994c98d545aeb1800b69466b0a00~mv2.jpg|623234_f59e994c98d545aeb1800b69466b0a00.jpg" \
+  "https://static.wixstatic.com/media/623234_f770ef3369b74c15a95ae15efd8fe29c~mv2.png|623234_f770ef3369b74c15a95ae15efd8fe29c.png" \
+  "https://static.wixstatic.com/media/623234_fdfc0fbe45ea4e0aa722113eac58636f~mv2.jpg|623234_fdfc0fbe45ea4e0aa722113eac58636f.jpg" \
+  "https://static.wixstatic.com/media/nsplsh_0f5a0b8fcb5543c6a6865ef7d25a7cef~mv2.jpg|nsplsh_0f5a0b8fcb5543c6a6865ef7d25a7cef.jpg" \
+  "https://static.wixstatic.com/media/nsplsh_6a7032673478586c355151~mv2_d_4496_3000_s_4_2.jpg|nsplsh_6a7032673478586c355151_d_4496_3000_s_4_2.jpg" \
+  "https://static.wixstatic.com/media/nsplsh_9b0f405faec14c94a74cd0e86430c902~mv2.jpg|nsplsh_9b0f405faec14c94a74cd0e86430c902.jpg" \
+  "https://static.wixstatic.com/media/nsplsh_a1f2b6b3e8f244d5b29d379057b13086~mv2.jpg|nsplsh_a1f2b6b3e8f244d5b29d379057b13086.jpg" \
+  "https://static.wixstatic.com/media/nsplsh_eb9fb40a570a40d2b0288cc01667972b~mv2.jpg|nsplsh_eb9fb40a570a40d2b0288cc01667972b.jpg" \
+  "https://static.wixstatic.com/media/nsplsh_fa1317ecbf334ba9a199bd6adf8ccb05~mv2.jpg|nsplsh_fa1317ecbf334ba9a199bd6adf8ccb05.jpg" )
+ok=0; fail=0
+for it in "${ITEMS[@]}"; do
+  url="${it%%|*}"; name="${it##*|}"
+  if curl -fsSL -A "Mozilla/5.0" "$url" -o "$name"; then
+    echo "  OK   $name"; ok=$((ok+1))
+  else echo "  FAIL $name <- $url"; fail=$((fail+1)); fi
+done
+echo ""; echo "Termine: $ok telecharges, $fail echecs."; echo "Vous pouvez fermer cette fenetre."

@@ -1,0 +1,33 @@
+# ──────────────────────────────────────────────────────────────
+# Probaclac — site statique (site-2026)
+# Déploiement Netlify. Aucun build (HTML/CSS/JS statique).
+#
+# Deux façons de l'utiliser :
+#  • Repo dédié (contenu de site-2026 à la racine) → rien à régler, publish = "."
+#  • Monorepo Probaclac → dans Netlify, mets "Base directory = site-2026"
+#    (ce netlify.toml sera alors lu, publish = "." = le dossier site-2026)
+# ──────────────────────────────────────────────────────────────
+
+[build]
+  publish = "."
+  # Pas de commande de build : site 100 % statique.
+  command = ""
+
+# Netlify sert automatiquement les URL propres (/probiotique-adulte → probiotique-adulte.html).
+
+# ── En-têtes de sécurité (toutes les pages) ──
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# ── Cache long pour les assets versionnés (images, polices, etc.) ──
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Les redirections 301 sont dans le fichier _redirects (plus simple à éditer).

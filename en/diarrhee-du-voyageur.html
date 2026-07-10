@@ -1,0 +1,1464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Traveler’s diarrhea — how to avoid tourista | Probaclac</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="60 to 80% of travelers in tropical regions are affected by tourista. Symptoms, causes, prevention and a probiotics vs. oral vaccines comparison.">
+
+<style>
+/* ─────────────────────────────────────────────────────────────────
+   PROBACLAC — Editorial · B&W · Helvetica
+   Page produit : Voyageurs → accent JAUNE
+   ───────────────────────────────────────────────────────────────── */
+
+:root{
+  --ink: #0a0a0a;
+  --paper: #fafaf7;
+  --rule: rgba(10,10,10,.12);
+  --rule-strong: rgba(10,10,10,.22);
+  --mute: rgba(10,10,10,.56);
+  --accent: #ff5b04; /* Voyageurs yellow */
+
+  --margin: clamp(1.25rem, 4vw, 4rem);
+  --gutter: clamp(1rem, 2vw, 2rem);
+
+  --t-micro: .72rem;
+  --t-body: clamp(.95rem, 1vw + .55rem, 1.05rem);
+  --t-lead: clamp(1.05rem, .6vw + .9rem, 1.25rem);
+  --t-h3: clamp(1.25rem, 1vw + 1rem, 1.65rem);
+  --t-h2: clamp(2.25rem, 5vw, 5.5rem);
+  --t-h1: clamp(2.5rem, 6.5vw, 7rem);
+
+  --ease: cubic-bezier(.16,1,.3,1);
+}
+
+*,*::before,*::after{ box-sizing: border-box; }
+html{ -webkit-text-size-adjust:100%; }
+html, body{ margin:0; padding:0; }
+body{
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: var(--t-body);
+  line-height: 1.5;
+  letter-spacing: -.005em;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+img,svg{ display:block; max-width:100%; height:auto; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; background:none; border:0; padding:0; cursor:pointer; }
+
+html.lenis,html.lenis body{ height:auto; }
+.lenis.lenis-smooth{ scroll-behavior:auto !important; }
+.lenis.lenis-stopped{ overflow:hidden; }
+
+.eyebrow{
+  font-size: var(--t-micro);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+}
+.eyebrow .dot{
+  display:inline-block;
+  width:.42em; height:.42em;
+  border-radius:50%;
+  background: var(--accent);
+  vertical-align: middle;
+  margin: 0 .58em 0 0;
+  transform: translateY(-1px);
+}
+.dot--ink{ background: var(--ink) !important; }
+
+.btn{
+  display:inline-flex; align-items:center; gap:.7em;
+  font-weight:700; letter-spacing:-.01em;
+  font-size: .92rem;
+  padding: 1.05rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  transition: transform .5s var(--ease), background .35s var(--ease), color .35s var(--ease);
+  white-space: nowrap;
+}
+.btn .arr{ display:inline-block; transition: transform .5s var(--ease); }
+.btn:hover .arr{ transform: translateX(.25em); }
+.btn--solid{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.btn--solid:hover{ background: var(--accent); border-color: var(--accent); color: var(--ink); }
+.btn--ghost{ background:transparent; }
+.btn--ghost:hover{ background: var(--ink); color: var(--paper); }
+.on-dark .btn--solid{ background:var(--paper); color:var(--ink); border-color:var(--paper); }
+.on-dark .btn--solid:hover{ background: var(--accent); border-color: var(--accent); color: var(--ink); }
+.on-dark .btn--ghost{ color:var(--paper); border-color: rgba(255,255,255,.4); }
+.on-dark .btn--ghost:hover{ background: var(--paper); color: var(--ink); border-color:var(--paper); }
+
+.on-dark{ background:var(--ink); color:var(--paper); position: relative; isolation: isolate; }
+.on-dark .rule{ background: rgba(255,255,255,.16); }
+.on-dark .mute{ color: rgba(255,255,255,.6); }
+.mute{ color: var(--mute); }
+.rule{ height:1px; background:var(--rule); border:0; }
+
+.on-accent{ background: var(--accent); color: var(--ink); }
+#produit{ background:#ecdb1f url('../assets/bgvoyage.png') center / cover no-repeat !important; }
+
+.section{ padding: clamp(4rem, 9vw, 9rem) var(--margin); position:relative; }
+.wrap{ max-width: 1480px; margin:0 auto; }
+
+/* Section curtain */
+.section-curtain{
+  position: absolute; inset: 0;
+  background: var(--paper);
+  z-index: 0;
+  clip-path: inset(0 0 0 0);
+  will-change: clip-path;
+  pointer-events: none;
+}
+.on-dark > *:not(.section-curtain){ position: relative; z-index: 1; }
+.is-static .section-curtain{ display: none !important; }
+
+/* Progress + cursor */
+.progress{
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: rgba(10,10,10,.06);
+  z-index: 60;
+  pointer-events: none;
+}
+.progress__bar{ height: 100%; width: 0; background: var(--accent); transform-origin: left; }
+.cursor{
+  position: fixed; top: 0; left: 0;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--accent);
+  pointer-events: none;
+  z-index: 100;
+  mix-blend-mode: difference;
+  transform: translate3d(-50%, -50%, 0);
+  transition: width .35s var(--ease), height .35s var(--ease);
+  opacity: 0;
+}
+.cursor.is-hover{ width: 48px; height: 48px; }
+@media (hover: none), (max-width: 760px){ .cursor{ display: none; } }
+
+/* Reveal */
+.js-ready .reveal{ opacity:0; transform: translateY(28px); will-change: opacity, transform; }
+.is-static *,.is-static *::before,.is-static *::after{ animation:none !important; transition:none !important; }
+.is-static .reveal{ opacity:1 !important; transform:none !important; }
+
+/* ─── NAV ─── */
+.nav{
+  position: fixed; top:0; left:0; right:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: .9rem var(--margin);
+  background: rgba(250,250,247,.78);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid transparent;
+  transition: border-color .4s var(--ease);
+}
+.nav.scrolled{ border-bottom-color: var(--rule); }
+.nav__logo{ display:flex; align-items:center; }
+.nav__logo img{ height: clamp(28px, 3vw, 40px); width: auto; display: block; }
+.nav__links{ display:flex; gap: clamp(1.25rem, 2.4vw, 2.4rem); font-size: .88rem; font-weight: 400; }
+.nav__links a{ position:relative; padding: .5em 0; }
+.nav__links a::after{
+  content:""; position:absolute; left:0; right:100%; bottom:.2em;
+  height:1px; background: currentColor;
+  transition: right .45s var(--ease);
+}
+.nav__links a:hover::after{ right:0; }
+.nav__right{ display:flex; align-items:center; gap:1.15rem; font-size: .82rem; }
+.nav__lang{ letter-spacing: .1em; text-transform: uppercase; font-weight: 700; font-size: .72rem; }
+.nav__lang .sep{ margin: 0 .35em; opacity:.45; }
+.nav__lang a{ color:inherit; text-decoration:none; transition:opacity .2s var(--ease); }
+.nav__lang a:hover{ opacity:.55; }
+.nav__lang .cur{ opacity:.4; }
+.nav__icobtn{
+  width:34px; height:34px; border-radius:50%;
+  border:1px solid var(--rule-strong);
+  display:flex; align-items:center; justify-content:center;
+  transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease);
+}
+.nav__icobtn:hover{ background:var(--ink); color:var(--paper); border-color: var(--ink); }
+.nav__icobtn svg{ width:14px; height:14px; }
+@media (max-width: 860px){ .nav__links{ display:none; } }
+
+/* ─── HERO (white) ─── */
+.hero{
+  min-height: 88svh;
+  padding-top: clamp(7rem, 12vh, 11rem);
+  padding-bottom: clamp(2.5rem, 4vw, 4rem);
+  display:flex; flex-direction:column; justify-content:center;
+}
+.hero__body{
+  display:grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+}
+@media (max-width: 880px){ .hero__body{ grid-template-columns: 1fr; gap: 1.5rem; } }
+.hero__left{ display:flex; flex-direction: column; gap: clamp(1.25rem, 2vw, 1.75rem); }
+.hero__h1{
+  font-weight:700; letter-spacing:-.045em;
+  font-size: var(--t-h1);
+  line-height: .95;
+  margin: 0;
+  color: var(--ink);
+}
+.hero__lead{
+  font-size: var(--t-lead);
+  line-height: 1.5;
+  color: var(--mute);
+  max-width: 38rem;
+  margin: 0;
+}
+.hero__ctas{ display:flex; gap: .75rem; flex-wrap: wrap; }
+/* Full-width stat band below the hero grid */
+.hero__stat{
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--rule);
+  padding-top: clamp(1.75rem, 3vw, 2.75rem);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+.hero__stat .big{
+  font-weight: 700; letter-spacing: -.04em;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: .9;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.hero__stat .lbl{
+  font-size: clamp(1.05rem, 1.4vw, 1.4rem);
+  color: var(--mute);
+  line-height: 1.45;
+  max-width: none;
+}
+@media (max-width: 720px){
+  .hero__stat{ grid-template-columns: 1fr; gap: 1rem; }
+}
+.hero__visual{
+  position: relative;
+  border: 1px solid var(--rule-strong);
+  border-radius: 28px;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
+}
+.hero__visual img{
+  max-height: clamp(280px, 34vw, 420px);
+  width: auto;
+  filter: drop-shadow(0 30px 50px rgba(10,10,10,.22)) drop-shadow(0 10px 20px rgba(10,10,10,.1));
+}
+.hero__visual .cap{
+  font-weight: 700; letter-spacing: -.02em;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  text-align: center;
+}
+
+/* ─── MAP (dark) ─── */
+.map__head{
+  display:grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 5vw, 5rem); align-items: center;
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+.map__head h2{
+  font-weight:700; letter-spacing:-.04em;
+  font-size: var(--t-h2); line-height: .98; margin: .5rem 0 0;
+}
+.map__head p{ color: rgba(255,255,255,.6); margin: 0; font-size: clamp(1rem, 1.2vw, 1.2rem); line-height: 1.5; }
+.map__frame{
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 28px;
+  overflow: hidden;
+  background: rgba(255,255,255,.03);
+}
+.map__frame img{ width: 100%; height: auto; display: block; }
+.map__legend{
+  margin-top: clamp(1.5rem, 2.5vw, 2rem);
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  border-top: 1px solid rgba(255,255,255,.18);
+}
+.map__legend .lg{
+  display:flex; align-items:center; justify-content: center; gap:.75rem;
+  padding: 1.25rem 1rem;
+  position: relative;
+}
+.map__legend .lg + .lg::before{
+  content:""; position:absolute; left:0; top:18%; bottom:18%;
+  width:1px; background: rgba(255,255,255,.18);
+}
+.map__legend .sw{ width: 14px; height: 14px; border-radius: 4px; flex: 0 0 auto; }
+.map__legend .lg span{ font-size: .9rem; font-weight: 700; letter-spacing: -.01em; }
+@media (max-width: 720px){
+  .map__head{ grid-template-columns: 1fr; }
+  .map__legend{ grid-template-columns: 1fr; }
+  .map__legend .lg{ justify-content: flex-start; padding: .85rem 0; }
+  .map__legend .lg + .lg::before{ left: 0; right: 0; top: 0; bottom: auto; width: auto; height: 1px; }
+}
+
+/* ─── CONSEILS (white, 8-tile grid) ─── */
+.conseils__head{
+  display:grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 5vw, 5rem); align-items: center;
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+.conseils__head h2{
+  font-weight:700; letter-spacing:-.04em;
+  font-size: var(--t-h2); line-height: .98; margin: .5rem 0 0;
+  color: var(--ink);
+}
+.conseils__head p{ color: var(--mute); margin: 0; font-size: clamp(1rem, 1.2vw, 1.2rem); line-height: 1.5; }
+/* Table-style rows with signature dark-sweep hover */
+.conseils__grid{
+  display:flex; flex-direction:column;
+  border-top:1px solid var(--rule-strong);
+}
+.conseil{
+  position:relative; isolation:isolate;
+  display:grid; grid-template-columns:auto 1fr auto;
+  align-items:center; gap:clamp(1rem,2.5vw,2rem);
+  padding:clamp(1.05rem,1.8vw,1.4rem) clamp(1rem,2vw,1.75rem);
+  border-bottom:1px solid var(--rule);
+  transition:padding .45s var(--ease);
+}
+.conseil::before{
+  content:""; position:absolute; inset:0;
+  background:var(--ink);
+  transform:scaleY(0); transform-origin:bottom;
+  transition:transform .5s var(--ease); z-index:-1;
+}
+.conseil:hover{ padding-left:clamp(1.5rem,2.5vw,2.4rem); padding-right:clamp(1.5rem,2.5vw,2.4rem); }
+.conseil:hover::before{ transform:scaleY(1); transform-origin:top; }
+.conseil .chk{
+  width:clamp(32px,3vw,40px); height:clamp(32px,3vw,40px);
+  border-radius:50%;
+  border:1px solid var(--rule-strong);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--ink); flex:0 0 auto;
+  transition:background .4s var(--ease), border-color .4s var(--ease), color .4s var(--ease);
+}
+.conseil .chk svg{
+  width:52%; height:52%;
+  fill:none; stroke:currentColor;
+  stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round;
+}
+.conseil:hover .chk{ background:var(--accent); border-color:var(--accent); color:var(--ink); }
+.conseil p{
+  margin:0;
+  font-weight:700; letter-spacing:-.015em;
+  font-size:clamp(1rem,1.2vw,1.15rem);
+  line-height:1.3; color:var(--ink);
+  transition:color .35s var(--ease);
+}
+.conseil .n{
+  font-size:var(--t-micro); font-weight:700;
+  letter-spacing:.22em; color:var(--mute);
+  font-variant-numeric:tabular-nums;
+  transition:color .35s var(--ease);
+}
+.conseil:hover p{ color:var(--paper); }
+.conseil:hover .n{ color:rgba(250,250,247,.55); }
+@media (max-width: 640px){
+  .conseil{ grid-template-columns:auto 1fr; gap:1rem; }
+  .conseil .n{ display:none; }
+}
+
+/* ─── SYMPTÔMES + CAUSES (dark) ─── */
+.sympt__grid{
+  display:grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: start;
+}
+.sympt__col h2{
+  font-weight:700; letter-spacing:-.035em;
+  font-size: clamp(1.75rem, 3vw, 2.75rem); line-height: 1.05;
+  margin: .5rem 0 1.5rem;
+}
+.sympt__col p{ color: rgba(255,255,255,.7); margin: 0 0 1rem; }
+.sympt__col p strong{ color: var(--paper); font-weight: 700; }
+.sympt__col p em{ font-style: italic; }
+.sympt__list{
+  list-style: none; padding: 0; margin: 1.5rem 0 0;
+  border-top: 1px solid rgba(255,255,255,.18);
+}
+.sympt__list li{
+  display: flex; align-items: baseline; gap: .9rem;
+  padding: .9rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  font-weight: 700; letter-spacing: -.01em;
+}
+.sympt__list li::before{
+  content:""; display: inline-block;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent);
+  flex: 0 0 auto;
+  transform: translateY(-1px);
+}
+.sympt__list li .note{ font-weight: 400; color: rgba(255,255,255,.55); margin-left: auto; font-size: .85rem; }
+.sympt__quote{
+  margin: clamp(3rem, 5vw, 4.5rem) 0 0;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 28px;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  text-align: center;
+}
+.sympt__quote .q{
+  font-weight: 700; letter-spacing: -.03em;
+  font-size: clamp(1.5rem, 3vw, 2.6rem);
+  line-height: 1.15;
+  margin: 0;
+}
+.sympt__quote .src{
+  margin-top: 1.25rem;
+  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .22em;
+  color: rgba(255,255,255,.55); font-weight: 700;
+}
+@media (max-width: 880px){ .sympt__grid{ grid-template-columns: 1fr; } }
+
+/* ─── COMPARATIF (white, editorial table) ─── */
+.comp__head{
+  display:grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 5vw, 5rem); align-items: center;
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+.comp__head h2{
+  font-weight:700; letter-spacing:-.04em;
+  font-size: var(--t-h2); line-height: .98; margin: .5rem 0 0;
+  color: var(--ink);
+}
+.comp__head p{ color: var(--mute); margin: 0; font-size: clamp(1rem, 1.2vw, 1.2rem); line-height: 1.5; }
+.comp__table{
+  border: 1px solid var(--rule-strong);
+  border-radius: 28px;
+  overflow: hidden;
+  background: #fff;
+}
+.comp__row{
+  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 4fr) minmax(0, 4fr);
+  border-bottom: 1px solid var(--rule);
+}
+.comp__row:last-child{ border-bottom: 0; }
+.comp__row > div{
+  padding: clamp(1.15rem, 2vw, 1.75rem) clamp(1.15rem, 2vw, 2rem);
+  border-right: 1px solid var(--rule);
+  font-size: .95rem; line-height: 1.45;
+}
+.comp__row > div:last-child{ border-right: 0; }
+.comp__row .h{
+  font-weight: 700; letter-spacing: -.015em;
+  color: var(--ink);
+}
+.comp__row .c{ color: var(--mute); }
+.comp__row--head{ background: var(--ink); color: var(--paper); border-bottom: 0; }
+.comp__row--head > div{
+  border-right-color: rgba(255,255,255,.16);
+  font-weight: 700; letter-spacing: -.015em;
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  display: flex; align-items: center; gap: .75rem;
+}
+.comp__row--head .pin{
+  display: inline-block; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--accent); flex: 0 0 auto;
+}
+@media (max-width: 760px){
+  .comp__row{ grid-template-columns: 1fr; }
+  .comp__row > div{ border-right: 0; border-bottom: 1px solid var(--rule); }
+  .comp__row > div:last-child{ border-bottom: 0; }
+  .comp__row .h{ background: rgba(10,10,10,.03); }
+}
+
+/* ─── HYGIÈNE (dark) ─── */
+.hyg__head{
+  display:grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 5vw, 5rem); align-items: center;
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+.hyg__head h2{
+  font-weight:700; letter-spacing:-.04em;
+  font-size: var(--t-h2); line-height: .98; margin: .5rem 0 0;
+}
+.hyg__head p{ color: rgba(255,255,255,.6); margin: 0; font-size: clamp(1rem, 1.2vw, 1.2rem); line-height: 1.5; }
+.hyg__grid{
+  display:grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,.18);
+}
+.hyg{
+  padding: 1.75rem 1.4rem 1.5rem 0;
+  border-right: 1px solid rgba(255,255,255,.18);
+  display:flex; flex-direction:column; gap:.7rem;
+}
+.hyg:last-child{ border-right:0; padding-right:0; }
+.hyg:not(:first-child){ padding-left: 1.4rem; }
+.hyg .pn{
+  font-size: var(--t-micro); letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(255,255,255,.5); font-weight: 700;
+}
+.hyg h3{
+  font-weight: 700; letter-spacing: -.025em;
+  font-size: var(--t-h3); line-height: 1.15;
+  margin:0;
+}
+@media (max-width: 900px){
+  .hyg__grid{ grid-template-columns: 1fr 1fr; }
+  .hyg:nth-child(2){ border-right:0; }
+  .hyg:nth-child(3), .hyg:nth-child(4){ border-top: 1px solid rgba(255,255,255,.18); padding-top: 1.5rem; }
+}
+@media (max-width: 540px){
+  .hyg__grid{ grid-template-columns: 1fr; }
+  .hyg{ border-right:0 !important; padding-left:0 !important; padding-right:0 !important; }
+  .hyg:not(:first-child){ border-top: 1px solid rgba(255,255,255,.18); padding-top: 1.5rem; }
+}
+
+/* ─── PRODUIT CTA (yellow band) ─── */
+.prod__grid{
+  display:grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+}
+.prod__visual{
+  display: flex; align-items: center; justify-content: center;
+}
+.prod__visual img{
+  max-height: clamp(280px, 32vw, 420px);
+  width: auto;
+  filter: drop-shadow(0 30px 50px rgba(10,10,10,.3));
+}
+.prod__body{ display: flex; flex-direction: column; gap: 1.25rem; }
+.prod__body .eyebrow{ color: var(--ink); }
+.prod__body h2{
+  font-weight: 700; letter-spacing: -.04em;
+  font-size: clamp(2.25rem, 5vw, 4.75rem); line-height: .98;
+  margin: 0;
+  color: var(--ink);
+}
+.prod__body .lead{
+  color: rgba(10,10,10,.72);
+  font-size: var(--t-lead);
+  max-width: 36rem;
+  margin: 0;
+}
+.prod__feats{
+  list-style: none; padding: 0; margin: .5rem 0 0;
+  display: flex; flex-direction: column;
+  border-top: 1px solid rgba(10,10,10,.25);
+}
+.prod__feats li{
+  display: flex; align-items: baseline; gap: .9rem;
+  padding: .8rem 0;
+  border-bottom: 1px solid rgba(10,10,10,.16);
+  font-weight: 700; letter-spacing: -.01em;
+}
+.prod__feats li::before{
+  content:""; display:inline-block;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--ink);
+  flex: 0 0 auto;
+  transform: translateY(-1px);
+}
+.prod__ctas{ display: flex; gap: .75rem; flex-wrap: wrap; margin-top: .75rem; }
+.on-accent .btn--solid{ background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.on-accent .btn--solid:hover{ background: #1a1a1a; border-color: #1a1a1a; color: var(--paper); }
+.on-accent .btn--ghost{ color: var(--ink); border-color: rgba(10,10,10,.4); }
+.on-accent .btn--ghost:hover{ background: var(--ink); color: var(--paper); border-color: var(--ink); }
+@media (max-width: 880px){
+  .prod__grid{ grid-template-columns: 1fr; }
+  .prod__visual{ order: -1; }
+}
+
+/* ─── FOOTER (dark) ─── */
+.foot{ padding-top: clamp(4rem, 8vw, 7rem); padding-bottom: 2rem; }
+.foot__mark{ margin: 0; line-height: 0; }
+.foot__mark svg{ width:100%; display:block; }
+.foot__grid{
+  margin-top: clamp(3rem, 5vw, 5rem);
+  display:grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter);
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,.16);
+}
+.foot__col{ grid-column: span 3; display:flex; flex-direction:column; gap:.6rem; }
+.foot__col h4{
+  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .22em;
+  font-weight: 700; color: rgba(255,255,255,.5);
+  margin:0 0 .5rem;
+}
+.foot__col a{ font-size: .95rem; opacity:.85; transition: opacity .3s var(--ease), color .3s var(--ease); padding: .15rem 0; }
+.foot__col a:hover{ opacity:1; color: var(--accent); }
+.foot__refs{
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,.16);
+  color: rgba(255,255,255,.45);
+  font-size: .78rem;
+  line-height: 1.6;
+}
+.foot__refs p{ margin: 0 0 .35rem; }
+.foot__legal{
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,.16);
+  display:flex; justify-content:space-between; flex-wrap: wrap; gap:1rem;
+  font-size: var(--t-micro); letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.5);
+}
+@media (max-width: 720px){ .foot__col{ grid-column: span 6; } }
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+  .reveal{ opacity:1 !important; transform:none !important; }
+}
+
+/* ===== NAV mega + FOOTER (repris du site) ===== */
+/* ── Megamenu ── */
+.nav__btn{
+  font: inherit; font-size:.88rem; font-weight:400;
+  position:relative; padding: .5em 0; color: inherit;
+  display:inline-flex; align-items:center; gap: .35em;
+}
+.nav__btn::after{
+  content:""; position:absolute; left:0; right:100%; bottom:.2em;
+  height:1px; background: currentColor;
+  transition: right .45s var(--ease);
+}
+.nav__btn:hover::after, .nav__btn[aria-expanded="true"]::after{ right:0; }
+.nav__btn .chev{
+  width: 9px; height: 9px; display:inline-block;
+  border-right: 1.4px solid currentColor; border-bottom: 1.4px solid currentColor;
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform .35s var(--ease);
+  margin-left:.1em;
+}
+.nav__btn[aria-expanded="true"] .chev{ transform: rotate(-135deg) translate(-2px, -2px); }
+
+.mega{
+  position: fixed; left:0; right:0; top: 64px;
+  background: var(--paper);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  z-index: 49;
+  padding: clamp(1.5rem, 3vw, 2.5rem) var(--margin) clamp(1.5rem, 2.5vw, 2rem);
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .45s var(--ease), transform .55s var(--ease);
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+.mega.is-open{ opacity:1; transform: translateY(0); pointer-events: auto; }
+.mega__backdrop{
+  position: fixed; inset: 64px 0 0 0;
+  background: rgba(10,10,10,.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .45s var(--ease);
+  z-index: 48;
+}
+.mega__backdrop.is-open{ opacity:1; pointer-events:auto; }
+
+.mega__inner{
+  display:grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 7fr) minmax(0, 2.5fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+  max-width: 1480px; margin: 0 auto;
+}
+.mega__left .eyebrow{ color: var(--mute); }
+.mega__left h3{
+  font-weight:700; letter-spacing:-.035em;
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1;
+  margin: .75rem 0 1.5rem;
+  max-width: 14ch;
+}
+.mega__cats{
+  list-style:none; padding:0; margin:0;
+  display:flex; flex-direction:column;
+  border-top: 1px solid var(--rule);
+}
+.mega__cats button{
+  width:100%; text-align:left;
+  display:flex; justify-content:space-between; align-items:center;
+  padding: 1rem 0; gap:1rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: .95rem;
+  font-weight: 700; letter-spacing: -.015em;
+  transition: color .3s var(--ease), padding .45s var(--ease);
+}
+.mega__cats button:hover{ padding-left: .35rem; }
+.mega__cats button .count{
+  font-size: var(--t-micro); letter-spacing: .15em;
+  color: var(--mute); font-weight:700;
+  font-variant-numeric: tabular-nums;
+}
+.mega__cats button[aria-selected="true"]{ color: var(--accent); }
+.mega__cats button[aria-selected="true"] .count{ color: var(--accent); }
+
+.mega__grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .65rem;
+}
+.mega__card{
+  display:flex; flex-direction: column;
+  padding: 0;
+  border: none;
+  background: transparent;
+  transition: transform .45s var(--ease);
+}
+.mega__card:hover{ transform: translateY(-3px); }
+.mega__card:hover .mega__card-img{ box-shadow: 0 14px 30px rgba(10,10,10,.18); }
+.mega__card[data-hidden="true"]{ display:none; }
+.mega__card-img{
+  aspect-ratio: 1/1; width:100%;
+  display:flex; align-items:center; justify-content:center;
+  border-radius: 12px;
+  margin-bottom: .65rem;
+  overflow: hidden;
+}
+.mega__card-img img{ width: 100%; height: 100%; object-fit: cover; }
+.mega__card-cat{
+  font-size: .62rem; text-transform: uppercase; letter-spacing: .2em;
+  color: var(--mute); font-weight:700;
+}
+.mega__card-name{
+  font-weight: 700; letter-spacing: -.02em;
+  font-size: .92rem; line-height: 1.2;
+  text-align: center;
+  margin: .1rem 0 0;
+}
+.mega__card-meta{
+  font-size: .72rem; color: var(--mute); line-height: 1.35;
+}
+
+.mega__right{ display:flex; flex-direction: column; gap: 1rem; }
+.mega__help{
+  border: 1px solid var(--rule-strong);
+  border-radius: 22px;
+  padding: 1.25rem;
+  background: #fff;
+}
+.mega__help .eyebrow{ color: var(--mute); }
+.mega__help h4{
+  font-weight:700; letter-spacing:-.025em;
+  font-size: 1.1rem; line-height: 1.15;
+  margin: .65rem 0 .5rem;
+}
+.mega__help p{ font-size: .85rem; color: var(--mute); margin: 0 0 1rem; }
+.mega__help a{
+  display:inline-flex; align-items:center; gap: .4em;
+  font-size: .85rem; font-weight: 700; letter-spacing: -.01em;
+  color: var(--accent);
+}
+.mega__help a svg{ width: 14px; height: 14px; }
+.mega__stat{
+  border: 1px solid var(--ink);
+  border-radius: 22px;
+  padding: 1.25rem;
+  background: var(--ink); color: var(--paper);
+}
+.mega__stat .num{
+  font-weight:700; letter-spacing:-.04em;
+  font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: .95;
+}
+.mega__stat .num .sym{ color:#fff; margin-right:.16em; }
+.mega__stat .num .unit{ font-size:.4em; vertical-align:super; margin-left:.1em; color: rgba(255,255,255,.55); font-weight:300; letter-spacing: 0; }
+.mega__stat p{ font-size:.85rem; color: rgba(255,255,255,.7); margin: .75rem 0 0; line-height: 1.4; }
+.mega__stat a{ color: var(--accent); font-weight:700; }
+
+/* ── À propos megamenu ── */
+.about__inner{
+  display:grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  max-width: 1480px; margin: 0 auto;
+  align-items: start;
+}
+.about__left .eyebrow{ color: var(--mute); }
+.about__left h3{
+  font-weight:700; letter-spacing:-.035em;
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1;
+  margin: .75rem 0 1rem;
+  max-width: 14ch;
+}
+.about__left p{ color: var(--mute); font-size: .92rem; line-height: 1.5; margin: 0; max-width: 34ch; }
+.about__rows{
+  display:flex; flex-direction:column;
+  border-top: 1px solid var(--rule-strong);
+}
+.about-row{
+  display:grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  gap: clamp(1rem, 2vw, 2rem);
+  align-items: center;
+  padding: clamp(1.25rem, 2vw, 1.75rem) .25rem;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  isolation: isolate;
+  transition: padding .45s var(--ease), color .35s var(--ease);
+}
+.about-row::before{
+  content:""; position:absolute; inset:0;
+  background: var(--ink);
+  transform: scaleY(0); transform-origin: bottom;
+  transition: transform .5s var(--ease);
+  z-index:-1;
+}
+.about-row:hover{ padding-left: 1rem; padding-right: 1rem; color: var(--paper); }
+.about-row:hover::before{ transform: scaleY(1); transform-origin: top; }
+.about-row .num{
+  font-weight:700; letter-spacing:-.02em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  font-size: .95rem;
+}
+.about-row .body{ display:flex; flex-direction:column; gap:.25rem; }
+.about-row .title{
+  font-weight:700; letter-spacing:-.025em;
+  font-size: clamp(1.2rem, 1.8vw, 1.7rem); line-height:1.1;
+}
+.about-row .desc{
+  font-size: .9rem; color: var(--mute);
+  transition: color .35s var(--ease);
+}
+.about-row:hover .desc{ color: rgba(255,255,255,.65); }
+.about-row .arr{
+  width: 44px; height: 44px; border-radius:50%;
+  border:1px solid var(--rule-strong);
+  display:flex; align-items:center; justify-content:center;
+  transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease), transform .5s var(--ease);
+}
+.about-row .arr svg{ width:16px; height:16px; }
+.about-row:hover .arr{ background: var(--accent); border-color: var(--accent); color: var(--ink); transform: rotate(-45deg); }
+@media (max-width: 900px){
+  .about__inner{ grid-template-columns: 1fr; }
+  .about-row{ grid-template-columns: minmax(0,1fr) auto; }
+}
+
+@media (max-width: 1100px){
+  .mega__inner{ grid-template-columns: 1fr; }
+  .mega__grid{ grid-template-columns: repeat(3, 1fr); }
+  .mega__cats{ flex-direction: row; flex-wrap: wrap; border-top: 0; }
+  .mega__cats button{ border-bottom: 0; padding: .5rem .9rem; border: 1px solid var(--rule-strong); border-radius: 999px; }
+}
+@media (max-width: 720px){
+  .mega__grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* FOOTER — revamped, black */
+.pbl-foot{ background:var(--ink); color:var(--paper); padding:clamp(3rem,6vw,4.5rem) var(--margin) 2.2rem; }
+.pbl-foot__top{ display:flex; align-items:center; gap:1.1rem; padding-bottom:1.4rem; border-bottom:1px solid rgba(255,255,255,.16); }
+.pbl-foot__top img.logo{ height:34px; width:auto; }
+.pbl-foot__top img.qc{ height:46px; width:auto; }
+.pbl-foot__grid{ display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:2.5rem; padding:2.2rem 0; }
+@media(max-width:820px){ .pbl-foot__grid{ grid-template-columns:1fr 1fr; } }
+@media(max-width:520px){ .pbl-foot__grid{ grid-template-columns:1fr; } }
+.pbl-foot h5{ font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.55); font-weight:700; margin:0 0 1rem; }
+.pbl-foot a{ color:rgba(255,255,255,.8); transition:color .3s var(--ease); }
+.pbl-foot__links a{ display:block; padding:.26rem 0; font-size:.92rem; }
+.pbl-foot__links{ columns:2; }
+.pbl-foot a:hover{ color:var(--accent); }
+.pbl-foot__contact{ font-size:.92rem; line-height:1.85; color:rgba(255,255,255,.8); }
+.pbl-foot__social{ display:flex; gap:.7rem; margin-top:1.1rem; }
+.pbl-foot__social a{ width:40px; height:40px; border:1px solid rgba(255,255,255,.22); border-radius:50%; display:grid; place-items:center; }
+.pbl-foot__social a:hover{ background:var(--accent); border-color:var(--accent); color:var(--ink); }
+.pbl-foot__social svg{ width:18px; height:18px; }
+.pbl-foot__bottom{ display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between; align-items:center; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.16); font-size:.82rem; color:rgba(255,255,255,.55); }
+.pbl-foot__bottom a{ color:rgba(255,255,255,.8); }
+.pbl-foot__partner{ font-size:.78rem; color:rgba(255,255,255,.5); margin-top:1.2rem; }
+.nav.on-dark-nav .nav__btn{ color:var(--paper); }
+.nav.on-dark-nav .chev{ border-color:var(--paper); }
+</style>
+<style>.ndash{ display:inline-block; transform:scaleX(.6); margin:0 .18em; letter-spacing:0; }</style>
+</head>
+<body>
+
+
+<div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+
+<nav class="nav" id="nav">
+  <a class="nav__logo" href="/" aria-label="Probaclac">
+    <img class="logo-main" src="../assets/logo.png" alt="Probaclac">
+    <img class="logo-qc" src="../assets/faitqc.png" alt="Fabriqué au Québec">
+  </a>
+  <div class="nav__links">
+    <button class="nav__btn" id="megaToggle" aria-expanded="false" aria-controls="mega">Our products<span class="chev" aria-hidden="true"></span></button>
+    <button class="nav__btn" id="aboutToggle" aria-expanded="false" aria-controls="megaAbout">About<span class="chev" aria-hidden="true"></span></button>
+    <a href="../studies.html">Studies</a>
+    <a href="blogue.html">Blog</a>
+    <a href="foire-aux-questions.html">FAQ</a>
+  </div>
+  <div class="nav__right">
+    <div class="nav__lang"><a href="../diarrhee-du-voyageur.html">FR</a><span class="sep">/</span><span class="cur">EN</span></div>
+  </div>
+</nav>
+
+<!-- ─── MEGA MENU ─── -->
+<div class="mega__backdrop" id="megaBackdrop" aria-hidden="true"></div>
+<div class="mega" id="mega" role="region" aria-label="Menu produits" hidden>
+  <div class="mega__inner">
+    <div class="mega__left">
+      <h3>12 formulas, engineered to the billion.</h3>
+      <ul class="mega__cats" role="tablist">
+        <li><button data-cat="all" aria-selected="true">All</button></li>
+        <li><button data-cat="qd"  aria-selected="false">Daily</button></li>
+        <li><button data-cat="cd"  aria-selected="false">Targeted conditions</button></li>
+        <li><button data-cat="fm"  aria-selected="false">Women’s health</button></li>
+      </ul>
+    </div>
+
+    <div class="mega__grid" id="megaGrid">
+      <!-- products injected by JS -->
+    </div>
+
+    <div class="mega__right">
+      <div class="mega__help">
+        <h4>Find the formula that fits you.</h4>
+        <p>An interactive guide helps you choose by age, profile or need.</p>
+        <a href="choisir.html">
+          Choosing the right probiotic
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="mega__stat">
+        <div class="num"><span class="sym">−</span>86<span class="unit">%</span></div>
+        <p>reduction in antibiotic-associated diarrhea with Probaclac Medic. <a href="../studies.html">See the study →</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── MEGA MENU — À PROPOS ─── -->
+<div class="mega mega--about" id="megaAbout" role="region" aria-label="About" hidden>
+  <div class="about__inner">
+    <div class="about__left">
+      <div class="eyebrow"><span class="dot"></span>About</div>
+      <h3>Understand before choosing.</h3>
+      <p>Guides and references to demystify the microbiota and find the formula that fits your need.</p>
+    </div>
+    <div class="about__rows">
+      <a class="about-row" href="choisir.html">
+        <span class="body"><span class="title">Choosing the right probiotic</span><span class="desc">A two-question interactive guide, based on your age or condition.</span></span>
+        <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="about-row" href="microbiote.html">
+        <span class="body"><span class="title">Human Microbiota</span><span class="desc">Five microflora, one ecosystem — zone by zone, species and pathogens.</span></span>
+        <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="about-row" href="diarrhee-du-voyageur.html">
+        <span class="body"><span class="title">Traveler's diarrhea</span><span class="desc">How to avoid traveler’s diarrhea — risk zones, symptoms and prevention.</span></span>
+        <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="about-row" href="histoire.html">
+        <span class="body"><span class="title">Our story</span><span class="desc">A Québec family adventure, born in the early 2000s.</span></span>
+        <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 1. HERO (white) ─── -->
+<header class="section hero">
+  <div class="wrap" style="width:100%;">
+    <div class="hero__body">
+      <div class="hero__left">
+        <div class="eyebrow"><span class="dot"></span>Travel guide</div>
+        <h1 class="hero__h1">How to avoid traveler’s diarrhea.</h1>
+        <p class="hero__lead">
+          Traveler's diarrhea or tourista is an acute diarrhea that affects a large number of travelers. It is said that between 60 and 80% of travelers in tropical, subtropical and developing regions are affected by this distressing gastroenteritis. Although the risk is higher in these areas, the World Health Organization (WHO) reminds us that hygiene can be poor anywhere, so it's best to take precautions.
+        </p>
+        <div class="hero__ctas">
+          <a class="btn btn--solid" href="#produit">
+            Prevent with Probaclac Travelers
+            <span class="arr">→</span>
+          </a>
+          <a class="btn btn--ghost" href="#conseils">
+            See the tips
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__right">
+        <div class="hero__visual">
+          <img src="../assets/bottle-voyage.png" alt="Probaclac Travelers" loading="eager">
+          <div class="cap">Probaclac Travelers</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__stat">
+      <span class="big">60<span class="ndash">–</span>80&nbsp;%</span>
+      <span class="lbl">of travelers in tropical, subtropical and developing regions are affected by this distressing gastroenteritis.</span>
+    </div>
+  </div>
+</header>
+
+<!-- ─── 2. CARTE DES RISQUES (dark) ─── -->
+<section class="section on-dark" id="carte">
+  <div class="wrap">
+    <div class="map__head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Risk zones</div>
+        <h2>Where is the risk of catching tourista?</h2>
+      </div>
+      <p>The risk is higher in tropical, subtropical and developing regions — but no destination is entirely safe.</p>
+    </div>
+    <div class="map__frame reveal">
+      <img src="../assets/mapmonde.avif" alt="Carte mondiale des zones à risque de diarrhée du voyageur" loading="lazy">
+    </div>
+    <div class="map__legend">
+      <div class="lg"><span class="sw" style="background:#c0392b;"></span><span>High risk</span></div>
+      <div class="lg"><span class="sw" style="background:var(--accent);"></span><span>Moderate risk</span></div>
+      <div class="lg"><span class="sw" style="background:#7f8c8d;"></span><span>Low risk</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 3. CONSEILS (white, 8 tiles) ─── -->
+<section class="section" id="conseils">
+  <div class="wrap">
+    <div class="conseils__head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Prevention</div>
+        <h2>Tips to avoid diarrhea while traveling.</h2>
+      </div>
+      <p>Be careful with everything you consume: food or drink.</p>
+    </div>
+    <div class="conseils__grid">
+      <div class="conseil reveal">
+        <span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p>Beware of tap water, ice cubes, and all frozen smoothies</p>
+        <span class="n">01</span>
+      </div>
+      <div class="conseil reveal">
+        <span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p>Avoid street food</p>
+        <span class="n">02</span>
+      </div>
+      <div class="conseil reveal">
+        <span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p>Make sure food is cooked thoroughly</p>
+        <span class="n">03</span>
+      </div>
+      <div class="conseil reveal">
+        <span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p>Avoid seafood</p>
+        <span class="n">04</span>
+      </div>
+      <div class="conseil reveal">
+        <span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p>Be careful with fresh fruits and vegetables (salads), opt for foods that can be peeled (e.g. bananas)</p>
+        <span class="n">05</span>
+      </div>
+      <div class="conseil reveal">
+        <span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p>Avoid dairy-based foods</p>
+        <span class="n">06</span>
+      </div>
+      <div class="conseil reveal">
+        <span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <p>Avoid eggs</p>
+        <span class="n">07</span>
+      </div>
+            </div>
+  </div>
+</section>
+
+<!-- ─── 4. SYMPTÔMES + CAUSES (dark) ─── -->
+<section class="section on-dark" id="symptomes">
+  <div class="wrap">
+    <div class="sympt__grid">
+      <div class="sympt__col">
+        <div class="eyebrow"><span class="dot"></span>Symptoms</div>
+        <h2>What are the symptoms of traveler’s diarrhea?</h2>
+        <p>Tourista usually appears within the <strong>first 3 to 5 days</strong> of the stay. It most often presents as watery diarrhea without fever or blood.</p>
+        <ul class="sympt__list">
+          <li>Diarrhea</li>
+          <li>Abdominal cramps</li>
+          <li>Nausea and vomiting <span class="note">1 in 10 cases</span></li>
+          <li>Fever <span class="note">1 in 10 cases</span></li>
+          <li>General discomfort</li>
+          <li>Signs of dehydration</li>
+        </ul>
+      </div>
+      <div class="sympt__col">
+        <div class="eyebrow"><span class="dot"></span>Causes</div>
+        <h2>What causes traveler’s diarrhea?</h2>
+        <p>More often of <strong>bacterial</strong> origin than parasitic or resulting from a virus, its transmission is by the oral-fecal route. A number of bacteria are responsible for contamination, the best known and most frequent is undoubtedly enterotoxigenic <em>Escherichia coli</em> also known by its abbreviated form of <em>E.&nbsp;coli</em>.</p>
+        <p>The mechanism of action of the <em>E.&nbsp;coli</em> bacteria is the production of an enterotoxin (a toxic substance that targets the intestines) which causes a flow of water and electrolytes into the intestinal lumen, resulting in softening of the stool and diarrhea.</p>
+        <p>Other bacteria that cause this condition include <em>Salmonella</em>, <em>Shigella</em>, and <em>Campylobacter</em>. The disease can also sometimes be caused, although less often, by parasites such as <em>Giardia</em>, <em>Cryptosporidium</em>, <em>Cyclospora</em>, or by viruses such as rotavirus or norovirus.</p>
+      </div>
+    </div>
+
+    <div class="sympt__quote reveal">
+      <p class="q">“Cook food, boil it, peel it or not eat it.”</p>
+      <div class="src">World Health Organization</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 5. COMPARATIF (white, table) ─── -->
+<section class="section" id="comparatif">
+  <div class="wrap">
+    <div class="comp__head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Prevention methods</div>
+        <h2>Probiotics or oral vaccines?</h2>
+      </div>
+      <p>Two preventive approaches exist. Here’s how they compare, point by point.</p>
+    </div>
+
+    <div class="comp__table reveal">
+      <div class="comp__row comp__row--head">
+        <div></div>
+        <div><span class="pin"></span>Probiotics</div>
+        <div>Oral vaccines</div>
+      </div>
+      <div class="comp__row">
+        <div class="h">How often to take?</div>
+        <div class="c">Take one week before departure, during the stay, and one week after returning</div>
+        <div class="c">Take 2 doses 1 week apart no later than 2 weeks before departure</div>
+      </div>
+      <div class="comp__row">
+        <div class="h">Requires a prescription?</div>
+        <div class="c">No</div>
+        <div class="c">No, but must be recommended with the Quebec immunization protocol with consultation of a health professional. No for residents of other provinces</div>
+      </div>
+      <div class="comp__row">
+        <div class="h">Who are these prevention methods aimed at?</div>
+        <div class="c">Adolescents (12 years and older) and Adults. Children's formulas are recommended for ages 1 to 3 and ages 3 and up.</div>
+        <div class="c">Adults and children aged 2 years and over</div>
+      </div>
+      <div class="comp__row">
+        <div class="h">Kept in the refrigerator?</div>
+        <div class="c">No, does not require refrigeration</div>
+        <div class="c">Yes, requires refrigeration</div>
+      </div>
+      <div class="comp__row">
+        <div class="h">Possible side effects</div>
+        <div class="c">Possibility of bloating and gas at the beginning of consumption</div>
+        <div class="c">Possibility of abdominal pain, diarrhea, nausea, vomiting, fever</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6. HYGIÈNE (dark) ─── -->
+<section class="section on-dark" id="hygiene">
+  <div class="wrap">
+    <div class="hyg__head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Hygiene first</div>
+        <h2>Prevention is better than cure.</h2>
+      </div>
+      <p>The infection can be transmitted from person to person. Four habits to keep throughout your stay.</p>
+    </div>
+    <div class="hyg__grid">
+      <div class="hyg reveal">
+        <div class="pn">01</div>
+        <h3>Wash your hands with soap</h3>
+      </div>
+      <div class="hyg reveal">
+        <div class="pn">02</div>
+        <h3>Brushing your teeth with bottled water</h3>
+      </div>
+      <div class="hyg reveal">
+        <div class="pn">03</div>
+        <h3>Taking care of your immune system</h3>
+      </div>
+      <div class="hyg reveal">
+        <div class="pn">04</div>
+        <h3>Make sure you get adequate sleep</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 7. PRODUIT (yellow band) ─── -->
+<section class="section on-accent" id="produit">
+  <div class="wrap">
+    <div class="prod__grid">
+      <div class="prod__visual reveal">
+        <img src="../assets/bottle-voyage.png" alt="Probaclac Travelers" loading="lazy">
+      </div>
+      <div class="prod__body">
+        <div class="eyebrow"><span class="dot dot--ink"></span>Prevention in a capsule</div>
+        <h2>Probaclac Travelers.</h2>
+        <p class="lead">Targeted protection against traveler's diarrhea — start one week before departure, continue during your stay and one week after your return.</p>
+        <ul class="prod__feats">
+          <li>9 probiotic strains + vitamin C</li>
+          <li>No refrigeration required</li>
+          <li>No prescription needed</li>
+          <li>30-capsule format · 1 per day</li>
+        </ul>
+        <div class="prod__ctas">
+          <a class="btn btn--solid" href="/collections/all">
+            Discover Travelers
+            <span class="arr">→</span>
+          </a>
+          <a class="btn btn--ghost" href="https://etudes.probaclac.ca/">
+            See the studies
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── FOOTER — revampé, fond noir, même contenu + logos ─── -->
+<footer class="pbl-foot">
+  <div class="wrap">
+    <div class="pbl-foot__top">
+      <img class="logo" src="../assets/logo-blanc.png" alt="Probaclac">
+      <img class="qc" src="../assets/faitqc.png" alt="Fabriqué au Québec">
+    </div>
+    <div class="pbl-foot__grid">
+      <div>
+        <h5>Our products</h5>
+        <div class="pbl-foot__links">
+          <a href="probiotique-adulte.html">Adults</a>
+          <a href="probiotique-50-et-plus.html">50+</a>
+          <a href="probiotique-voyage.html">Travelers</a>
+          <a href="probiotique-colon-irritable.html">IBS</a>
+          <a href="probiotique-bebes.html">Toddlers</a>
+          <a href="probiotique-enfant.html">Chewable</a>
+          <a href="probiotique-extra-fort.html">Extra-Strength</a>
+          <a href="probiotique-antibiotique.html">Medic</a>
+          <a href="probiotique-gastro-intestinal.html">GI</a>
+          <a href="probiotique-vaginal.html">Bacterial vaginosis</a>
+          <a href="probiotique-infection-a-levure.html">Yeast infection</a>
+          <a href="probiotique-infection-urinaire.html">Urinary tract infection</a>
+        </div>
+      </div>
+      <div>
+        <h5>Contact us</h5>
+        <p class="pbl-foot__contact">Tel. <a href="tel:18005679683">1.800.567.9683</a><br>31 Gaston-Dumoulin street, suite 103<br>Blainville, QC J7C 6B4<br>Canada</p>
+        <div class="pbl-foot__social">
+          <a href="https://www.instagram.com/probaclac.ca" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="https://www.facebook.com/Probaclac" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h-3a4 4 0 0 0-4 4v3H5v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Information</h5>
+        <a href="https://etudes.probaclac.ca/choose.html" style="display:block;padding:.26rem 0;font-size:.92rem;">Choosing the right probiotic</a>
+        <a href="https://www.probaclac.ca/en/microbiote-probiotiques" style="display:block;padding:.26rem 0;font-size:.92rem;">Human Microbiota</a>
+        <a href="https://www.probaclac.ca/en/diarrhee-du-voyageur" style="display:block;padding:.26rem 0;font-size:.92rem;">Traveler's diarrhea</a>
+        <a href="../studies.html" style="display:block;padding:.26rem 0;font-size:.92rem;">Studies</a>
+        <a href="foire-aux-questions.html" style="display:block;padding:.26rem 0;font-size:.92rem;">FAQ</a>
+        <p class="pbl-foot__partner">Proud partner of Allergies Québec.</p>
+      </div>
+    </div>
+    <div class="pbl-foot__bottom">
+      <span>© 2025 Laboratoires Nicar. <a href="https://www.probaclac.ca/en/privacy-policy">Privacy policy</a></span>
+      <span>Website: <a href="https://www.vpourdesign.com">V pour Design</a></span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+<script>
+const IS_STATIC = new URLSearchParams(location.search).has("static");
+if(IS_STATIC) document.documentElement.classList.add("is-static");
+
+document.documentElement.classList.add("js-ready");
+
+
+/* ===== megamenu data + render (site) ===== */
+const T = "../assets/thumbs/";
+const CATALOGUE = [
+  {n:"01", cat:"qd", catLabel:"Daily",              name:"Adults",               meta:"7 strains · 6.5 billion CFU",          npn:"NPN 80013765", url:"probiotique-adulte.html",              img: T+"adultes.webp"},
+  {n:"02", cat:"qd", catLabel:"Daily",              name:"50+",                  meta:"7 strains · 8.5 billion CFU",          npn:"NPN 80013814", url:"probiotique-50-et-plus.html",          img: T+"50plus.webp"},
+  {n:"03", cat:"qd", catLabel:"Daily",              name:"Travelers",            meta:"9 strains + vitamin C",                npn:"NPN 80108358", url:"probiotique-voyage.html",              img: T+"voyage.webp"},
+  {n:"04", cat:"qd", catLabel:"Daily",              name:"Chewable",             meta:"Kids 3 years and up · 3 billion",      npn:"NPN 80106376", url:"probiotique-enfant.html",              img: T+"croquable.webp"},
+  {n:"05", cat:"qd", catLabel:"Daily",              name:"Toddlers",             meta:"Openable capsules · 2 billion",        npn:"NPN 80083662", url:"probiotique-bebes.html",               img: T+"enfants.webp"},
+  {n:"06", cat:"cd", catLabel:"Targeted conditions", name:"IBS",                 meta:"IBS · 10 billion CFU",                 npn:"NPN 80140258", url:"probiotique-colon-irritable.html",     img: T+"sci.webp"},
+  {n:"07", cat:"cd", catLabel:"Targeted conditions", name:"GI",                  meta:"Antibiotic therapy · 15 billion",      npn:"NPN 80083663", url:"probiotique-gastro-intestinal.html",   img: T+"gi.webp"},
+  {n:"08", cat:"cd", catLabel:"Targeted conditions", name:"Medic",               meta:"During antibiotics · 5 billion",       npn:"NPN 80013796", url:"probiotique-antibiotique.html",        img: T+"medic.webp"},
+  {n:"09", cat:"cd", catLabel:"Targeted conditions", name:"Extra-Strength",      meta:"8 strains · 10.5 billion",             npn:"NPN 80013798", url:"probiotique-extra-fort.html",          img: T+"extra.webp"},
+  {n:"10", cat:"fm", catLabel:"Women’s health",     name:"Bacterial vaginosis",  meta:"3 strains · intravaginal",             npn:"NPN 80041302", url:"probiotique-vaginal.html",             img: "../assets/mainvaginal-en.jpg"},
+  {n:"11", cat:"fm", catLabel:"Women’s health",     name:"Yeast infection",      meta:"Candidiasis · Rosella strain",         npn:"NPN 80136249", url:"probiotique-infection-a-levure.html",  img: T+"rosella.webp"},
+  {n:"12", cat:"fm", catLabel:"Women’s health",     name:"Urinary tract infection", meta:"9 strains + cranberry",             npn:"NPN 80066788", url:"probiotique-infection-urinaire.html",  img: T+"canneberge.webp"},
+];
+
+/* Render mega menu product grid */
+function renderMega(filter="all"){
+  const grid = document.getElementById("megaGrid");
+  if(!grid) return;
+  grid.innerHTML = CATALOGUE
+    .filter(r => filter==="all" || r.cat===filter)
+    .map(r => `
+      <a class="mega__card" href="${r.url}" data-cat="${r.cat}">
+        <div class="mega__card-img"><img src="${r.img}" alt="Probaclac ${r.name}" loading="lazy"></div>
+        <span class="mega__card-name">${r.name}</span>
+      </a>
+    `).join("");
+}
+renderMega();
+
+function animateMega(cat){
+  const grid = document.getElementById("megaGrid");
+  if(!grid) return renderMega(cat);
+  const cards = [...grid.children];
+  if(window.gsap && cards.length){
+    gsap.to(cards, { opacity:0, scale:.9, y:10, duration:.22, ease:"power2.in", stagger:{each:.025, from:"random"}, onComplete:()=>{
+      renderMega(cat);
+      const nc = [...grid.children];
+      gsap.fromTo(nc, { opacity:0, scale:.9, y:14 }, { opacity:1, scale:1, y:0, duration:.5, ease:"power3.out", stagger:{each:.045, from:"start"} });
+    }});
+  } else {
+    renderMega(cat);
+  }
+}
+document.querySelectorAll(".mega__cats button").forEach(b => {
+  b.addEventListener("click", () => {
+    document.querySelectorAll(".mega__cats button").forEach(x => x.setAttribute("aria-selected","false"));
+    b.setAttribute("aria-selected","true");
+    animateMega(b.dataset.cat);
+  });
+});
+
+/* Megamenu open/close */
+(function setupMegas(){
+  const bd = document.getElementById("megaBackdrop");
+  const menus = [
+    { btn: document.getElementById("megaToggle"),  panel: document.getElementById("mega"),      open: false },
+    { btn: document.getElementById("aboutToggle"), panel: document.getElementById("megaAbout"), open: false },
+  ].filter(m => m.btn && m.panel);
+  if(!menus.length) return;
+
+  function setOpen(m, v){
+    m.open = v;
+    m.btn.setAttribute("aria-expanded", v ? "true" : "false");
+    m.panel.classList.toggle("is-open", v);
+    if(v){ m.panel.removeAttribute("hidden"); } else { setTimeout(()=>m.panel.setAttribute("hidden",""), 450); }
+  }
+  function closeAll(except){
+    menus.forEach(m => { if(m !== except && m.open) setOpen(m, false); });
+    bd.classList.toggle("is-open", !!(except && except.open));
+  }
+  menus.forEach(m => {
+    m.btn.addEventListener("click", e => {
+      e.preventDefault();
+      setOpen(m, !m.open);
+      closeAll(m);
+    });
+  });
+  bd.addEventListener("click", () => closeAll(null));
+  document.addEventListener("keydown", e => { if(e.key === "Escape") closeAll(null); });
+})();
+
+if(IS_STATIC){
+  console.log("[static] animations disabled");
+} else {
+
+const lenis = new Lenis({ duration: 1.1, easing: t => Math.min(1, 1.001 - Math.pow(2, -10*t)) });
+gsap.registerPlugin(ScrollTrigger);
+lenis.on("scroll", ScrollTrigger.update);
+gsap.ticker.add(t => lenis.raf(t * 1000));
+gsap.ticker.lagSmoothing(0);
+
+/* Nav scrolled state */
+const nav = document.getElementById("nav");
+ScrollTrigger.create({
+  start: "top -10",
+  end: "max",
+  onUpdate: self => nav.classList.toggle("scrolled", self.scroll() > 12),
+});
+
+/* Hero entrance */
+gsap.timeline({ defaults: { ease: "power3.out" } })
+  .from(".hero .eyebrow", { y: 18, opacity: 0, duration: .7 }, 0)
+  .from(".hero__lead", { y: 24, opacity: 0, duration: .9 }, .45)
+  .from(".hero__ctas .btn", { y: 24, opacity: 0, duration: .8, stagger: .08 }, .6);
+
+/* Curtain wipe on dark sections */
+gsap.utils.toArray('.on-dark').forEach(sec => {
+  const curtain = document.createElement('div');
+  curtain.className = 'section-curtain';
+  sec.insertBefore(curtain, sec.firstChild);
+  gsap.to(curtain, {
+    clipPath: 'inset(0 0 100% 0)',
+    ease: 'power3.out',
+    scrollTrigger: { trigger: sec, start: 'top 95%', end: 'top 25%', scrub: 0.8 },
+  });
+});
+
+/* Generic reveal */
+gsap.utils.toArray(".reveal").forEach(el => {
+  gsap.to(el, {
+    opacity:1, y:0,
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: { trigger: el, start: "top 85%" },
+  });
+});
+
+/* Word-by-word entrance for h1 + h2 */
+gsap.utils.toArray('section h2, header h1').forEach(h => {
+  if(h.closest('.foot')) return;
+  const words = h.textContent.trim().split(/\s+/);
+  h.innerHTML = words.map(w => `<span class="w" style="display:inline-block;overflow:hidden;padding:0 .12em 0 0;"><span style="display:inline-block;transform:translateY(110%);">${w}</span></span>`).join(' ');
+});
+ScrollTrigger.batch('section h2 .w > span, header h1 .w > span', {
+  start: 'top 88%',
+  onEnter: batch => gsap.to(batch, { y: 0, duration: 1.1, ease: 'power4.out', stagger: 0.035 , onComplete: () => batch.forEach(s => { if(s.parentElement) s.parentElement.style.overflow = "visible"; }) }),
+  once: true,
+});
+
+/* Scroll progress */
+const progressBar = document.getElementById('progressBar');
+ScrollTrigger.create({
+  start: 0, end: 'max',
+  onUpdate: self => { if(progressBar) progressBar.style.width = (self.progress * 100) + '%'; },
+});
+
+/* Custom cursor */
+(function setupCursor(){
+  const cur = document.getElementById('cursor');
+  if(!cur) return;
+  if(window.matchMedia('(hover: none), (max-width: 760px)').matches) return;
+  let mx = innerWidth/2, my = innerHeight/2, cx = mx, cy = my, visible = false;
+  window.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    if(!visible){ cur.style.opacity = '1'; visible = true; }
+  });
+  window.addEventListener('mouseleave', () => { cur.style.opacity = '0'; visible = false; });
+  document.querySelectorAll('a, button, .btn, .conseil, .nav__icobtn').forEach(el => {
+    el.addEventListener('mouseenter', () => cur.classList.add('is-hover'));
+    el.addEventListener('mouseleave', () => cur.classList.remove('is-hover'));
+  });
+  (function tick(){
+    cx += (mx - cx) * 0.18;
+    cy += (my - cy) * 0.18;
+    cur.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
+    requestAnimationFrame(tick);
+  })();
+})();
+
+/* Magnetic buttons */
+document.querySelectorAll('.btn').forEach(b => {
+  let mag;
+  b.addEventListener('mouseenter', () => {
+    const r = b.getBoundingClientRect();
+    mag = (e) => {
+      const dx = (e.clientX - (r.left + r.width/2)) * 0.18;
+      b.style.transform = `translate(${dx}px, 0)`;
+    };
+    window.addEventListener('mousemove', mag);
+  });
+  b.addEventListener('mouseleave', () => {
+    window.removeEventListener('mousemove', mag);
+    gsap.to(b, { x:0, y:0, duration:.6, ease:'elastic.out(1, 0.5)', clearProps:'transform' });
+  });
+});
+
+} // /IS_STATIC else
+
+</script>
+</body>
+</html>

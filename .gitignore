@@ -1,0 +1,30 @@
+# ─── Probaclac site — .gitignore (repo dédié) ───
+
+# Secrets / env
+.env
+*.env
+*.local
+
+# OS
+.DS_Store
+Thumbs.db
+._*
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+
+# Python (artefacts d'outillage local)
+__pycache__/
+*.pyc
+
+# Node (si outillage ajouté un jour)
+node_modules/
+
+# Artefacts de dev / prototypes non destinés à la prod
+adultes-stitch/
+
+# Sources locales non destinées à la prod
+histoire/
+VAGINAL-newlook.jpg

@@ -1,0 +1,1140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Microbiota and probiotics — the body's 5 microflora | Probaclac</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Different probiotic species colonize the digestive tract. Discover how they maintain microbiota balance and prevent the growth of harmful bacteria that can affect human health.">
+
+<style>
+/* ─────────────────────────────────────────────────────────────────
+   PROBACLAC — Editorial · B&W · Helvetica
+   Page Microbiote : silhouette sticky, 5 zones qui s'allument
+   ───────────────────────────────────────────────────────────────── */
+
+:root{
+  --ink: #0a0a0a;
+  --paper: #fafaf7;
+  --rule: rgba(10,10,10,.12);
+  --rule-strong: rgba(10,10,10,.22);
+  --mute: rgba(10,10,10,.56);
+  --accent: #ff5b04;
+
+  --margin: clamp(1.25rem, 4vw, 4rem);
+  --gutter: clamp(1rem, 2vw, 2rem);
+
+  --t-micro: .72rem;
+  --t-body: clamp(.95rem, 1vw + .55rem, 1.05rem);
+  --t-lead: clamp(1.05rem, .6vw + .9rem, 1.25rem);
+  --t-h3: clamp(1.25rem, 1vw + 1rem, 1.65rem);
+  --t-h2: clamp(2.25rem, 5vw, 5.5rem);
+  --t-h1: clamp(2.5rem, 6.5vw, 7rem);
+
+  --ease: cubic-bezier(.16,1,.3,1);
+}
+
+*,*::before,*::after{ box-sizing: border-box; }
+html{ -webkit-text-size-adjust:100%; }
+html, body{ margin:0; padding:0; }
+body{
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: var(--t-body);
+  line-height: 1.5;
+  letter-spacing: -.005em;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+img,svg{ display:block; max-width:100%; height:auto; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; background:none; border:0; padding:0; cursor:pointer; }
+
+html.lenis,html.lenis body{ height:auto; }
+.lenis.lenis-smooth{ scroll-behavior:auto !important; }
+.lenis.lenis-stopped{ overflow:hidden; }
+
+.eyebrow{ font-size: var(--t-micro); font-weight: 700; text-transform: uppercase; letter-spacing: .22em; }
+.eyebrow .dot{
+  display:inline-block; width:.42em; height:.42em; border-radius:50%;
+  background: var(--accent); vertical-align: middle; margin: 0 .58em 0 0; transform: translateY(-1px);
+}
+.dot--ink{ background: var(--ink) !important; }
+
+.btn{
+  display:inline-flex; align-items:center; gap:.7em;
+  font-weight:700; letter-spacing:-.01em; font-size: .92rem;
+  padding: 1.05rem 1.6rem; border-radius: 999px; border: 1px solid currentColor;
+  transition: transform .5s var(--ease), background .35s var(--ease), color .35s var(--ease);
+  white-space: nowrap;
+}
+.btn .arr{ display:inline-block; transition: transform .5s var(--ease); }
+.btn:hover .arr{ transform: translateX(.25em); }
+.btn--solid{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.btn--solid:hover{ background: var(--accent); border-color: var(--accent); color: var(--ink); }
+.btn--ghost{ background:transparent; }
+.btn--ghost:hover{ background: var(--ink); color: var(--paper); }
+.on-dark .btn--solid{ background:var(--paper); color:var(--ink); border-color:var(--paper); }
+.on-dark .btn--solid:hover{ background: var(--accent); border-color: var(--accent); color: var(--ink); }
+.on-dark .btn--ghost{ color:var(--paper); border-color: rgba(255,255,255,.4); }
+.on-dark .btn--ghost:hover{ background: var(--paper); color: var(--ink); border-color:var(--paper); }
+
+.on-dark{ background:var(--ink); color:var(--paper); position: relative; isolation: isolate; }
+/* Atlas animates its bg per active zone (set via JS) */
+.atlas{ background: #221826; transition: background-color .9s var(--ease); }
+.mute{ color: var(--mute); }
+.rule{ height:1px; background:var(--rule); border:0; }
+
+.section{ padding: clamp(4rem, 9vw, 9rem) var(--margin); position:relative; }
+.wrap{ max-width: 1480px; margin:0 auto; }
+
+/* Section curtain */
+.section-curtain{
+  position: absolute; inset: 0; background: var(--paper);
+  z-index: 0; clip-path: inset(0 0 0 0); will-change: clip-path; pointer-events: none;
+}
+.on-dark > *:not(.section-curtain){ position: relative; z-index: 1; }
+.is-static .section-curtain{ display: none !important; }
+
+/* Progress + cursor */
+.progress{ position: fixed; top: 0; left: 0; right: 0; height: 2px; background: rgba(10,10,10,.06); z-index: 60; pointer-events: none; }
+.progress__bar{ height: 100%; width: 0; background: var(--accent); transform-origin: left; }
+.cursor{
+  position: fixed; top: 0; left: 0; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--accent); pointer-events: none; z-index: 100; mix-blend-mode: difference;
+  transform: translate3d(-50%, -50%, 0); transition: width .35s var(--ease), height .35s var(--ease); opacity: 0;
+}
+.cursor.is-hover{ width: 48px; height: 48px; }
+@media (hover: none), (max-width: 760px){ .cursor{ display: none; } }
+
+.js-ready .reveal{ opacity:0; transform: translateY(28px); will-change: opacity, transform; }
+.is-static *,.is-static *::before,.is-static *::after{ animation:none !important; transition:none !important; }
+.is-static .reveal{ opacity:1 !important; transform:none !important; }
+
+/* ─── NAV ─── */
+.nav{
+  position: fixed; top:0; left:0; right:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: .9rem var(--margin);
+  background: rgba(250,250,247,.78);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid transparent; transition: border-color .4s var(--ease);
+}
+.nav.scrolled{ border-bottom-color: var(--rule); }
+.nav.on-dark-nav{ background: rgba(10,10,10,.6); }
+.nav.on-dark-nav .nav__links a, .nav.on-dark-nav .nav__right, .nav.on-dark-nav .nav__lang{ color: var(--paper); }
+.nav.on-dark-nav .nav__icobtn{ border-color: rgba(255,255,255,.3); }
+.nav.on-dark-nav .nav__logo img{ filter: brightness(0) invert(1); }
+.nav.on-dark-nav .nav__logo img.logo-qc{ filter: none; }
+.nav__logo{ display:flex; align-items:center; }
+.nav__logo img{ height: clamp(28px, 3vw, 40px); width: auto; display: block; transition: filter .4s var(--ease); }
+.nav__links{ display:flex; gap: clamp(1.25rem, 2.4vw, 2.4rem); font-size: .88rem; font-weight: 400; }
+.nav__links a{ position:relative; padding: .5em 0; }
+.nav__links a::after{ content:""; position:absolute; left:0; right:100%; bottom:.2em; height:1px; background: currentColor; transition: right .45s var(--ease); }
+.nav__links a:hover::after{ right:0; }
+.nav__right{ display:flex; align-items:center; gap:1.15rem; font-size: .82rem; }
+.nav__lang{ letter-spacing: .1em; text-transform: uppercase; font-weight: 700; font-size: .72rem; }
+.nav__lang .sep{ margin: 0 .35em; opacity:.45; }
+.nav__lang a{ color:inherit; text-decoration:none; transition:opacity .2s var(--ease); }
+.nav__lang a:hover{ opacity:.55; }
+.nav__lang .cur{ opacity:.4; }
+.nav__icobtn{ width:34px; height:34px; border-radius:50%; border:1px solid var(--rule-strong); display:flex; align-items:center; justify-content:center; transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease); }
+.nav__icobtn:hover{ background:var(--ink); color:var(--paper); border-color: var(--ink); }
+.nav.on-dark-nav .nav__icobtn:hover{ background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.nav__icobtn svg{ width:14px; height:14px; }
+@media (max-width: 860px){ .nav__links{ display:none; } }
+
+/* ─── HERO (white) ─── */
+.hero{
+  min-height: 78svh;
+  padding-top: clamp(7rem, 12vh, 11rem);
+  padding-bottom: clamp(2.5rem, 4vw, 4rem);
+  display:flex; flex-direction:column; justify-content:center;
+}
+.hero__h1{ font-weight:700; letter-spacing:-.045em; font-size: var(--t-h1); line-height: .95; margin: 0; color: var(--ink); max-width: 16ch; }
+.hero__lead{ margin: clamp(1.5rem, 3vw, 2.25rem) 0 0; font-size: var(--t-lead); line-height: 1.5; color: var(--mute); max-width: 52ch; }
+.hero__meta{
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--rule);
+  padding-top: clamp(1.75rem, 3vw, 2.5rem);
+  display: grid; grid-template-columns: auto 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center;
+}
+.hero__meta .big{ font-weight: 700; letter-spacing: -.04em; font-size: clamp(3rem, 6vw, 5.5rem); line-height: .9; color: var(--ink); white-space: nowrap; }
+.hero__meta .lbl{ font-size: clamp(1.05rem, 1.4vw, 1.4rem); color: var(--mute); line-height: 1.45; }
+@media (max-width: 720px){ .hero__meta{ grid-template-columns: 1fr; gap: 1rem; } }
+
+/* ─────────────────────────────────────────────────────────────────
+   STICKY FIGURE — the signature effect
+   ───────────────────────────────────────────────────────────────── */
+.atlas{ position: relative; }
+.atlas__inner{
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: start;
+}
+/* LEFT — sticky figure stack */
+.atlas__figure{
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1;
+}
+.figure-stage{
+  position: relative;
+  height: min(78vh, 760px);
+  aspect-ratio: 338 / 899;
+  display: flex; align-items: center; justify-content: center;
+}
+/* Glow ring behind the figure */
+.figure-stage::before{
+  content:"";
+  position: absolute; inset: -12% -30%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255,91,4,.16), transparent 70%);
+  filter: blur(8px);
+  z-index: 0;
+  opacity: .9;
+}
+.figure-layer{
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transition: opacity .8s var(--ease);
+  z-index: 1;
+}
+.figure-layer img{
+  height: 100%; width: auto; object-fit: contain;
+  filter: drop-shadow(0 30px 60px rgba(255,255,255,.06));
+}
+.figure-layer.is-active{ opacity: 1; }
+/* Floating zone tag that follows the active section */
+.figure-tag{
+  position: absolute; left: 50%; bottom: 2%;
+  transform: translateX(-50%);
+  display: flex; align-items: center; gap: .6rem;
+  padding: .55rem 1.1rem;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px;
+  background: rgba(10,10,10,.5);
+  backdrop-filter: blur(8px);
+  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .22em; font-weight: 700;
+  white-space: nowrap;
+  z-index: 2;
+}
+.figure-tag .n{ color: var(--accent); }
+.figure-counter{
+  position: absolute; top: 1%; left: 50%; transform: translateX(-50%);
+  font-weight: 700; letter-spacing: -.04em;
+  font-size: clamp(3rem, 6vw, 5rem); line-height: 1;
+  color: rgba(255,255,255,.1);
+  z-index: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* RIGHT — scrolling zone blocks */
+.atlas__blocks{ z-index: 2; }
+.zone{
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: clamp(3rem, 8vh, 7rem) 0;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+.zone:first-child{ border-top: 0; }
+.zone__n{
+  font-weight: 700; letter-spacing: -.04em;
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 1rem;
+}
+.zone__title{
+  font-weight: 700; letter-spacing: -.035em;
+  font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.02;
+  margin: 0 0 1.5rem;
+}
+.zone__body p{ color: rgba(255,255,255,.7); margin: 0 0 1rem; max-width: 52ch; }
+.zone__body p strong{ color: var(--paper); font-weight: 700; }
+.zone__body em{ font-style: italic; }
+.zone__data{
+  margin-top: 2rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border-top: 1px solid rgba(255,255,255,.18);
+}
+.zone__data .cell{
+  padding: 1.5rem 1.5rem 1.5rem 0;
+  border-right: 1px solid rgba(255,255,255,.18);
+}
+.zone__data .cell:last-child{ border-right: 0; padding-right: 0; padding-left: 1.5rem; }
+.zone__data .k{
+  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .2em;
+  color: rgba(255,255,255,.5); font-weight: 700; margin-bottom: .6rem;
+}
+.zone__data .v{ font-size: .92rem; line-height: 1.5; color: rgba(255,255,255,.82); }
+.zone__data .v em{ font-style: italic; }
+.zone__data .cell--patho .k{ color: var(--accent); }
+@media (max-width: 540px){
+  .zone__data{ grid-template-columns: 1fr; }
+  .zone__data .cell{ border-right: 0; border-bottom: 1px solid rgba(255,255,255,.18); padding: 1.25rem 0; }
+  .zone__data .cell:last-child{ border-bottom: 0; padding-left: 0; }
+}
+
+/* Mobile: figure becomes inline per-zone, no sticky */
+@media (max-width: 860px){
+  .atlas__inner{ grid-template-columns: 1fr; }
+  .atlas__figure{ display: none; }
+  .zone{ min-height: 0; border-top: 0; padding: clamp(2.5rem, 6vw, 4rem) 0; }
+  .zone__inline-fig{
+    display: block;
+    height: 320px; margin-bottom: 2rem;
+    position: relative;
+  }
+  .zone__inline-fig img{ height: 100%; width: auto; margin: 0 auto; }
+}
+.zone__inline-fig{ display: none; }
+
+/* ─── PRODUITS (soft sand) ─── */
+#produits{ background: #f1ede3; }
+.prod-card{ background: #fff; }
+.prods__head{
+  display:grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 5vw, 5rem); align-items: center;
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+.prods__head h2{ font-weight:700; letter-spacing:-.04em; font-size: var(--t-h2); line-height: .98; margin: .5rem 0 0; color: var(--ink); }
+.prods__head p{ color: var(--mute); margin: 0; font-size: clamp(1rem, 1.2vw, 1.2rem); line-height: 1.5; }
+.prods__grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: clamp(.75rem, 1.2vw, 1.25rem); }
+.prod-card{
+  display: flex; flex-direction: column;
+  border: 1px solid var(--rule); border-radius: 24px; background: #fff; overflow: hidden;
+  transition: border-color .4s var(--ease), transform .5s var(--ease);
+}
+.prod-card:hover{ border-color: var(--ink); transform: translateY(-4px); }
+.prod-card__img{ aspect-ratio: 1/1; display:flex; align-items:center; justify-content:center; overflow: hidden; }
+.prod-card__img img{ width: 100%; height: 100%; object-fit: contain; transition: transform .8s var(--ease); }
+.prod-card:hover .prod-card__img img{ transform: scale(1.05); }
+.prod-card__body{ padding: 1.25rem 1.5rem 1.5rem; }
+.prod-card__zone{ font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .2em; color: var(--mute); font-weight: 700; }
+.prod-card__name{ font-weight: 700; letter-spacing: -.02em; font-size: 1.1rem; margin: .35rem 0 0; }
+@media (max-width: 1000px){ .prods__grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px){ .prods__head{ grid-template-columns: 1fr; } }
+@media (max-width: 520px){ .prods__grid{ grid-template-columns: 1fr; } }
+
+/* ─── FOOTER (dark) ─── */
+.foot{ padding-top: clamp(4rem, 8vw, 7rem); padding-bottom: 2rem; }
+.foot__mark{ margin: 0; line-height: 0; }
+.foot__mark svg{ width:100%; display:block; }
+.foot__grid{ margin-top: clamp(3rem, 5vw, 5rem); display:grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter); padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.16); }
+.foot__col{ grid-column: span 3; display:flex; flex-direction:column; gap:.6rem; }
+.foot__col h4{ font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .22em; font-weight: 700; color: rgba(255,255,255,.5); margin:0 0 .5rem; }
+.foot__col a{ font-size: .95rem; opacity:.85; transition: opacity .3s var(--ease), color .3s var(--ease); padding: .15rem 0; }
+.foot__col a:hover{ opacity:1; color: var(--accent); }
+.foot__legal{ margin-top: clamp(2.5rem, 4vw, 3.5rem); padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.16); display:flex; justify-content:space-between; flex-wrap: wrap; gap:1rem; font-size: var(--t-micro); letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.5); }
+@media (max-width: 720px){ .foot__col{ grid-column: span 6; } }
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
+  .reveal{ opacity:1 !important; transform:none !important; }
+  .figure-layer{ opacity: 1 !important; }
+}
+
+/* ===== NAV megamenu + FOOTER — repris de probiotique-adulte.html ===== */
+/* ── Megamenu ── */
+.nav__btn{
+  font: inherit; font-size:.88rem; font-weight:400;
+  position:relative; padding: .5em 0; color: inherit;
+  display:inline-flex; align-items:center; gap: .35em;
+}
+.nav__btn::after{
+  content:""; position:absolute; left:0; right:100%; bottom:.2em;
+  height:1px; background: currentColor;
+  transition: right .45s var(--ease);
+}
+.nav__btn:hover::after, .nav__btn[aria-expanded="true"]::after{ right:0; }
+.nav__btn .chev{
+  width: 9px; height: 9px; display:inline-block;
+  border-right: 1.4px solid currentColor; border-bottom: 1.4px solid currentColor;
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform .35s var(--ease);
+  margin-left:.1em;
+}
+.nav__btn[aria-expanded="true"] .chev{ transform: rotate(-135deg) translate(-2px, -2px); }
+
+.mega{
+  position: fixed; left:0; right:0; top: 64px;
+  background: var(--paper);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  z-index: 49;
+  padding: clamp(1.5rem, 3vw, 2.5rem) var(--margin) clamp(1.5rem, 2.5vw, 2rem);
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .45s var(--ease), transform .55s var(--ease);
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+.mega.is-open{ opacity:1; transform: translateY(0); pointer-events: auto; }
+.mega__backdrop{
+  position: fixed; inset: 64px 0 0 0;
+  background: rgba(10,10,10,.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .45s var(--ease);
+  z-index: 48;
+}
+.mega__backdrop.is-open{ opacity:1; pointer-events:auto; }
+
+.mega__inner{
+  display:grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 7fr) minmax(0, 2.5fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+  max-width: 1480px; margin: 0 auto;
+}
+.mega__left .eyebrow{ color: var(--mute); }
+.mega__left h3{
+  font-weight:700; letter-spacing:-.035em;
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1;
+  margin: .75rem 0 1.5rem;
+  max-width: 14ch;
+}
+.mega__cats{
+  list-style:none; padding:0; margin:0;
+  display:flex; flex-direction:column;
+  border-top: 1px solid var(--rule);
+}
+.mega__cats button{
+  width:100%; text-align:left;
+  display:flex; justify-content:space-between; align-items:center;
+  padding: 1rem 0; gap:1rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: .95rem;
+  font-weight: 700; letter-spacing: -.015em;
+  transition: color .3s var(--ease), padding .45s var(--ease);
+}
+.mega__cats button:hover{ padding-left: .35rem; }
+.mega__cats button .count{
+  font-size: var(--t-micro); letter-spacing: .15em;
+  color: var(--mute); font-weight:700;
+  font-variant-numeric: tabular-nums;
+}
+.mega__cats button[aria-selected="true"]{ color: var(--accent); }
+.mega__cats button[aria-selected="true"] .count{ color: var(--accent); }
+
+.mega__grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .65rem;
+}
+.mega__card{
+  display:flex; flex-direction: column;
+  padding: 0;
+  border: none;
+  background: transparent;
+  transition: transform .45s var(--ease);
+}
+.mega__card:hover{ transform: translateY(-3px); }
+.mega__card:hover .mega__card-img{ box-shadow: 0 14px 30px rgba(10,10,10,.18); }
+.mega__card[data-hidden="true"]{ display:none; }
+.mega__card-img{
+  aspect-ratio: 1/1; width:100%;
+  display:flex; align-items:center; justify-content:center;
+  border-radius: 12px;
+  margin-bottom: .65rem;
+  overflow: hidden;
+}
+.mega__card-img img{ width: 100%; height: 100%; object-fit: cover; }
+.mega__card-cat{
+  font-size: .62rem; text-transform: uppercase; letter-spacing: .2em;
+  color: var(--mute); font-weight:700;
+}
+.mega__card-name{
+  font-weight: 700; letter-spacing: -.02em;
+  font-size: .92rem; line-height: 1.2;
+  text-align: center;
+  margin: .1rem 0 0;
+}
+.mega__card-meta{
+  font-size: .72rem; color: var(--mute); line-height: 1.35;
+}
+
+.mega__right{ display:flex; flex-direction: column; gap: 1rem; }
+.mega__help{
+  border: 1px solid var(--rule-strong);
+  border-radius: 22px;
+  padding: 1.25rem;
+  background: #fff;
+}
+.mega__help .eyebrow{ color: var(--mute); }
+.mega__help h4{
+  font-weight:700; letter-spacing:-.025em;
+  font-size: 1.1rem; line-height: 1.15;
+  margin: .65rem 0 .5rem;
+}
+.mega__help p{ font-size: .85rem; color: var(--mute); margin: 0 0 1rem; }
+.mega__help a{
+  display:inline-flex; align-items:center; gap: .4em;
+  font-size: .85rem; font-weight: 700; letter-spacing: -.01em;
+  color: var(--accent);
+}
+.mega__help a svg{ width: 14px; height: 14px; }
+.mega__stat{
+  border: 1px solid var(--ink);
+  border-radius: 22px;
+  padding: 1.25rem;
+  background: var(--ink); color: var(--paper);
+}
+.mega__stat .num{
+  font-weight:700; letter-spacing:-.04em;
+  font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: .95;
+}
+.mega__stat .num .sym{ color:#fff; margin-right:.16em; }
+.mega__stat .num .unit{ font-size:.4em; vertical-align:super; margin-left:.1em; color: rgba(255,255,255,.55); font-weight:300; letter-spacing: 0; }
+.mega__stat p{ font-size:.85rem; color: rgba(255,255,255,.7); margin: .75rem 0 0; line-height: 1.4; }
+.mega__stat a{ color: var(--accent); font-weight:700; }
+
+/* ── À propos megamenu ── */
+.about__inner{
+  display:grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  max-width: 1480px; margin: 0 auto;
+  align-items: start;
+}
+.about__left .eyebrow{ color: var(--mute); }
+.about__left h3{
+  font-weight:700; letter-spacing:-.035em;
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1;
+  margin: .75rem 0 1rem;
+  max-width: 14ch;
+}
+.about__left p{ color: var(--mute); font-size: .92rem; line-height: 1.5; margin: 0; max-width: 34ch; }
+.about__rows{
+  display:flex; flex-direction:column;
+  border-top: 1px solid var(--rule-strong);
+}
+.about-row{
+  display:grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  gap: clamp(1rem, 2vw, 2rem);
+  align-items: center;
+  padding: clamp(1.25rem, 2vw, 1.75rem) .25rem;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  isolation: isolate;
+  transition: padding .45s var(--ease), color .35s var(--ease);
+}
+.about-row::before{
+  content:""; position:absolute; inset:0;
+  background: var(--ink);
+  transform: scaleY(0); transform-origin: bottom;
+  transition: transform .5s var(--ease);
+  z-index:-1;
+}
+.about-row:hover{ padding-left: 1rem; padding-right: 1rem; color: var(--paper); }
+.about-row:hover::before{ transform: scaleY(1); transform-origin: top; }
+.about-row .num{
+  font-weight:700; letter-spacing:-.02em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  font-size: .95rem;
+}
+.about-row .body{ display:flex; flex-direction:column; gap:.25rem; }
+.about-row .title{
+  font-weight:700; letter-spacing:-.025em;
+  font-size: clamp(1.2rem, 1.8vw, 1.7rem); line-height:1.1;
+}
+.about-row .desc{
+  font-size: .9rem; color: var(--mute);
+  transition: color .35s var(--ease);
+}
+.about-row:hover .desc{ color: rgba(255,255,255,.65); }
+.about-row .arr{
+  width: 44px; height: 44px; border-radius:50%;
+  border:1px solid var(--rule-strong);
+  display:flex; align-items:center; justify-content:center;
+  transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease), transform .5s var(--ease);
+}
+.about-row .arr svg{ width:16px; height:16px; }
+.about-row:hover .arr{ background: var(--accent); border-color: var(--accent); color: var(--ink); transform: rotate(-45deg); }
+@media (max-width: 900px){
+  .about__inner{ grid-template-columns: 1fr; }
+  .about-row{ grid-template-columns: minmax(0,1fr) auto; }
+}
+
+@media (max-width: 1100px){
+  .mega__inner{ grid-template-columns: 1fr; }
+  .mega__grid{ grid-template-columns: repeat(3, 1fr); }
+  .mega__cats{ flex-direction: row; flex-wrap: wrap; border-top: 0; }
+  .mega__cats button{ border-bottom: 0; padding: .5rem .9rem; border: 1px solid var(--rule-strong); border-radius: 999px; }
+}
+@media (max-width: 720px){
+  .mega__grid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* FOOTER — revamped, black */
+.pbl-foot{ background:var(--ink); color:var(--paper); padding:clamp(3rem,6vw,4.5rem) var(--margin) 2.2rem; }
+.pbl-foot__top{ display:flex; align-items:center; gap:1.1rem; padding-bottom:1.4rem; border-bottom:1px solid rgba(255,255,255,.16); }
+.pbl-foot__top img.logo{ height:34px; width:auto; }
+.pbl-foot__top img.qc{ height:46px; width:auto; }
+.pbl-foot__grid{ display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:2.5rem; padding:2.2rem 0; }
+@media(max-width:820px){ .pbl-foot__grid{ grid-template-columns:1fr 1fr; } }
+@media(max-width:520px){ .pbl-foot__grid{ grid-template-columns:1fr; } }
+.pbl-foot h5{ font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.55); font-weight:700; margin:0 0 1rem; }
+.pbl-foot a{ color:rgba(255,255,255,.8); transition:color .3s var(--ease); }
+.pbl-foot__links a{ display:block; padding:.26rem 0; font-size:.92rem; }
+.pbl-foot__links{ columns:2; }
+.pbl-foot a:hover{ color:var(--accent); }
+.pbl-foot__contact{ font-size:.92rem; line-height:1.85; color:rgba(255,255,255,.8); }
+.pbl-foot__social{ display:flex; gap:.7rem; margin-top:1.1rem; }
+.pbl-foot__social a{ width:40px; height:40px; border:1px solid rgba(255,255,255,.22); border-radius:50%; display:grid; place-items:center; }
+.pbl-foot__social a:hover{ background:var(--accent); border-color:var(--accent); color:var(--ink); }
+.pbl-foot__social svg{ width:18px; height:18px; }
+.pbl-foot__bottom{ display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between; align-items:center; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.16); font-size:.82rem; color:rgba(255,255,255,.55); }
+.pbl-foot__bottom a{ color:rgba(255,255,255,.8); }
+.pbl-foot__partner{ font-size:.78rem; color:rgba(255,255,255,.5); margin-top:1.2rem; }
+.nav.on-dark-nav .nav__btn{ color: var(--paper); }
+.nav.on-dark-nav .chev{ border-color: var(--paper); }
+</style>
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+
+<nav class="nav" id="nav">
+  <a class="nav__logo" href="/" aria-label="Probaclac">
+    <img class="logo-main" src="../assets/logo.png" alt="Probaclac">
+    <img class="logo-qc" src="../assets/faitqc.png" alt="Fabriqué au Québec">
+  </a>
+  <div class="nav__links">
+    <button class="nav__btn" id="megaToggle" aria-expanded="false" aria-controls="mega">Our products<span class="chev" aria-hidden="true"></span></button>
+    <button class="nav__btn" id="aboutToggle" aria-expanded="false" aria-controls="megaAbout">About<span class="chev" aria-hidden="true"></span></button>
+    <a href="../studies.html">Studies</a>
+    <a href="blogue.html">Blog</a>
+    <a href="foire-aux-questions.html">FAQ</a>
+  </div>
+  <div class="nav__right">
+    <div class="nav__lang"><a href="../microbiote.html">FR</a><span class="sep">/</span><span class="cur">EN</span></div>
+  </div>
+</nav>
+
+<!-- ─── MEGA MENU ─── -->
+<div class="mega__backdrop" id="megaBackdrop" aria-hidden="true"></div>
+<div class="mega" id="mega" role="region" aria-label="Menu produits" hidden>
+  <div class="mega__inner">
+    <div class="mega__left">
+      <h3>12 formulas, engineered to the billion.</h3>
+      <ul class="mega__cats" role="tablist">
+        <li><button data-cat="all" aria-selected="true">All</button></li>
+        <li><button data-cat="qd"  aria-selected="false">Daily</button></li>
+        <li><button data-cat="cd"  aria-selected="false">Targeted conditions</button></li>
+        <li><button data-cat="fm"  aria-selected="false">Women’s health</button></li>
+      </ul>
+    </div>
+
+    <div class="mega__grid" id="megaGrid">
+      <!-- products injected by JS -->
+    </div>
+
+    <div class="mega__right">
+      <div class="mega__help">
+        <h4>Find the formula that fits you.</h4>
+        <p>An interactive guide helps you choose by age, profile or need.</p>
+        <a href="choisir.html">
+          Choosing the right probiotic
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="mega__stat">
+        <div class="num"><span class="sym">−</span>86<span class="unit">%</span></div>
+        <p>reduction in antibiotic-associated diarrhea with Probaclac Medic. <a href="../studies.html">See the study →</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── MEGA MENU — À PROPOS ─── -->
+<div class="mega mega--about" id="megaAbout" role="region" aria-label="About" hidden>
+  <div class="about__inner">
+    <div class="about__left">
+      <div class="eyebrow"><span class="dot"></span>About</div>
+      <h3>Understand before choosing.</h3>
+      <p>Guides and references to demystify the microbiota and find the formula that fits your need.</p>
+    </div>
+    <div class="about__rows">
+      <a class="about-row" href="choisir.html">
+        <span class="body"><span class="title">Choosing the right probiotic</span><span class="desc">A two-question interactive guide, based on your age or condition.</span></span>
+        <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="about-row" href="microbiote.html">
+        <span class="body"><span class="title">Human Microbiota</span><span class="desc">Five microflora, one ecosystem — zone by zone, species and pathogens.</span></span>
+        <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="about-row" href="diarrhee-du-voyageur.html">
+        <span class="body"><span class="title">Traveler's diarrhea</span><span class="desc">How to avoid traveler’s diarrhea — risk zones, symptoms and prevention.</span></span>
+        <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="about-row" href="histoire.html">
+        <span class="body"><span class="title">Our story</span><span class="desc">A Québec family adventure, born in the early 2000s.</span></span>
+        <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ─── 1. HERO (white) ─── -->
+<header class="section hero">
+  <div class="wrap" style="width:100%;">
+    <div class="eyebrow"><span class="dot"></span>Human Microbiota</div>
+    <h1 class="hero__h1">Five microflora, one ecosystem.</h1>
+    <p class="hero__lead">
+      Different probiotic species colonize the entire digestive tract. Their presence is essential to maintaining the balance of the natural microflora and preventing the growth of pathogenic or putrefactive bacteria that can be harmful to human health.
+    </p>
+    <div class="hero__meta reveal">
+      <span class="big">5</span>
+      <span class="lbl">distinct microflora, where the predominant probiotic species vary depending on their location throughout the digestive system.</span>
+    </div>
+  </div>
+</header>
+
+<!-- ─── 2. ATLAS — sticky figure + 5 zones (dark) ─── -->
+<section class="section on-dark atlas" id="atlas" style="padding-top: 0; padding-bottom: 0;">
+  <div class="wrap">
+    <div class="atlas__inner">
+
+      <!-- LEFT: sticky figure -->
+      <div class="atlas__figure" aria-hidden="true">
+        <div class="figure-stage" id="figureStage">
+          <div class="figure-counter" id="figureCounter">01</div>
+          <div class="figure-layer is-active" data-zone="0"><img src="../assets/micro/01.avif" alt=""></div>
+          <div class="figure-layer" data-zone="1"><img src="../assets/micro/02.avif" alt=""></div>
+          <div class="figure-layer" data-zone="2"><img src="../assets/micro/03.avif" alt=""></div>
+          <div class="figure-layer" data-zone="3"><img src="../assets/micro/04.avif" alt=""></div>
+          <div class="figure-layer" data-zone="4"><img src="../assets/micro/05.avif" alt=""></div>
+          <div class="figure-tag"><span class="n" id="figureTagN">01</span><span id="figureTagT">Oral microbiota</span></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: scrolling zones -->
+      <div class="atlas__blocks">
+
+        <article class="zone" data-zone="0">
+          <div class="zone__inline-fig"><img src="../assets/micro/01.avif" alt="Microbiote buccal"></div>
+          <div class="zone__n">01 / 05</div>
+          <h2 class="zone__title">Oral microbiota</h2>
+          <div class="zone__body">
+            <p>Oral microflora covers the mouth, pharynx and the entrance to the respiratory system.</p>
+            <p>The oral cavity is naturally colonized by a variety of probiotic bacteria. Their role is to protect the teeth, gums and mucous membranes against invasions of pathogenic agents.</p>
+            <p>Gingivitis, stomatitis, periodontitis, mouth ulcers and dental caries... the balance of oral microflora plays a major role in the health of your mouth and in the prevention of oral diseases.</p>
+          </div>
+          <div class="zone__data">
+            <div class="cell">
+              <div class="k">Predominant probiotic species</div>
+              <div class="v"><em>L. acidophilus, L. casei, L. fermentum, L. gasseri, L. paracasei, L. plantarum, L. rhamnosus, L. salivarius</em></div>
+            </div>
+            <div class="cell cell--patho">
+              <div class="k">Main pathogenic agents</div>
+              <div class="v"><em>S. mutans, C. albicans, H. pylori, P. gingivalis</em></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="zone" data-zone="1">
+          <div class="zone__inline-fig"><img src="../assets/micro/02.avif" alt="Microbiote stomacal"></div>
+          <div class="zone__n">02 / 05</div>
+          <h2 class="zone__title">Stomach microbiota</h2>
+          <div class="zone__body">
+            <p>The probiotic microflora of the stomach is mainly composed of bacterial species belonging to the <strong>lactobacilli</strong> family. Their role is to prevent or act against digestive conditions of stomach origin.</p>
+            <p>Particularly against the bacteria <em>Helicobacter pylori</em> which is responsible for chronic inflammation of the stomach (gastritis) and gastric ulcers.</p>
+            <p>When in balance, the stomach microflora also plays a major role in preventing episodes of gastric reflux or lactose intolerance.</p>
+          </div>
+          <div class="zone__data">
+            <div class="cell">
+              <div class="k">Predominant probiotic species</div>
+              <div class="v"><em>L. acidophilus, L. fermentum, L. gasseri, L. plantarum, L. reuteri, L. salivarius</em></div>
+            </div>
+            <div class="cell cell--patho">
+              <div class="k">Main pathogenic agents</div>
+              <div class="v"><em>H. pylori</em>, Staphylococci</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="zone" data-zone="2">
+          <div class="zone__inline-fig"><img src="../assets/micro/03.avif" alt="Microbiote intestinal — intestin grêle"></div>
+          <div class="zone__n">03 / 05</div>
+          <h2 class="zone__title">Small intestine</h2>
+          <div class="zone__body">
+            <p>The probiotic microflora of the small intestine is essential for our good health. It serves as a <strong>barrier to pathogenic bacteria</strong>, stops their attacks and neutralizes their toxins.</p>
+            <p>The probiotic microflora of the small intestine is mainly composed of lactobacilli which colonize the walls of the intestinal mucosa.</p>
+            <p>Many species of lactobacilli secrete bactericidal substances, a type of natural antibiotic, which inhibit the development of pathogenic species that can cause diarrhea or constipation problems.</p>
+            <p>Lactobacilli also help to strengthen our natural defenses by contributing to the stimulation of the immune system.</p>
+          </div>
+          <div class="zone__data">
+            <div class="cell">
+              <div class="k">Predominant probiotic species</div>
+              <div class="v"><em>L. acidophilus, L. casei, L. gasseri, L. plantarum, L. paracasei, L. reuteri, L. rhamnosus</em></div>
+            </div>
+            <div class="cell cell--patho">
+              <div class="k">Main pathogenic agents</div>
+              <div class="v"><em>E. coli, C. difficile, L. monocytogenes, Salmonella, C. jejuni</em></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="zone" data-zone="3">
+          <div class="zone__inline-fig"><img src="../assets/micro/04.avif" alt="Microbiote intestinal — côlon"></div>
+          <div class="zone__n">04 / 05</div>
+          <h2 class="zone__title">Colon</h2>
+          <div class="zone__body">
+            <p>The colon is home to the <strong>largest number of bacteria</strong> in the entire digestive system. Bifidobacteria are the dominant probiotic microorganisms in both children and adults.</p>
+            <p>The most important physiological effect of bifidobacteria is the improvement of the condition of the intestine, including that of the intestinal flora, the inhibition of intestinal pathogenic or putrefactive substances and the relief of diarrhea or constipation.</p>
+            <p>Bifidobacteria also play a major role in the prevention of chronic inflammatory bowel diseases (IBD) including irritable bowel syndrome, ulcerative colitis and Crohn's disease.</p>
+          </div>
+          <div class="zone__data">
+            <div class="cell">
+              <div class="k">Predominant probiotic species</div>
+              <div class="v"><em>B. bifidum, B. breve, B. infantis, B. longum</em></div>
+            </div>
+            <div class="cell cell--patho">
+              <div class="k">Main pathogenic agents</div>
+              <div class="v"><em>E. coli, C. difficile, L. monocytogenes, Salmonella, C. jejuni</em></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="zone" data-zone="4">
+          <div class="zone__inline-fig"><img src="../assets/micro/05.avif" alt="Microbiote vaginal"></div>
+          <div class="zone__n">05 / 05</div>
+          <h2 class="zone__title">Vaginal microbiota</h2>
+          <div class="zone__body">
+            <p>The vaginal probiotic microflora (also called <strong>Doderlein flora</strong>) is made up of acidophilic bacteria, mainly lactobacilli.</p>
+            <p>They have a protective effect against vaginal infections. Lactobacilli naturally inhibit the growth of pathogenic microorganisms by creating an acidic environment and producing antimicrobial effects that act directly on vaginal pathogens.</p>
+            <p>The main signs of an imbalance of vaginal microflora are abnormal discharge, itching, burning sensations and difficulty urinating.</p>
+          </div>
+          <div class="zone__data">
+            <div class="cell">
+              <div class="k">Predominant probiotic species</div>
+              <div class="v"><em>L. acidophilus, L. crispatus, L. casei, L. jensenii, L. gasseri, L. plantarum, L. reuteri, L. rhamnosus</em></div>
+            </div>
+            <div class="cell cell--patho">
+              <div class="k">Main pathogenic agents</div>
+              <div class="v"><em>Candida albicans, G. vaginalis, Mobiluncus, Mycoplasma</em></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 3. PRODUITS (white) ─── -->
+<section class="section" id="produits">
+  <div class="wrap">
+    <div class="prods__head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>One formula per zone</div>
+        <h2>A targeted probiotic for every microflora.</h2>
+      </div>
+      <p>Probaclac formulates pharmaceutical-grade probiotics targeted to each of the body's five microflora.</p>
+    </div>
+    <div class="prods__grid">
+      <a class="prod-card" href="/collections/all">
+        <div class="prod-card__img"><img src="../assets/thumbs/adultes.webp" alt="Probaclac Adultes" loading="lazy"></div>
+        <div class="prod-card__body"><span class="prod-card__zone">Intestine · colon</span><div class="prod-card__name">Probaclac Adults</div></div>
+      </a>
+      <a class="prod-card" href="/collections/all">
+        <div class="prod-card__img"><img src="../assets/thumbs/gi.webp" alt="Probaclac Gastro-Intestinal" loading="lazy"></div>
+        <div class="prod-card__body"><span class="prod-card__zone">Stomach · small intestine</span><div class="prod-card__name">Probaclac GI</div></div>
+      </a>
+      <a class="prod-card" href="/collections/all">
+        <div class="prod-card__img"><img src="../assets/thumbs/sci.webp" alt="Probaclac Côlon Irritable" loading="lazy"></div>
+        <div class="prod-card__body"><span class="prod-card__zone">Colon</span><div class="prod-card__name">Probaclac IBS</div></div>
+      </a>
+      <a class="prod-card" href="/collections/all">
+        <div class="prod-card__img"><img src="../assets/mainvaginal-en.jpg" alt="Probaclac Vaginal" loading="lazy"></div>
+        <div class="prod-card__body"><span class="prod-card__zone">Vaginal microbiota</span><div class="prod-card__name">Probaclac Vaginal</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER — revampé, fond noir, même contenu + logos ─── -->
+<footer class="pbl-foot">
+  <div class="wrap">
+    <div class="pbl-foot__top">
+      <img class="logo" src="../assets/logo-blanc.png" alt="Probaclac">
+      <img class="qc" src="../assets/faitqc.png" alt="Fabriqué au Québec">
+    </div>
+    <div class="pbl-foot__grid">
+      <div>
+        <h5>Our products</h5>
+        <div class="pbl-foot__links">
+          <a href="probiotique-adulte.html">Adults</a>
+          <a href="probiotique-50-et-plus.html">50+</a>
+          <a href="probiotique-voyage.html">Travelers</a>
+          <a href="probiotique-colon-irritable.html">IBS</a>
+          <a href="probiotique-bebes.html">Toddlers</a>
+          <a href="probiotique-enfant.html">Chewable</a>
+          <a href="probiotique-extra-fort.html">Extra-Strength</a>
+          <a href="probiotique-antibiotique.html">Medic</a>
+          <a href="probiotique-gastro-intestinal.html">GI</a>
+          <a href="probiotique-vaginal.html">Bacterial vaginosis</a>
+          <a href="probiotique-infection-a-levure.html">Yeast infection</a>
+          <a href="probiotique-infection-urinaire.html">Urinary tract infection</a>
+        </div>
+      </div>
+      <div>
+        <h5>Contact us</h5>
+        <p class="pbl-foot__contact">Tel. <a href="tel:18005679683">1.800.567.9683</a><br>31 Gaston-Dumoulin street, suite 103<br>Blainville, QC J7C 6B4<br>Canada</p>
+        <div class="pbl-foot__social">
+          <a href="https://www.instagram.com/probaclac.ca" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="https://www.facebook.com/Probaclac" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h-3a4 4 0 0 0-4 4v3H5v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Information</h5>
+        <a href="https://etudes.probaclac.ca/choose.html" style="display:block;padding:.26rem 0;font-size:.92rem;">Choosing the right probiotic</a>
+        <a href="https://www.probaclac.ca/en/microbiote-probiotiques" style="display:block;padding:.26rem 0;font-size:.92rem;">Human Microbiota</a>
+        <a href="https://www.probaclac.ca/en/diarrhee-du-voyageur" style="display:block;padding:.26rem 0;font-size:.92rem;">Traveler's diarrhea</a>
+        <a href="../studies.html" style="display:block;padding:.26rem 0;font-size:.92rem;">Studies</a>
+        <a href="foire-aux-questions.html" style="display:block;padding:.26rem 0;font-size:.92rem;">FAQ</a>
+        <p class="pbl-foot__partner">Proud partner of Allergies Québec.</p>
+      </div>
+    </div>
+    <div class="pbl-foot__bottom">
+      <span>© 2025 Laboratoires Nicar. <a href="https://www.probaclac.ca/en/privacy-policy">Privacy policy</a></span>
+      <span>Website: <a href="https://www.vpourdesign.com">V pour Design</a></span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ─── LIBS ─── -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+<script>
+const IS_STATIC = new URLSearchParams(location.search).has("static");
+if(IS_STATIC) document.documentElement.classList.add("is-static");
+document.documentElement.classList.add("js-ready");
+
+/* ===== Megamenu data + render — repris de probiotique-adulte.html ===== */
+const T = "../assets/thumbs/";
+const CATALOGUE = [
+  {n:"01", cat:"qd", catLabel:"Daily",              name:"Adults",               meta:"7 strains · 6.5 billion CFU",          npn:"NPN 80013765", url:"probiotique-adulte.html",              img: T+"adultes.webp"},
+  {n:"02", cat:"qd", catLabel:"Daily",              name:"50+",                  meta:"7 strains · 8.5 billion CFU",          npn:"NPN 80013814", url:"probiotique-50-et-plus.html",          img: T+"50plus.webp"},
+  {n:"03", cat:"qd", catLabel:"Daily",              name:"Travelers",            meta:"9 strains + vitamin C",                npn:"NPN 80108358", url:"probiotique-voyage.html",              img: T+"voyage.webp"},
+  {n:"04", cat:"qd", catLabel:"Daily",              name:"Chewable",             meta:"Kids 3 years and up · 3 billion",      npn:"NPN 80106376", url:"probiotique-enfant.html",              img: T+"croquable.webp"},
+  {n:"05", cat:"qd", catLabel:"Daily",              name:"Toddlers",             meta:"Openable capsules · 2 billion",        npn:"NPN 80083662", url:"probiotique-bebes.html",               img: T+"enfants.webp"},
+  {n:"06", cat:"cd", catLabel:"Targeted conditions", name:"IBS",                 meta:"IBS · 10 billion CFU",                 npn:"NPN 80140258", url:"probiotique-colon-irritable.html",     img: T+"sci.webp"},
+  {n:"07", cat:"cd", catLabel:"Targeted conditions", name:"GI",                  meta:"Antibiotic therapy · 15 billion",      npn:"NPN 80083663", url:"probiotique-gastro-intestinal.html",   img: T+"gi.webp"},
+  {n:"08", cat:"cd", catLabel:"Targeted conditions", name:"Medic",               meta:"During antibiotics · 5 billion",       npn:"NPN 80013796", url:"probiotique-antibiotique.html",        img: T+"medic.webp"},
+  {n:"09", cat:"cd", catLabel:"Targeted conditions", name:"Extra-Strength",      meta:"8 strains · 10.5 billion",             npn:"NPN 80013798", url:"probiotique-extra-fort.html",          img: T+"extra.webp"},
+  {n:"10", cat:"fm", catLabel:"Women’s health",     name:"Bacterial vaginosis",  meta:"3 strains · intravaginal",             npn:"NPN 80041302", url:"probiotique-vaginal.html",             img: "../assets/mainvaginal-en.jpg"},
+  {n:"11", cat:"fm", catLabel:"Women’s health",     name:"Yeast infection",      meta:"Candidiasis · Rosella strain",         npn:"NPN 80136249", url:"probiotique-infection-a-levure.html",  img: T+"rosella.webp"},
+  {n:"12", cat:"fm", catLabel:"Women’s health",     name:"Urinary tract infection", meta:"9 strains + cranberry",             npn:"NPN 80066788", url:"probiotique-infection-urinaire.html",  img: T+"canneberge.webp"},
+];
+
+/* Render mega menu product grid */
+function renderMega(filter="all"){
+  const grid = document.getElementById("megaGrid");
+  if(!grid) return;
+  grid.innerHTML = CATALOGUE
+    .filter(r => filter==="all" || r.cat===filter)
+    .map(r => `
+      <a class="mega__card" href="${r.url}" data-cat="${r.cat}">
+        <div class="mega__card-img"><img src="${r.img}" alt="Probaclac ${r.name}" loading="lazy"></div>
+        <span class="mega__card-name">${r.name}</span>
+      </a>
+    `).join("");
+}
+renderMega();
+
+function animateMega(cat){
+  const grid = document.getElementById("megaGrid");
+  if(!grid) return renderMega(cat);
+  const cards = [...grid.children];
+  if(window.gsap && cards.length){
+    gsap.to(cards, { opacity:0, scale:.9, y:10, duration:.22, ease:"power2.in", stagger:{each:.025, from:"random"}, onComplete:()=>{
+      renderMega(cat);
+      const nc = [...grid.children];
+      gsap.fromTo(nc, { opacity:0, scale:.9, y:14 }, { opacity:1, scale:1, y:0, duration:.5, ease:"power3.out", stagger:{each:.045, from:"start"} });
+    }});
+  } else {
+    renderMega(cat);
+  }
+}
+document.querySelectorAll(".mega__cats button").forEach(b => {
+  b.addEventListener("click", () => {
+    document.querySelectorAll(".mega__cats button").forEach(x => x.setAttribute("aria-selected","false"));
+    b.setAttribute("aria-selected","true");
+    animateMega(b.dataset.cat);
+  });
+});
+
+/* Megamenu open/close */
+(function setupMegas(){
+  const bd = document.getElementById("megaBackdrop");
+  const menus = [
+    { btn: document.getElementById("megaToggle"),  panel: document.getElementById("mega"),      open: false },
+    { btn: document.getElementById("aboutToggle"), panel: document.getElementById("megaAbout"), open: false },
+  ].filter(m => m.btn && m.panel);
+  if(!menus.length) return;
+
+  function setOpen(m, v){
+    m.open = v;
+    m.btn.setAttribute("aria-expanded", v ? "true" : "false");
+    m.panel.classList.toggle("is-open", v);
+    if(v){ m.panel.removeAttribute("hidden"); } else { setTimeout(()=>m.panel.setAttribute("hidden",""), 450); }
+  }
+  function closeAll(except){
+    menus.forEach(m => { if(m !== except && m.open) setOpen(m, false); });
+    bd.classList.toggle("is-open", !!(except && except.open));
+  }
+  menus.forEach(m => {
+    m.btn.addEventListener("click", e => {
+      e.preventDefault();
+      setOpen(m, !m.open);
+      closeAll(m);
+    });
+  });
+  bd.addEventListener("click", () => closeAll(null));
+  document.addEventListener("keydown", e => { if(e.key === "Escape") closeAll(null); });
+})();
+
+const ZONES = [
+  { n: "01", t: "Microbiote buccal",    bg: "#241826" }, /* deep aubergine */
+  { n: "02", t: "Microbiote stomacal",  bg: "#14272a" }, /* deep petrol   */
+  { n: "03", t: "Intestin grêle",       bg: "#28241a" }, /* deep bronze    */
+  { n: "04", t: "Côlon",                bg: "#2b1f18" }, /* deep umber     */
+  { n: "05", t: "Microbiote vaginal",   bg: "#271820" }, /* deep wine      */
+];
+
+if(IS_STATIC){
+  console.log("[static] animations disabled");
+} else {
+
+const lenis = new Lenis({ duration: 1.1, easing: t => Math.min(1, 1.001 - Math.pow(2, -10*t)) });
+gsap.registerPlugin(ScrollTrigger);
+lenis.on("scroll", ScrollTrigger.update);
+gsap.ticker.add(t => lenis.raf(t * 1000));
+gsap.ticker.lagSmoothing(0);
+
+/* Nav scrolled + dark-aware */
+const nav = document.getElementById("nav");
+ScrollTrigger.create({ start: "top -10", end: "max", onUpdate: self => nav.classList.toggle("scrolled", self.scroll() > 12) });
+
+const atlas = document.getElementById("atlas");
+ScrollTrigger.create({
+  trigger: atlas,
+  start: "top 64px",
+  end: "bottom 64px",
+  onToggle: self => nav.classList.toggle("on-dark-nav", self.isActive),
+});
+
+/* Curtain wipe on dark sections */
+gsap.utils.toArray('.on-dark').forEach(sec => {
+  const curtain = document.createElement('div');
+  curtain.className = 'section-curtain';
+  sec.insertBefore(curtain, sec.firstChild);
+  gsap.to(curtain, {
+    clipPath: 'inset(0 0 100% 0)',
+    ease: 'power3.out',
+    scrollTrigger: { trigger: sec, start: 'top 95%', end: 'top 35%', scrub: 0.8 },
+  });
+});
+
+/* ── THE SIGNATURE EFFECT ──
+   Same figure position, image swaps as each zone scrolls through the
+   centre — illusion that a different body part lights up. */
+const layers   = gsap.utils.toArray('.figure-layer');
+const counterEl = document.getElementById('figureCounter');
+const tagN      = document.getElementById('figureTagN');
+const tagT      = document.getElementById('figureTagT');
+let activeZone = -1;
+
+function lightZone(z){
+  if(z === activeZone) return;
+  activeZone = z;
+  layers.forEach((l, k) => l.classList.toggle('is-active', k === z));
+  const data = ZONES[z];
+  if(counterEl) counterEl.textContent = data.n;
+  if(tagN) tagN.textContent = data.n;
+  if(tagT) tagT.textContent = data.t;
+  // shift the atlas background to this zone's tone
+  gsap.to(atlas, { backgroundColor: data.bg, duration: .9, ease: 'power2.out', overwrite: 'auto' });
+}
+
+gsap.utils.toArray('.zone').forEach((zone, i) => {
+  ScrollTrigger.create({
+    trigger: zone,
+    start: "top 55%",
+    end: "bottom 55%",
+    onToggle: self => { if(self.isActive) lightZone(i); },
+  });
+  // text entrance
+  gsap.from(zone.querySelectorAll('.zone__n, .zone__title, .zone__body, .zone__data'), {
+    y: 30, opacity: 0, duration: .9, ease: 'power3.out', stagger: .08,
+    scrollTrigger: { trigger: zone, start: 'top 70%' },
+  });
+});
+
+/* Generic reveal */
+gsap.utils.toArray(".reveal").forEach(el => {
+  gsap.to(el, { opacity:1, y:0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 85%" } });
+});
+
+/* Word-by-word h1/h2 */
+gsap.utils.toArray('section h2, header h1, .prods__head h2').forEach(h => {
+  if(h.closest('.foot')) return;
+  const words = h.textContent.trim().split(/\s+/);
+  h.innerHTML = words.map(w => `<span class="w" style="display:inline-block;overflow:hidden;padding:0 .12em 0 0;"><span style="display:inline-block;transform:translateY(110%);">${w}</span></span>`).join(' ');
+});
+ScrollTrigger.batch('section h2 .w > span, header h1 .w > span', {
+  start: 'top 88%',
+  onEnter: batch => gsap.to(batch, { y: 0, duration: 1.1, ease: 'power4.out', stagger: 0.035 , onComplete: () => batch.forEach(s => { if(s.parentElement) s.parentElement.style.overflow = "visible"; }) }),
+  once: true,
+});
+
+/* Scroll progress */
+const progressBar = document.getElementById('progressBar');
+ScrollTrigger.create({ start: 0, end: 'max', onUpdate: self => { if(progressBar) progressBar.style.width = (self.progress * 100) + '%'; } });
+
+/* Custom cursor */
+(function setupCursor(){
+  const cur = document.getElementById('cursor');
+  if(!cur || window.matchMedia('(hover: none), (max-width: 760px)').matches) return;
+  let mx = innerWidth/2, my = innerHeight/2, cx = mx, cy = my, visible = false;
+  window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; if(!visible){ cur.style.opacity='1'; visible=true; } });
+  window.addEventListener('mouseleave', () => { cur.style.opacity='0'; visible=false; });
+  document.querySelectorAll('a, button, .btn, .prod-card, .nav__icobtn').forEach(el => {
+    el.addEventListener('mouseenter', () => cur.classList.add('is-hover'));
+    el.addEventListener('mouseleave', () => cur.classList.remove('is-hover'));
+  });
+  (function tick(){ cx += (mx-cx)*.18; cy += (my-cy)*.18; cur.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`; requestAnimationFrame(tick); })();
+})();
+
+/* Magnetic buttons */
+document.querySelectorAll('.btn').forEach(b => {
+  let mag;
+  b.addEventListener('mouseenter', () => {
+    const r = b.getBoundingClientRect();
+    mag = (e) => { b.style.transform = `translate(${(e.clientX-(r.left+r.width/2))*.18}px, ${(e.clientY-(r.top+r.height/2))*.18}px)`; };
+    window.addEventListener('mousemove', mag);
+  });
+  b.addEventListener('mouseleave', () => { window.removeEventListener('mousemove', mag); gsap.to(b, { x:0, y:0, duration:.6, ease:'elastic.out(1, 0.5)', clearProps:'transform' }); });
+});
+
+} // /IS_STATIC
+</script>
+
+</script>
+</body>
+</html>
