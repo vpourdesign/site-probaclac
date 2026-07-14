@@ -30,4 +30,22 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# ── Dashboard Meta Ads : jamais indexé + jamais mis en cache ──
+# (La vraie protection = mot de passe Netlify. Voir « Site settings → Access control ».)
+[[headers]]
+  for = "/dashboard"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+[[headers]]
+  for = "/dashboard.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+[[headers]]
+  for = "/dashboard-data.json"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+
 # Les redirections 301 sont dans le fichier _redirects (plus simple à éditer).
