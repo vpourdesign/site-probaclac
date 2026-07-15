@@ -245,18 +245,20 @@ html.lenis,html.lenis body{ height:auto; }
   position: relative;
   border: 1px solid var(--rule-strong);
   border-radius: 28px;
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-  display: flex; flex-direction: column; align-items: center; gap: 1rem;
+  overflow: hidden;
+  display: flex; flex-direction: column;
 }
 .hero__visual img{
-  max-height: clamp(280px, 34vw, 420px);
-  width: auto;
-  filter: drop-shadow(0 30px 50px rgba(10,10,10,.22)) drop-shadow(0 10px 20px rgba(10,10,10,.1));
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 .hero__visual .cap{
   font-weight: 700; letter-spacing: -.02em;
   font-size: clamp(1rem, 1.2vw, 1.15rem);
   text-align: center;
+  padding: clamp(.9rem, 1.6vw, 1.25rem);
 }
 
 /* ─── MAP (dark) ─── */
@@ -279,7 +281,7 @@ html.lenis,html.lenis body{ height:auto; }
 .map__frame img{ width: 100%; height: auto; display: block; }
 .map__legend{
   margin-top: clamp(1.5rem, 2.5vw, 2rem);
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
   border-top: 1px solid rgba(255,255,255,.18);
 }
 .map__legend .lg{
@@ -865,7 +867,9 @@ html.lenis,html.lenis body{ height:auto; }
 .pbl-foot__social svg{ width:18px; height:18px; }
 .pbl-foot__bottom{ display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between; align-items:center; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.16); font-size:.82rem; color:rgba(255,255,255,.55); }
 .pbl-foot__bottom a{ color:rgba(255,255,255,.8); }
-.pbl-foot__partner{ font-size:.78rem; color:rgba(255,255,255,.5); margin-top:1.2rem; }
+.pbl-foot__ally{ display:inline-flex; align-items:center; gap:1rem; background:#fff; border-radius:14px; padding:.6rem 1.1rem; margin-top:1.3rem; }
+.pbl-foot__ally span{ font-size:.8rem; font-weight:700; color:#0a0a0a; letter-spacing:-.01em; white-space:nowrap; }
+.pbl-foot__ally img{ height:36px; width:auto; display:block; }
 .nav.on-dark-nav .nav__btn{ color:var(--paper); }
 .nav.on-dark-nav .chev{ border-color:var(--paper); }
 </style>
@@ -980,7 +984,7 @@ html.lenis,html.lenis body{ height:auto; }
 
       <div class="hero__right">
         <div class="hero__visual">
-          <img src="../assets/bottle-voyage.png" alt="Probaclac Travelers" loading="eager">
+          <img src="../assets/produits/voyage.jpg" alt="Probaclac Travelers" loading="eager">
           <div class="cap">Probaclac Travelers</div>
         </div>
       </div>
@@ -1007,9 +1011,10 @@ html.lenis,html.lenis body{ height:auto; }
       <img src="../assets/mapmonde.avif" alt="Carte mondiale des zones à risque de diarrhée du voyageur" loading="lazy">
     </div>
     <div class="map__legend">
-      <div class="lg"><span class="sw" style="background:#c0392b;"></span><span>High risk</span></div>
-      <div class="lg"><span class="sw" style="background:var(--accent);"></span><span>Moderate risk</span></div>
       <div class="lg"><span class="sw" style="background:#7f8c8d;"></span><span>Low risk</span></div>
+      <div class="lg"><span class="sw" style="background:var(--accent);"></span><span>Moderate risk</span></div>
+      <div class="lg"><span class="sw" style="background:#f2c200;"></span><span>High risk</span></div>
+      <div class="lg"><span class="sw" style="background:#c0392b;"></span><span>Very high risk</span></div>
     </div>
   </div>
 </section>
@@ -1189,14 +1194,14 @@ html.lenis,html.lenis body{ height:auto; }
           <li>9 probiotic strains + vitamin C</li>
           <li>No refrigeration required</li>
           <li>No prescription needed</li>
-          <li>30-capsule format · 1 per day</li>
+          <li>30- and 60-capsule formats · 2 per day</li>
         </ul>
         <div class="prod__ctas">
           <a class="btn btn--solid" href="/collections/all">
             Discover Travelers
             <span class="arr">→</span>
           </a>
-          <a class="btn btn--ghost" href="https://etudes.probaclac.ca/">
+          <a class="btn btn--ghost" href="../studies.html">
             See the studies
           </a>
         </div>
@@ -1241,16 +1246,16 @@ html.lenis,html.lenis body{ height:auto; }
       </div>
       <div>
         <h5>Information</h5>
-        <a href="https://etudes.probaclac.ca/choose.html" style="display:block;padding:.26rem 0;font-size:.92rem;">Choosing the right probiotic</a>
-        <a href="https://www.probaclac.ca/en/microbiote-probiotiques" style="display:block;padding:.26rem 0;font-size:.92rem;">Human Microbiota</a>
-        <a href="https://www.probaclac.ca/en/diarrhee-du-voyageur" style="display:block;padding:.26rem 0;font-size:.92rem;">Traveler's diarrhea</a>
+        <a href="choisir.html" style="display:block;padding:.26rem 0;font-size:.92rem;">Choosing the right probiotic</a>
+        <a href="microbiote.html" style="display:block;padding:.26rem 0;font-size:.92rem;">Human Microbiota</a>
+        <a href="diarrhee-du-voyageur.html" style="display:block;padding:.26rem 0;font-size:.92rem;">Traveler's diarrhea</a>
         <a href="../studies.html" style="display:block;padding:.26rem 0;font-size:.92rem;">Studies</a>
         <a href="foire-aux-questions.html" style="display:block;padding:.26rem 0;font-size:.92rem;">FAQ</a>
-        <p class="pbl-foot__partner">Proud partner of Allergies Québec.</p>
+        <div class="pbl-foot__ally"><span>Proud partner</span><img src="../assets/allergies-quebec.avif" alt="Allergies Québec" loading="lazy"></div>
       </div>
     </div>
     <div class="pbl-foot__bottom">
-      <span>© 2025 Laboratoires Nicar. <a href="https://www.probaclac.ca/en/privacy-policy">Privacy policy</a></span>
+      <span>© 2025 Laboratoires Nicar. <a href="privacy-policy.html">Privacy policy</a></span>
       <span>Website: <a href="https://www.vpourdesign.com">V pour Design</a></span>
     </div>
   </div>

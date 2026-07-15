@@ -505,7 +505,9 @@ html.lenis,html.lenis body{ height:auto; }
 .pbl-foot__social svg{ width:18px; height:18px; }
 .pbl-foot__bottom{ display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between; align-items:center; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.16); font-size:.82rem; color:rgba(255,255,255,.55); }
 .pbl-foot__bottom a{ color:rgba(255,255,255,.8); }
-.pbl-foot__partner{ font-size:.78rem; color:rgba(255,255,255,.5); margin-top:1.2rem; }
+.pbl-foot__ally{ display:inline-flex; align-items:center; gap:1rem; background:#fff; border-radius:14px; padding:.6rem 1.1rem; margin-top:1.3rem; }
+.pbl-foot__ally span{ font-size:.8rem; font-weight:700; color:#0a0a0a; letter-spacing:-.01em; white-space:nowrap; }
+.pbl-foot__ally img{ height:36px; width:auto; display:block; }
 
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
@@ -559,7 +561,7 @@ html.lenis,html.lenis body{ height:auto; }
       </div>
       <div class="mega__stat">
         <div class="num"><span class="sym">−</span>86<span class="unit">%</span></div>
-        <p>de diarrhée associée aux antibiotiques avec Probaclac Medic. <a href="https://etudes.probaclac.ca/">Voir l'étude →</a></p>
+        <p>de diarrhée associée aux antibiotiques avec Probaclac Medic. <a href="etudes.html">Voir l'étude →</a></p>
       </div>
     </div>
   </div>
@@ -844,11 +846,11 @@ html.lenis,html.lenis body{ height:auto; }
         <a href="histoire.html" style="display:block;padding:.26rem 0;font-size:.92rem;">Notre histoire</a>
         <a href="etudes.html" style="display:block;padding:.26rem 0;font-size:.92rem;">Études</a>
         <a href="foire-aux-questions.html" style="display:block;padding:.26rem 0;font-size:.92rem;">FAQ</a>
-        <p class="pbl-foot__partner">Fier partenaire d'Allergies Québec.</p>
+        <div class="pbl-foot__ally"><span>Fier partenaire</span><img src="assets/allergies-quebec.avif" alt="Allergies Québec" loading="lazy"></div>
       </div>
     </div>
     <div class="pbl-foot__bottom">
-      <span>© 2025 Laboratoires Nicar. <a href="https://www.probaclac.ca/privacy-policy">Politique de confidentialité</a></span>
+      <span>© 2025 Laboratoires Nicar. <a href="privacy-policy.html">Politique de confidentialité</a></span>
       <span>Site web : <a href="https://www.vpourdesign.com">V pour Design</a></span>
     </div>
   </div>
@@ -876,7 +878,7 @@ const CATALOGUE = [
   {cat:"cd", name:"Gastro-intestinal",    url:"probiotique-gastro-intestinal.html",   img: T+"gi.webp"},
   {cat:"cd", name:"Medic",                url:"probiotique-antibiotique.html",        img: T+"medic.webp"},
   {cat:"cd", name:"Extra-fort",           url:"probiotique-extra-fort.html",          img: T+"extra.webp"},
-  {cat:"fm", name:"Vaginose bactérienne", url:"probiotique-vaginal.html",             img: T+"../mainvaginal.avif"},
+  {cat:"fm", name:"Vaginose bactérienne", url:"probiotique-vaginal.html",             img: T+"vaginal.webp"},
   {cat:"fm", name:"Infection à levure",   url:"probiotique-infection-a-levure.html",  img: T+"rosella.webp"},
   {cat:"fm", name:"Infection urinaire",   url:"probiotique-infection-urinaire.html",  img: T+"canneberge.webp"},
 ];
