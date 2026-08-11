@@ -1,0 +1,42 @@
+/* ══════════════════════════════════════════════════════════════════
+   PROBACLAC — Signature V pour Design (pied de page)
+   Reprise de la signature de daynak.ca : même structure, même taille
+   de logo (52px), mêmes animations vpFloat / vpGlow, même libellé.
+   Le pied de Probaclac est sur --ink comme celui de daynak, donc le
+   invert(1) du logo fonctionne à l'identique.
+
+   Seul écart : la lueur passe du doré de Daynak (200,170,110) à
+   l'orange Probaclac (255,91,4). Le doré appartient à la palette
+   Daynak, pas à la signature.
+   ══════════════════════════════════════════════════════════════════ */
+
+.footer-credit{
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  margin-top: 28px; padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 10px; letter-spacing: 0.14em; color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+}
+.vp-logo{
+  height: 52px;
+  animation: vpFloat 3s ease-in-out infinite, vpGlow 3s ease-in-out infinite;
+  cursor: pointer;
+}
+.vp-logo:hover{
+  animation: none;
+  filter: invert(1) brightness(1.4) drop-shadow(0 0 18px rgba(255,91,4,0.9));
+  transform: scale(1.07) translateY(-2px);
+  transition: filter 0.3s, transform 0.3s;
+}
+@keyframes vpFloat{
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+@keyframes vpGlow{
+  0%, 100% { filter: invert(1) brightness(0.7) drop-shadow(0 0 0px rgba(255,91,4,0)); }
+  50%      { filter: invert(1) brightness(1.25) drop-shadow(0 0 14px rgba(255,91,4,0.6)); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .vp-logo{ animation: none; filter: invert(1) brightness(0.9); }
+}
