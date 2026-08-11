@@ -1,0 +1,130 @@
+/* ══════════════════════════════════════════════════════════════════
+   PROBACLAC — Navigation mobile (≤ 860px)
+   Sous 860px, .nav__links passe en display:none : sans ce fichier,
+   aucune navigation n'est atteignable au doigt.
+   Le balisage est construit par assets/mobile-nav.js à partir du DOM
+   déjà présent (CATALOGUE, .about-row, .nav__links) — donc les chemins
+   relatifs restent bons quelle que soit la profondeur de la page.
+   Tokens repris du design system : ink, paper, rule, mute, --ease.
+   ══════════════════════════════════════════════════════════════════ */
+
+.navburger{
+  display: none;
+  width: 44px; height: 44px;
+  margin-right: -.35rem;
+  align-items: center; justify-content: center;
+  background: none; border: 0; padding: 0;
+  color: var(--ink); cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.navburger__box{ position: relative; width: 22px; height: 14px; }
+.navburger__box i{
+  position: absolute; left: 0; right: 0; height: 1.5px;
+  background: currentColor; border-radius: 2px;
+  transition: transform .5s var(--ease), opacity .3s var(--ease);
+}
+.navburger__box i:nth-child(1){ top: 0; }
+.navburger__box i:nth-child(2){ top: 6.25px; }
+.navburger__box i:nth-child(3){ top: 12.5px; }
+.navburger[aria-expanded="true"] .navburger__box i:nth-child(1){ transform: translateY(6.25px) rotate(45deg); }
+.navburger[aria-expanded="true"] .navburger__box i:nth-child(2){ opacity: 0; }
+.navburger[aria-expanded="true"] .navburger__box i:nth-child(3){ transform: translateY(-6.25px) rotate(-45deg); }
+.navburger:focus-visible{ outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
+
+.navdrawer{
+  position: fixed; inset: 0; z-index: 45;
+  padding-top: var(--navh, 68px);
+  background: var(--paper);
+  overflow-y: auto; overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  opacity: 0; visibility: hidden;
+  transition: opacity .45s var(--ease), visibility 0s linear .45s;
+}
+.navdrawer.is-open{
+  opacity: 1; visibility: visible;
+  transition: opacity .45s var(--ease), visibility 0s;
+}
+.navdrawer__inner{ padding: 1.25rem var(--margin) 3.5rem; }
+
+/* Les blocs entrent en cascade — jamais tous ensemble. */
+.navdrawer__grp{
+  opacity: 0; transform: translateY(14px);
+  transition: opacity .55s var(--ease), transform .55s var(--ease);
+}
+.navdrawer.is-open .navdrawer__grp{ opacity: 1; transform: none; }
+.navdrawer.is-open .navdrawer__grp:nth-child(1){ transition-delay: .06s; }
+.navdrawer.is-open .navdrawer__grp:nth-child(2){ transition-delay: .12s; }
+.navdrawer.is-open .navdrawer__grp:nth-child(3){ transition-delay: .18s; }
+.navdrawer.is-open .navdrawer__grp:nth-child(4){ transition-delay: .24s; }
+
+.navdrawer__lbl{
+  display: block;
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--mute);
+  padding-bottom: .75rem; margin-bottom: .25rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Produits — 2 colonnes, nom + posologie */
+.navdrawer__prods{
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0 1rem;
+  margin: 0 0 2.25rem;
+}
+.navdrawer__prod{
+  display: block; padding: .85rem 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink); text-decoration: none;
+}
+.navdrawer__prod b{
+  display: block;
+  font-size: .95rem; font-weight: 700; letter-spacing: -.015em; line-height: 1.2;
+}
+.navdrawer__prod small{
+  display: block; margin-top: .15rem;
+  font-size: .72rem; font-weight: 400; color: var(--mute); line-height: 1.3;
+}
+
+/* Liens de section — typo large, un par ligne */
+.navdrawer__list{ margin: 0 0 2.25rem; }
+.navdrawer__link{
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: .95rem 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink); text-decoration: none;
+  font-size: clamp(1.05rem, 4.6vw, 1.35rem);
+  font-weight: 700; letter-spacing: -.02em; line-height: 1.15;
+}
+.navdrawer__link .arr{
+  flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%;
+  border: 1px solid var(--rule-strong);
+  display: grid; place-items: center;
+  transition: transform .35s var(--ease);
+}
+.navdrawer__link .arr svg{ width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.navdrawer__link:active .arr{ transform: translateX(3px); }
+.navdrawer__link:focus-visible,
+.navdrawer__prod:focus-visible{ outline: 2px solid var(--ink); outline-offset: 3px; }
+
+@media (max-width: 860px){
+  .navburger{ display: flex; }
+  body.navdrawer-open{ overflow: hidden; }
+}
+
+@media (min-width: 861px){
+  .navdrawer{ display: none; }
+}
+
+/* En dessous de 360px, deux colonnes cassent les noms longs
+   (« Vaginose bactérienne ») — on repasse en liste simple. */
+@media (max-width: 359px){
+  .navdrawer__prods{ grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .navdrawer,
+  .navdrawer__grp,
+  .navburger__box i{ transition-duration: .01ms !important; }
+  .navdrawer__grp{ transform: none !important; }
+}

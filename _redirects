@@ -1,30 +1,219 @@
-# ─── Redirections 301 : anciennes URL Wix → nouveau site ───
-# Les URL produit (/probiotique-* et /en/probiotique-*) sont IDENTIQUES au live :
-# aucune redirection nécessaire, le jus SEO est préservé automatiquement.
+# ════════════════════════════════════════════════════════════════════════════
+# PROBACLAC — Plan de redirections 301  ·  Wix (www.probaclac.ca) → site-2026
+# Fichier Netlify `_redirects` — la PREMIÈRE règle qui match gagne.
+# Ordre : 1) pages  2) boutique Wix  3) articles (1:1)  4) filets de sécurité.
+#
+# Inventaire source : sitemaps Wix du 2026-08-10
+#   pages FR 26 · pages EN 26 · articles FR 47 · articles EN 35 · produit 1 · catégorie 1
+# Inventaire cible : site-2026 — 22 pages FR/EN + 46 articles FR + 20 articles EN
+#
+# ⚠ Les URL produit /probiotique-* et /en/probiotique-* sont IDENTIQUES sur les
+#   deux sites : aucune règle, aucun saut, le jus SEO reste intact. Ne pas y toucher.
+# ════════════════════════════════════════════════════════════════════════════
 
-# FR — pages fusionnées / renommées
-/avantages                        /choisir           301
-/meilleur-probiotique-pour-vous   /choisir           301
-/microbiote-probiotiques          /microbiote        301
-/etudes2                          /etudes            301
-/etudes2-1                        /etudes            301
-/politique-de-confidentialite     /privacy-policy    301
 
-# EN — pages fusionnées / renommées
-/en/meilleur-probiotique-pour-vous  /en/choisir      301
-/en/avantages                       /en/choisir      301
-/en/microbiote-probiotiques         /en/microbiote   301
-/en/etudes                          /studies         301
+# ─── 1 · PAGES FR — fusionnées ou renommées ─────────────────────────────────
+/avantages                                                                                        /choisir                                            301
+/meilleur-probiotique-pour-vous                                                                   /choisir                                            301
+/microbiote-probiotiques                                                                          /microbiote                                         301
+/etudes2                                                                                          /etudes                                             301
+/etudes2-1                                                                                        /etudes                                             301
+/politique-de-confidentialite                                                                     /privacy-policy                                     301
+/terms-and-coniditions                                                                            /privacy-policy                                     301
 
-# Blog — le préfixe passe de /blog (Wix) à /blogue (nouveau site)
-/blog        /blogue       301
-/en/blog     /en/blogue    301
-# TODO articles : /post/<slug-wix> → /blogue/<slug>  (à mapper 1:1 pour garder le SEO des articles)
+# Gabarits Wix vides indexés par erreur — on consolide vers l'accueil.
+/blank                                                                                            /                                                   301
+/blank-1                                                                                          /                                                   301
 
-# Conditions d'utilisation — page NON recréée (le live ne contenait qu'un gabarit Wix vide).
-# Décommente quand tu auras tranché :
-# /terms-and-coniditions      /privacy-policy      301
-# /en/terms-and-coniditions   /en/privacy-policy   301
 
-# Note : le sous-domaine etudes.probaclac.ca (choisir.html / choose.html / studies)
-# se redirige côté DNS/hébergeur de CE sous-domaine, pas dans ce fichier.
+# ─── 2 · PAGES EN — fusionnées ou renommées ─────────────────────────────────
+/en/avantages                                                                                     /en/choisir                                         301
+/en/meilleur-probiotique-pour-vous                                                                /en/choisir                                         301
+/en/microbiote-probiotiques                                                                       /en/microbiote                                      301
+/en/etudes                                                                                        /studies                                            301
+/en/etudes2                                                                                       /studies                                            301
+/en/etudes2-1                                                                                     /studies                                            301
+/en/terms-and-coniditions                                                                         /en/privacy-policy                                  301
+/en/blank                                                                                         /en/                                                301
+/en/blank-1                                                                                       /en/                                                301
+
+
+# ─── 3 · BOUTIQUE WIX — supprimée (la vente vit sur monprobiotique.ca) ───────
+# On renvoie vers la page de contenu équivalente, pas vers un panier : intention
+# informationnelle conservée, et le lien d'achat est sur la page d'arrivée.
+/product-page/probaclac-adultes                                                                   /probiotique-adulte                                 301
+/en/product-page/probaclac-adultes                                                                /en/probiotique-adulte                              301
+/category/all-products                                                                            /choisir                                            301
+/en/category/all-products                                                                         /en/choisir                                         301
+/product-page/*                                                                                   /choisir                                            301
+/en/product-page/*                                                                                /en/choisir                                         301
+/category/*                                                                                       /choisir                                            301
+/en/category/*                                                                                    /en/choisir                                         301
+
+
+# ─── 4 · BLOGUE — index ─────────────────────────────────────────────────────
+/blog                                                                                             /blogue                                             301
+/en/blog                                                                                          /en/blogue                                          301
+/blog-categories/*                                                                                /blogue                                             301
+/en/blog-categories/*                                                                             /en/blogue                                          301
+
+
+# ─── 5 · ARTICLES FR — 46 correspondances 1:1 (/post/<slug> → /blogue/<slug>) ─
+# Les slugs Wix sont accentués ; chaque règle est doublée en version
+# percent-encodée, car les liens entrants circulent sous les deux formes.
+/post/agrémentez-votre-menu-de-probiotiques                                                       /blogue/agrementez-votre-menu-de-probiotiques       301
+/post/agr%C3%A9mentez-votre-menu-de-probiotiques                                                  /blogue/agrementez-votre-menu-de-probiotiques       301
+/post/aide-probiotique-à-la-ménopause                                                             /blogue/aide-probiotique-a-la-menopause             301
+/post/aide-probiotique-%C3%A0-la-m%C3%A9nopause                                                   /blogue/aide-probiotique-a-la-menopause             301
+/post/bien-choisir-son-probiotique                                                                /blogue/bien-choisir-son-probiotique                301
+/post/brûlantes-envies-les-infections-urinaires                                                   /blogue/brulantes-envies-les-infections-urinaires   301
+/post/br%C3%BBlantes-envies-les-infections-urinaires                                              /blogue/brulantes-envies-les-infections-urinaires   301
+/post/colonisation-bactérienne-et-dentition                                                       /blogue/colonisation-bacterienne-et-dentition       301
+/post/colonisation-bact%C3%A9rienne-et-dentition                                                  /blogue/colonisation-bacterienne-et-dentition       301
+/post/connaissez-vous-réellement-les-pré-et-pro-biotiques                                         /blogue/connaissez-vous-reellement-les-pre-et-pro-biotiques  301
+/post/connaissez-vous-r%C3%A9ellement-les-pr%C3%A9-et-pro-biotiques                               /blogue/connaissez-vous-reellement-les-pre-et-pro-biotiques  301
+/post/cure-probiotique-anti-vieillissement                                                        /blogue/cure-probiotique-anti-vieillissement        301
+/post/d-où-proviennent-vos-probiotiques                                                           /blogue/d-ou-proviennent-vos-probiotiques           301
+/post/d-o%C3%B9-proviennent-vos-probiotiques                                                      /blogue/d-ou-proviennent-vos-probiotiques           301
+/post/des-bibittes-pour-aider-les-diabétiques                                                     /blogue/des-bibittes-pour-aider-les-diabetiques     301
+/post/des-bibittes-pour-aider-les-diab%C3%A9tiques                                                /blogue/des-bibittes-pour-aider-les-diabetiques     301
+/post/des-probiotiques-en-surdose                                                                 /blogue/des-probiotiques-en-surdose                 301
+/post/est-ce-sécuritaire-de-donner-des-probiotiques-pour-bébés-si-oui-quand-peut-on-en-donner     /blogue/est-ce-securitaire-de-donner-des-probiotiques-pour-bebes-si-oui-quand-peut-on-en-donner  301
+/post/est-ce-s%C3%A9curitaire-de-donner-des-probiotiques-pour-b%C3%A9b%C3%A9s-si-oui-quand-peut-on-en-donner  /blogue/est-ce-securitaire-de-donner-des-probiotiques-pour-bebes-si-oui-quand-peut-on-en-donner  301
+/post/est-il-dangereux-de-prendre-des-probiotiques                                                /blogue/est-il-dangereux-de-prendre-des-probiotiques  301
+/post/fin-de-vie-moins-rose-plus-morose                                                           /blogue/fin-de-vie-moins-rose-plus-morose           301
+/post/hé-oui-un-microbiote-ça-prend-de-l-âge-aussi-peut-on-l-aider                                /blogue/he-oui-un-microbiote-ca-prend-de-l-age-aussi-peut-on-l-aider  301
+/post/h%C3%A9-oui-un-microbiote-%C3%A7a-prend-de-l-%C3%A2ge-aussi-peut-on-l-aider                 /blogue/he-oui-un-microbiote-ca-prend-de-l-age-aussi-peut-on-l-aider  301
+/post/l-emporter-sur-la-vaginite-vaginose-bactérienne                                             /blogue/l-emporter-sur-la-vaginite-vaginose-bacterienne  301
+/post/l-emporter-sur-la-vaginite-vaginose-bact%C3%A9rienne                                        /blogue/l-emporter-sur-la-vaginite-vaginose-bacterienne  301
+/post/l-heure-juste-sur-les-antibiotiques-probiotiques                                            /blogue/l-heure-juste-sur-les-antibiotiques-probiotiques  301
+/post/la-bactériothérapie-à-portée-de-main                                                        /blogue/la-bacteriotherapie-a-portee-de-main        301
+/post/la-bact%C3%A9rioth%C3%A9rapie-%C3%A0-port%C3%A9e-de-main                                    /blogue/la-bacteriotherapie-a-portee-de-main        301
+/post/la-santé-par-le-ventre                                                                      /blogue/la-sante-par-le-ventre                      301
+/post/la-sant%C3%A9-par-le-ventre                                                                 /blogue/la-sante-par-le-ventre                      301
+/post/le-microbiote-et-l-autisme                                                                  /blogue/le-microbiote-et-l-autisme                  301
+/post/le-rôle-des-probiotiques-pour-se-rééquilibrer-après-des-périodes-fastes                     /blogue/le-role-des-probiotiques-pour-se-reequilibrer-apres-des-periodes-fastes  301
+/post/le-r%C3%B4le-des-probiotiques-pour-se-r%C3%A9%C3%A9quilibrer-apr%C3%A8s-des-p%C3%A9riodes-fastes  /blogue/le-role-des-probiotiques-pour-se-reequilibrer-apres-des-periodes-fastes  301
+/post/le-stress-vous-ronge-des-bactéries-à-la-rescousse                                           /blogue/le-stress-vous-ronge-des-bacteries-a-la-rescousse  301
+/post/le-stress-vous-ronge-des-bact%C3%A9ries-%C3%A0-la-rescousse                                 /blogue/le-stress-vous-ronge-des-bacteries-a-la-rescousse  301
+/post/les-allergies-alimentaires-pandémique                                                       /blogue/les-allergies-alimentaires-pandemique       301
+/post/les-allergies-alimentaires-pand%C3%A9mique                                                  /blogue/les-allergies-alimentaires-pandemique       301
+/post/les-probiotiques-et-la-grossesse-font-bon-ménage                                            /blogue/les-probiotiques-et-la-grossesse-font-bon-menage  301
+/post/les-probiotiques-et-la-grossesse-font-bon-m%C3%A9nage                                       /blogue/les-probiotiques-et-la-grossesse-font-bon-menage  301
+/post/les-probiotiques-panacée-pour-l-obésité-1                                                   /blogue/les-probiotiques-panacee-pour-l-obesite-1   301
+/post/les-probiotiques-panac%C3%A9e-pour-l-ob%C3%A9sit%C3%A9-1                                    /blogue/les-probiotiques-panacee-pour-l-obesite-1   301
+/post/les-probiotiques-pas-juste-pour-les-grands                                                  /blogue/les-probiotiques-pas-juste-pour-les-grands  301
+/post/les-probiotiques-peuvent-ils-aider-à-mieux-gérer-le-poids                                   /blogue/les-probiotiques-peuvent-ils-aider-a-mieux-gerer-le-poids  301
+/post/les-probiotiques-peuvent-ils-aider-%C3%A0-mieux-g%C3%A9rer-le-poids                         /blogue/les-probiotiques-peuvent-ils-aider-a-mieux-gerer-le-poids  301
+/post/les-probiotiques-une-cure-de-jouvence                                                       /blogue/les-probiotiques-une-cure-de-jouvence       301
+/post/les-probiotiques-à-tout-âge                                                                 /blogue/les-probiotiques-a-tout-age                 301
+/post/les-probiotiques-%C3%A0-tout-%C3%A2ge                                                       /blogue/les-probiotiques-a-tout-age                 301
+/post/malades-des-intestins-changez-votre-destin                                                  /blogue/malades-des-intestins-changez-votre-destin  301
+/post/ne-partez-jamais-sans-eux-probiotiques-en-voyage                                            /blogue/ne-partez-jamais-sans-eux-probiotiques-en-voyage  301
+/post/peaux-acnéiques-à-vos-probiotiques                                                          /blogue/peaux-acneiques-a-vos-probiotiques          301
+/post/peaux-acn%C3%A9iques-%C3%A0-vos-probiotiques                                                /blogue/peaux-acneiques-a-vos-probiotiques          301
+/post/plein-feux-sur-les-prébiotiques                                                             /blogue/plein-feux-sur-les-prebiotiques             301
+/post/plein-feux-sur-les-pr%C3%A9biotiques                                                        /blogue/plein-feux-sur-les-prebiotiques             301
+/post/pour-vieillir-en-santé-l-affaire-est-microbiote-1                                           /blogue/pour-vieillir-en-sante-l-affaire-est-microbiote-1  301
+/post/pour-vieillir-en-sant%C3%A9-l-affaire-est-microbiote-1                                      /blogue/pour-vieillir-en-sante-l-affaire-est-microbiote-1  301
+/post/probiotiques-5-bonnes-raisons-d-en-prendre-au-quotidien                                     /blogue/probiotiques-5-bonnes-raisons-d-en-prendre-au-quotidien  301
+/post/probiotiques-pour-un-esprit-de-génie                                                        /blogue/probiotiques-pour-un-esprit-de-genie        301
+/post/probiotiques-pour-un-esprit-de-g%C3%A9nie                                                   /blogue/probiotiques-pour-un-esprit-de-genie        301
+/post/probiotiques-une-révolution-immunitaire                                                     /blogue/probiotiques-une-revolution-immunitaire     301
+/post/probiotiques-une-r%C3%A9volution-immunitaire                                                /blogue/probiotiques-une-revolution-immunitaire     301
+/post/probiotiques-vs-compléments-alimentaires-quelles-différences                                /blogue/probiotiques-vs-complements-alimentaires-quelles-differences  301
+/post/probiotiques-vs-compl%C3%A9ments-alimentaires-quelles-diff%C3%A9rences                      /blogue/probiotiques-vs-complements-alimentaires-quelles-differences  301
+/post/quand-les-bactéries-l-emportent-s-o-s-sibo                                                  /blogue/quand-les-bacteries-l-emportent-s-o-s-sibo  301
+/post/quand-les-bact%C3%A9ries-l-emportent-s-o-s-sibo                                             /blogue/quand-les-bacteries-l-emportent-s-o-s-sibo  301
+/post/soyez-futés-des-probiotiques-pour-la-rentrée                                                /blogue/soyez-futes-des-probiotiques-pour-la-rentree  301
+/post/soyez-fut%C3%A9s-des-probiotiques-pour-la-rentr%C3%A9e                                      /blogue/soyez-futes-des-probiotiques-pour-la-rentree  301
+/post/traverser-l-hiver-en-douceur-le-rôle-insoupçonné-des-probiotiques-sur-l-humeur              /blogue/traverser-l-hiver-en-douceur-le-role-insoupconne-des-probiotiques-sur-l-humeur  301
+/post/traverser-l-hiver-en-douceur-le-r%C3%B4le-insoup%C3%A7onn%C3%A9-des-probiotiques-sur-l-humeur  /blogue/traverser-l-hiver-en-douceur-le-role-insoupconne-des-probiotiques-sur-l-humeur  301
+/post/trop-d-appétit-pensez-aux-bactéries                                                         /blogue/trop-d-appetit-pensez-aux-bacteries         301
+/post/trop-d-app%C3%A9tit-pensez-aux-bact%C3%A9ries                                               /blogue/trop-d-appetit-pensez-aux-bacteries         301
+/post/une-affaire-du-coeur-les-probiotiques                                                       /blogue/une-affaire-du-coeur-les-probiotiques       301
+/post/vaincre-la-constipation-une-fois-pour-toute                                                 /blogue/vaincre-la-constipation-une-fois-pour-toute  301
+/post/votre-assurance-voyage-les-probiotiques                                                     /blogue/votre-assurance-voyage-les-probiotiques     301
+/post/à-quoi-servent-les-probiotiques                                                             /blogue/a-quoi-servent-les-probiotiques             301
+/post/%C3%A0-quoi-servent-les-probiotiques                                                        /blogue/a-quoi-servent-les-probiotiques             301
+/post/être-femme-problèmes-fâcheux-de-vaginites                                                   /blogue/etre-femme-problemes-facheux-de-vaginites   301
+/post/%C3%AAtre-femme-probl%C3%A8mes-f%C3%A2cheux-de-vaginites                                    /blogue/etre-femme-problemes-facheux-de-vaginites   301
+
+# ⚠ ORPHELIN — article live sans équivalent sur le nouveau site :
+#   /post/allergies-saisonnières-et-si-tout-commençait-dans-l-intestin
+# À REPUBLIER plutôt qu'à rediriger (contenu récent, requêtes saisonnières).
+# Filet temporaire tant qu'il n'est pas migré :
+# /post/allergies-saisonnières-et-si-tout-commençait-dans-l-intestin                                /blogue                                             301
+# /post/allergies-saisonni%C3%A8res-et-si-tout-commen%C3%A7ait-dans-l-intestin                      /blogue                                             301
+
+
+# ─── 6 · ARTICLES EN — 20 correspondances 1:1 ───────────────────────────────
+/en/post/acne-prone-skins-get-your-probiotics                                                     /en/blogue/acne-prone-skins-get-your-probiotics     301
+/en/post/bacteria-help-people-with-diabetes                                                       /en/blogue/bacteria-help-people-with-diabetes       301
+/en/post/bacterial-colonization-and-dentition                                                     /en/blogue/bacterial-colonization-and-dentition     301
+/en/post/bacteriotherapy-at-your-fingertips                                                       /en/blogue/bacteriotherapy-at-your-fingertips       301
+/en/post/brighten-up-your-menu-with-probiotics                                                    /en/blogue/brighten-up-your-menu-with-probiotics    301
+/en/post/defeat-constipation-once-and-for-all                                                     /en/blogue/defeat-constipation-once-and-for-all     301
+/en/post/food-allergies-pandemic                                                                  /en/blogue/food-allergies-pandemic                  301
+/en/post/health-through-the-belly                                                                 /en/blogue/health-through-the-belly                 301
+/en/post/healthy-aging-through-the-microbiota                                                     /en/blogue/healthy-aging-through-the-microbiota     301
+/en/post/insatiable-appetite-think-of-bacteria                                                    /en/blogue/insatiable-appetite-think-of-bacteria    301
+/en/post/les-probiotiques-panacée-pour-l-obésité                                                  /en/blogue/les-probiotiques-panacee-pour-l-obesite  301
+/en/post/les-probiotiques-panac%C3%A9e-pour-l-ob%C3%A9sit%C3%A9                                   /en/blogue/les-probiotiques-panacee-pour-l-obesite  301
+/en/post/never-leave-without-them-travel-probiotics                                               /en/blogue/never-leave-without-them-travel-probiotics  301
+/en/post/prevail-over-vaginitis-bacterial-vaginosis                                               /en/blogue/prevail-over-vaginitis-bacterial-vaginosis  301
+/en/post/probiotic-support-during-menopause                                                       /en/blogue/probiotic-support-during-menopause       301
+/en/post/probiotics-and-pregnancy-mix-well                                                        /en/blogue/probiotics-and-pregnancy-mix-well        301
+/en/post/probiotics-for-a-genius-mind                                                             /en/blogue/probiotics-for-a-genius-mind             301
+/en/post/probiotics-immune-revolution                                                             /en/blogue/probiotics-immune-revolution             301
+/en/post/spotlight-on-prebiotics                                                                  /en/blogue/spotlight-on-prebiotics                  301
+/en/post/when-bacteria-takes-over-s-o-s-sibo                                                      /en/blogue/when-bacteria-takes-over-s-o-s-sibo      301
+/en/post/where-do-probiotics-come-from                                                            /en/blogue/where-do-probiotics-come-from            301
+
+
+# ─── 7 · ARTICLES EN ORPHELINS — 15 sans traduction sur le nouveau site ─────
+# Redirigés vers la page EN la plus proche par sujet (jamais en vrac vers un
+# index : Google traite ça en soft 404 et le jus se perd).
+# ⚑ Le bon correctif reste de traduire ces 15 articles ; ces règles sont un pont.
+/en/post/a-clear-picture-of-antibiotics-and-probiotics                                            /en/probiotique-antibiotique                        301
+/en/post/anti-aging-probiotic-cure                                                                /en/probiotique-50-et-plus                          301
+/en/post/gloomy-end-of-life-rather-than-happy                                                     /en/probiotique-50-et-plus                          301
+/en/post/be-wise-back-to-school-with-probiotics                                                   /en/probiotique-enfant                              301
+/en/post/probiotics-not-just-for-grownups                                                         /en/probiotique-enfant                              301
+/en/post/being-a-woman-the-unfortunate-vaginitis-problem                                          /en/probiotique-vaginal                             301
+/en/post/burning-sensation-urinary-infections                                                     /en/probiotique-infection-urinaire                  301
+/en/post/intestine-patients-change-your-faith                                                     /en/probiotique-colon-irritable                     301
+/en/post/probiotics-your-travel-insurance                                                         /en/probiotique-voyage                              301
+/en/post/choosing-the-right-probiotic                                                             /en/choisir                                         301
+/en/post/probiotics-at-any-age                                                                    /en/choisir                                         301
+/en/post/a-probiotic-overdose                                                                     /en/foire-aux-questions                             301
+/en/post/microbiota-and-autism                                                                    /en/microbiote                                      301
+/en/post/probiotics-a-matter-of-the-heart                                                         /en/microbiote                                      301
+/en/post/worn-down-by-stress-bacteria-to-the-rescue                                               /en/microbiote                                      301
+
+
+# ─── 8 · FILETS DE SÉCURITÉ — toujours en DERNIER ───────────────────────────
+# Attrape les URL d'articles absentes des sitemaps (brouillons, vieux slugs,
+# variantes encodées). Un /post/ inconnu atterrit sur l'index du blogue plutôt
+# que sur un 404.
+/en/post/*                                                                                        /en/blogue                                          301
+/post/*                                                                                           /blogue                                             301
+
+# Espace membres Wix — jamais recréé, aucune valeur SEO.
+/account/*                                                                                        /                                                   301
+/en/account/*                                                                                     /en/                                                301
+/member-profiles/*                                                                                /                                                   301
+/profile/*                                                                                        /                                                   301
+
+
+# ─── NOTES D'EXPLOITATION ───────────────────────────────────────────────────
+# • Domaine canonique = www.probaclac.ca. À régler dans Netlify (Domain
+#   management → primary domain) : l'apex probaclac.ca et le HTTP sont alors
+#   301 automatiquement. Ne pas écrire ces règles ici.
+# • Netlify sert les URL propres : /probiotique-adulte.html → 301 vers
+#   /probiotique-adulte. Les liens internes du site pointent encore vers .html,
+#   ce qui ajoute un saut sur CHAQUE clic — à corriger dans les gabarits.
+# • Le sous-domaine etudes.probaclac.ca se redirige côté DNS de ce sous-domaine.
+# • Après la bascule : soumettre l'ancien ET le nouveau sitemap dans la Search
+#   Console, garder ce fichier au moins 12 mois, puis vérifier « Pages → Page
+#   avec redirection » pour confirmer que les 82 articles ont bien été suivis.
