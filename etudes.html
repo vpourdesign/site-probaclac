@@ -1521,6 +1521,7 @@ document.querySelectorAll(".mega__cats button").forEach(b=>{
   }
   menus.forEach(m=>{m.btn.addEventListener("click",e=>{e.preventDefault();setOpen(m,!m.open);closeAll(m);});});
   if(bd)bd.addEventListener("click",()=>closeAll(null));
+  window.addEventListener("scroll",()=>{if(menus.some(m=>m.open))closeAll(null);},{passive:true});
   document.addEventListener("keydown",e=>{if(e.key==="Escape")closeAll(null);});
 })();
 /* Nav scrolled state */

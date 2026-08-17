@@ -2204,6 +2204,7 @@ document.querySelectorAll(".mega__cats button").forEach(b => {
     });
   });
   bd.addEventListener("click", () => closeAll(null));
+  window.addEventListener("scroll", () => { if(menus.some(m => m.open)) closeAll(null); }, { passive: true });
   document.addEventListener("keydown", e => { if(e.key === "Escape") closeAll(null); });
 })();
 
