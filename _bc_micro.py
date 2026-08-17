@@ -42,10 +42,8 @@ b=[
 ('<div class="eyebrow"><span class="dot"></span>Une formule par zone</div>','<div class="eyebrow"><span class="dot"></span>One formula per zone</div>'),
 ('<h2>À chaque microflore, son probiotique.</h2>','<h2>A targeted probiotic for every microflora.</h2>'),
 ('<p>Probaclac formule des probiotiques de grade pharmaceutique ciblés sur chacune des cinq microflores du corps.</p>','<p>Probaclac formulates pharmaceutical-grade probiotics targeted to each of the body\'s five microflora.</p>'),
-('<span class="prod-card__zone">Intestin · côlon</span><div class="prod-card__name">Probaclac Adultes</div>','<span class="prod-card__zone">Intestine · colon</span><div class="prod-card__name">Probaclac Adults</div>'),
-('<span class="prod-card__zone">Estomac · grêle</span><div class="prod-card__name">Probaclac GI</div>','<span class="prod-card__zone">Stomach · small intestine</span><div class="prod-card__name">Probaclac GI</div>'),
-('<span class="prod-card__zone">Côlon</span><div class="prod-card__name">Probaclac Côlon Irritable</div>','<span class="prod-card__zone">Colon</span><div class="prod-card__name">Probaclac IBS</div>'),
-('<span class="prod-card__zone">Microbiote vaginal</span><div class="prod-card__name">Probaclac Vaginal</div>','<span class="prod-card__zone">Vaginal microbiota</span><div class="prod-card__name">Probaclac Vaginal</div>'),
+('<div class="prod-card__name">Probaclac Adultes</div>','<div class="prod-card__name">Probaclac Adults</div>'),
+('<div class="prod-card__name">Probaclac Côlon Irritable</div>','<div class="prod-card__name">Probaclac IBS</div>'),
 ]
 _en.build('microbiote.html','microbiote.html',b)
 # global label replaces
