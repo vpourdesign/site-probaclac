@@ -132,6 +132,7 @@
 </script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+a{color:inherit;text-decoration:none}
 :root{
   /* site-2026 editorial tokens */
   --ink:#0a0a0a;
@@ -322,6 +323,8 @@ header{background-color:#fafaf7!important}
 @media(max-width:1024px){.stats-bar{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:600px){.stats-bar{grid-template-columns:1fr;gap:.75rem;padding:0 1rem;margin-top:-1rem}.stat-card{grid-template-rows:auto auto auto;grid-template-columns:auto 1fr;column-gap:1rem;padding:1.25rem 1.5rem;border-radius:20px}.stat-topline{grid-column:1/-1}.stat-metric{grid-column:1;grid-row:2}.stat-title{grid-column:2;grid-row:2;align-self:center}}
 .stat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.stat-card[data-tab]{cursor:pointer}
+.stat-card[data-tab]:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .stat-card.accent-vaginal{border-color:rgba(110,159,175,.22)}
 .stat-card.accent-yeast{border-color:rgba(206,48,121,.16)}
 .stat-card.accent-ibs{border-color:rgba(42,123,155,.18)}
@@ -572,6 +575,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <button class="nav__btn" id="megaToggle" aria-expanded="false" aria-controls="mega">Our products<span class="chev" aria-hidden="true"></span></button>
     <button class="nav__btn" id="aboutToggle" aria-expanded="false" aria-controls="megaAbout">About<span class="chev" aria-hidden="true"></span></button>
     <a href="studies.html" class="active">Studies</a>
+    <a href="en/blogue.html">Blog</a>
     <a href="en/foire-aux-questions.html">FAQ</a>
     <a href="http://www.monprobiotique.ca">Order online</a>
   </div>
@@ -698,32 +702,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 
 <div class="stats-bar reveal">
-  <article class="stat-card">
+  <article class="stat-card" data-tab="cdifficile" role="button" tabindex="0" aria-controls="cdifficile">
     <div class="stat-topline">Clostridium<br>difficile</div>
     <div class="stat-metric"><span class="stat-num" data-target="61" data-prefix="-" data-suffix="%">0</span></div>
     <h3 class="stat-title">CDAD Reduction<br>in Hospital Settings</h3>
   </article>
-  <article class="stat-card accent-medic">
+  <article class="stat-card accent-medic" data-tab="diarrhee" role="button" tabindex="0" aria-controls="diarrhee">
     <div class="stat-topline">Diarrhea and Antibiotics</div>
     <div class="stat-metric"><span class="stat-num" data-target="86" data-prefix="-" data-suffix="%">0</span></div>
     <h3 class="stat-title">Risk Reduction<br>with Supplementation</h3>
   </article>
-  <article class="stat-card accent-vaginal">
+  <article class="stat-card accent-vaginal" data-tab="vaginose" role="button" tabindex="0" aria-controls="vaginose">
     <div class="stat-topline">Bacterial<br>Vaginosis</div>
     <div class="stat-metric"><span class="stat-num" data-target="84" data-prefix="-" data-suffix="%">0</span></div>
     <h3 class="stat-title">Reduction in Recurrence<br>of Bacterial Vaginosis</h3>
   </article>
-  <article class="stat-card accent-yeast">
+  <article class="stat-card accent-yeast" data-tab="candidose" role="button" tabindex="0" aria-controls="candidose">
     <div class="stat-topline">Yeast<br>Infection</div>
     <div class="stat-metric"><span class="stat-num" data-target="91" data-suffix="%">0</span></div>
     <h3 class="stat-title">Women Relapse-Free<br>After 4 Months</h3>
   </article>
-  <article class="stat-card accent-ibs">
+  <article class="stat-card accent-ibs" data-tab="ibs" role="button" tabindex="0" aria-controls="ibs">
     <div class="stat-topline">Irritable Bowel<br>Syndrome</div>
     <div class="stat-metric"><span class="stat-num" data-target="33" data-prefix="+" data-suffix="%" style="color:#2a7b9b">0</span></div>
     <h3 class="stat-title">Stool Frequency<br>in Constipation</h3>
   </article>
-  <article class="stat-card accent-ibs">
+  <article class="stat-card accent-ibs" data-tab="ibs" role="button" tabindex="0" aria-controls="ibs">
     <div class="stat-topline">Irritable Bowel<br>Syndrome</div>
     <div class="stat-metric"><span class="stat-num" data-target="21" data-prefix="-" data-suffix="%" style="color:#2a7b9b">0</span></div>
     <h3 class="stat-title">Stool Frequency<br>in Diarrhea</h3>
@@ -1606,6 +1610,20 @@ studyButtons.forEach(btn=>{
     if(target)target.classList.add('active');
     openStudyCardsInSection(target);
     setStudyActionsVisible(true);
+  });
+});
+
+// les cartes de statistiques ouvrent l'onglet correspondant
+document.querySelectorAll('.stat-card[data-tab]').forEach(card=>{
+  const open=()=>{
+    const btn=studyButtons.find(b=>b.dataset.tab===card.dataset.tab);
+    if(!btn)return;
+    if(!btn.classList.contains('active'))btn.click();
+    if(studyTabs)studyTabs.scrollIntoView({block:'start',behavior:'smooth'});
+  };
+  card.addEventListener('click',open);
+  card.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}
   });
 });
 
