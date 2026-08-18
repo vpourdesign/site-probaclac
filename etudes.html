@@ -132,6 +132,7 @@
 </script>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+a{color:inherit;text-decoration:none}
 :root{
   /* site-2026 editorial tokens */
   --ink:#0a0a0a;
@@ -322,6 +323,8 @@ header{background-color:#fafaf7!important}
 @media(max-width:1024px){.stats-bar{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:600px){.stats-bar{grid-template-columns:1fr;gap:.75rem;padding:0 1rem;margin-top:-1rem}.stat-card{grid-template-rows:auto auto auto;grid-template-columns:auto 1fr;column-gap:1rem;padding:1.25rem 1.5rem;border-radius:20px}.stat-topline{grid-column:1/-1}.stat-metric{grid-column:1;grid-row:2}.stat-title{grid-column:2;grid-row:2;align-self:center}}
 .stat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.stat-card[data-tab]{cursor:pointer}
+.stat-card[data-tab]:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .stat-card.accent-vaginal{border-color:rgba(110,159,175,.22)}
 .stat-card.accent-yeast{border-color:rgba(206,48,121,.16)}
 .stat-card.accent-ibs{border-color:rgba(42,123,155,.18)}
@@ -331,7 +334,7 @@ header{background-color:#fafaf7!important}
 .stat-num{font-family:var(--font-primary);font-size:clamp(2.6rem,4vw,3.6rem);font-weight:400;color:var(--o1);line-height:.95;display:block;letter-spacing:-.04em}
 .stat-card.accent-vaginal .stat-num{color:var(--vaginose)}
 .stat-card.accent-yeast .stat-num{color:#ce3079}
-.stat-card.accent-ibs .stat-num{color:#2a7b9b}
+.stat-card.accent-ibs .stat-num{color:#00b5d3}
 .stat-card.accent-medic .stat-num{color:var(--medic)}
 .stat-title{font-family:var(--font-secondary);font-size:.76rem;font-weight:700;line-height:1.28;color:var(--text);align-self:start;max-width:92%}
 
@@ -348,10 +351,18 @@ header{background-color:#fafaf7!important}
 .study-nav-btn[data-tab="candidose"]:hover{background:#ce3079;border-color:#ce3079;color:var(--white)}
 .study-nav-btn[data-tab="diarrhee"].active{background:var(--medic);border-color:var(--medic)}
 .study-nav-btn[data-tab="diarrhee"]:hover{background:var(--medic);border-color:var(--medic);color:var(--white)}
-.study-nav-btn[data-tab="ibs"].active{background:#2a7b9b;border-color:#2a7b9b}
-.study-nav-btn[data-tab="ibs"]:hover{background:#2a7b9b;border-color:#2a7b9b;color:var(--white)}
+.study-nav-btn[data-tab="ibs"].active{background:#00b5d3;border-color:#00b5d3;color:var(--text)}
+.study-nav-btn[data-tab="ibs"]:hover{background:#00b5d3;border-color:#00b5d3;color:var(--text)}
 
 /* Chart components */
+.study-product{display:flex;align-items:center;gap:1.25rem;background:var(--white);border:1px solid #eee;border-radius:16px;padding:1rem 1.25rem;margin:1.5rem 0;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.study-product img{width:96px;height:96px;flex:0 0 auto;border-radius:12px;object-fit:cover}
+.study-product__txt{display:flex;flex-direction:column;gap:.2rem;min-width:0}
+.study-product__kicker{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--text-light)}
+.study-product__name{font-weight:700;font-size:1.05rem;letter-spacing:-.02em}
+.study-product__link{font-weight:700;font-size:.88rem;color:var(--accent-tab,var(--o1));margin-top:.15rem;display:inline-flex;align-items:center;gap:.35rem}
+.study-product__link:hover{text-decoration:underline}
+@media(max-width:560px){.study-product{flex-direction:column;text-align:center}.study-product__txt{align-items:center}}
 .chart-container{background:var(--white);border-radius:16px;padding:1.5rem;border:1px solid #eee;box-shadow:0 2px 12px rgba(0,0,0,.04);margin:1rem 0}
 .chart-title{font-family:var(--font-secondary);font-size:.8rem;font-weight:700;color:var(--text);margin-bottom:1rem;text-align:center}
 .chart-source{font-size:.65rem;color:#999;margin-top:.5rem;text-align:right;font-style:italic}
@@ -572,8 +583,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <button class="nav__btn" id="megaToggle" aria-expanded="false" aria-controls="mega">Nos produits<span class="chev" aria-hidden="true"></span></button>
     <button class="nav__btn" id="aboutToggle" aria-expanded="false" aria-controls="megaAbout">À propos<span class="chev" aria-hidden="true"></span></button>
     <a href="etudes.html" class="active">Études</a>
+    <a href="blogue.html">Blogue</a>
     <a href="foire-aux-questions.html">FAQ</a>
-    <a href="http://www.monprobiotique.ca">Commander en ligne</a>
   </div>
   <div class="nav__right">
     <div class="nav__lang"><span class="cur">FR</span><span class="sep">/</span><a href="studies.html">EN</a></div>
@@ -651,8 +662,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </li>
     <li><a href="etudes.html" class="active">Études</a></li>
+    <li><a href="blogue.html">Blogue</a></li>
     <li><a href="foire-aux-questions.html">FAQ</a></li>
-    <li><a href="http://www.monprobiotique.ca">Commander en ligne</a></li>
   </ul>
   <div class="mobile-lang">
     <a href="etudes.html" class="active">FR</a>
@@ -698,34 +709,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 
 <div class="stats-bar reveal">
-  <article class="stat-card">
+  <article class="stat-card" data-tab="cdifficile" role="button" tabindex="0" aria-controls="cdifficile">
     <div class="stat-topline">Clostridium<br>difficile</div>
     <div class="stat-metric"><span class="stat-num" data-target="61" data-prefix="-" data-suffix="%">0</span></div>
     <h3 class="stat-title">Réduction de la DACD<br>en milieu hospitalier</h3>
   </article>
-  <article class="stat-card accent-medic">
+  <article class="stat-card accent-medic" data-tab="diarrhee" role="button" tabindex="0" aria-controls="diarrhee">
     <div class="stat-topline">Diarrhée et antibiotiques</div>
     <div class="stat-metric"><span class="stat-num" data-target="86" data-prefix="-" data-suffix="%">0</span></div>
     <h3 class="stat-title">Baisse du risque avec<br>supplémentation</h3>
   </article>
-  <article class="stat-card accent-vaginal">
+  <article class="stat-card accent-vaginal" data-tab="vaginose" role="button" tabindex="0" aria-controls="vaginose">
     <div class="stat-topline">Vaginose<br>bactérienne</div>
     <div class="stat-metric"><span class="stat-num" data-target="84" data-prefix="-" data-suffix="%">0</span></div>
     <h3 class="stat-title">Réduction de la récurrence<br>de la vaginose bactérienne</h3>
   </article>
-  <article class="stat-card accent-yeast">
+  <article class="stat-card accent-yeast" data-tab="candidose" role="button" tabindex="0" aria-controls="candidose">
     <div class="stat-topline">Infection à<br>levure</div>
     <div class="stat-metric"><span class="stat-num" data-target="91" data-suffix="%">0</span></div>
     <h3 class="stat-title">Femmes sans rechute<br>après 4 mois</h3>
   </article>
-  <article class="stat-card accent-ibs">
+  <article class="stat-card accent-ibs" data-tab="ibs" role="button" tabindex="0" aria-controls="ibs">
     <div class="stat-topline">Syndrome de l'intestin<br>irritable</div>
-    <div class="stat-metric"><span class="stat-num" data-target="33" data-prefix="+" data-suffix="%" style="color:#2a7b9b">0</span></div>
+    <div class="stat-metric"><span class="stat-num" data-target="33" data-prefix="+" data-suffix="%" style="color:#00b5d3">0</span></div>
     <h3 class="stat-title">Fréquence des selles<br>en constipation</h3>
   </article>
-  <article class="stat-card accent-ibs">
+  <article class="stat-card accent-ibs" data-tab="ibs" role="button" tabindex="0" aria-controls="ibs">
     <div class="stat-topline">Syndrome de l'intestin<br>irritable</div>
-    <div class="stat-metric"><span class="stat-num" data-target="21" data-prefix="-" data-suffix="%" style="color:#2a7b9b">0</span></div>
+    <div class="stat-metric"><span class="stat-num" data-target="21" data-prefix="-" data-suffix="%" style="color:#00b5d3">0</span></div>
     <h3 class="stat-title">Fréquence des selles<br>en diarrhée</h3>
   </article>
 </div>
@@ -879,6 +890,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="result-highlight" style="background:linear-gradient(135deg,#ce3079,#a82563)">
           <div class="rh-num">91%</div>
           <div class="rh-text">des femmes n'ont pas eu de rechute après 4 mois de suivi dans l'étude Carriero (2007) portant sur 476 femmes atteintes de candidose vulvo-vaginale.</div>
+        </div>
+
+        
+        <div class="study-product" style="--accent-tab:#ce3079">
+          <img src="assets/thumbs/rosella.webp" alt="Probaclac infection à levure" loading="lazy">
+          <div class="study-product__txt">
+            <span class="study-product__kicker">Produit associé</span>
+            <span class="study-product__name">Probaclac infection à levure</span>
+            <a class="study-product__link" href="probiotique-infection-a-levure.html">Voir le produit <span aria-hidden="true">&rarr;</span></a>
+          </div>
         </div>
 
         <div class="study-overview">
@@ -1127,11 +1148,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="sc-text"><strong>Lacticaseibacillus paracasei HA-196</strong> est une bactérie bénéfique que l'on retrouve naturellement dans la bouche et les intestins. Elle produit de l'acide lactique, contribuant à <strong>abaisser le pH digestif</strong> et à freiner la croissance des bactéries nuisibles. Sa capacité d'adhésion aux cellules épithéliales du côlon lui confère un avantage compétitif contre les pathogènes.</p>
 
         <div class="rh-duo" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0">
-          <div class="result-highlight" style="background:linear-gradient(135deg,#2a7b9b,#1a5a73);margin:0;flex-direction:column;align-items:flex-start;gap:.75rem">
+          <div class="result-highlight" style="background:linear-gradient(135deg,#00b5d3,#007e94);margin:0;flex-direction:column;align-items:flex-start;gap:.75rem">
             <div class="rh-num">+33%</div>
             <div class="rh-text">Fréquence des selles en constipation</div>
           </div>
-          <div class="result-highlight" style="background:linear-gradient(135deg,#2a7b9b,#1a5a73);margin:0;flex-direction:column;align-items:flex-start;gap:.75rem">
+          <div class="result-highlight" style="background:linear-gradient(135deg,#00b5d3,#007e94);margin:0;flex-direction:column;align-items:flex-start;gap:.75rem">
             <div class="rh-num">-21%</div>
             <div class="rh-text">Fréquence des selles en diarrhée</div>
           </div>
@@ -1140,18 +1161,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h4 style="font-size:.95rem;font-weight:700;margin:1.5rem 0 .75rem">Architecture de l'étude IBS</h4>
         <p class="sc-text">Cette section reprend l'esprit des planches de synthèse fournies, mais avec des graphiques, cartes et compositions intégralement redessinés pour l'univers Probaclac.</p>
 
+        
+        <div class="study-product" style="--accent-tab:#00b5d3">
+          <img src="assets/thumbs/sci.webp" alt="Probaclac SCI" loading="lazy">
+          <div class="study-product__txt">
+            <span class="study-product__kicker">Produit associé</span>
+            <span class="study-product__name">Probaclac SCI</span>
+            <a class="study-product__link" href="probiotique-colon-irritable.html">Voir le produit <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+
         <div class="study-overview">
           <div class="overview-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
-            <div class="overview-kicker" style="color:#2a7b9b">Lecture rapide</div>
+            <div class="overview-kicker" style="color:#00b5d3">Lecture rapide</div>
             <div class="overview-big">
-              <strong style="color:#2a7b9b">251</strong>
+              <strong style="color:#00b5d3">251</strong>
               <span>adultes évalués<br>sur 8 semaines</span>
             </div>
             <p class="overview-note">Participants présentant des sous-types IBS-C, IBS-D ou IBS-M. L'étude randomisée, à double insu et contrôlée par placebo suivait les variations de symptômes digestifs et de qualité de vie.</p>
           </div>
           <div class="protocol-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
             <div class="protocol-flow">
-              <div class="flow-step primary" style="background:linear-gradient(135deg,#2a7b9b,#1a5a73)">
+              <div class="flow-step primary" style="background:linear-gradient(135deg,#00b5d3,#007e94)">
                 <span>L. paracasei HA-196</span>
                 <small>10 milliards CFU par jour pendant 8 semaines</small>
               </div>
@@ -1182,7 +1213,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h5>Qualité de vie - SF-36</h5>
                 <p class="metric-sub">Deux dimensions se distinguent à la semaine 8 : bien-être émotionnel et fonctionnement social.</p>
               </div>
-              <span class="metric-pill" style="background:#edf6fa;color:#2a7b9b">SF-36</span>
+              <span class="metric-pill" style="background:#edf6fa;color:#00b5d3">SF-36</span>
             </div>
             <svg viewBox="0 0 360 220" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
               <line x1="42" y1="24" x2="42" y2="178" stroke="#d8d8de"/>
@@ -1191,15 +1222,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <line x1="42" y1="86" x2="332" y2="86" stroke="#eef1f4"/>
               <text x="96" y="198" text-anchor="middle" font-size="10" fill="#7f8791">Bien-être</text>
               <text x="238" y="198" text-anchor="middle" font-size="10" fill="#7f8791">Social</text>
-              <rect x="72" y="95" width="28" height="83" rx="10" fill="#2a7b9b"/>
+              <rect x="72" y="95" width="28" height="83" rx="10" fill="#00b5d3"/>
               <rect x="106" y="68" width="28" height="110" rx="10" fill="#f0a54a"/>
               <rect x="140" y="118" width="28" height="60" rx="10" fill="#c9ced5"/>
-              <rect x="214" y="58" width="28" height="120" rx="10" fill="#2a7b9b"/>
+              <rect x="214" y="58" width="28" height="120" rx="10" fill="#00b5d3"/>
               <rect x="248" y="78" width="28" height="100" rx="10" fill="#f0a54a"/>
               <rect x="282" y="126" width="28" height="52" rx="10" fill="#c9ced5"/>
             </svg>
             <div class="chart-legend">
-              <span class="legend-item"><span class="legend-dot" style="background:#2a7b9b"></span>HA-196</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#00b5d3"></span>HA-196</span>
               <span class="legend-item"><span class="legend-dot" style="background:#f0a54a"></span>B. longum</span>
               <span class="legend-item"><span class="legend-dot" style="background:#c9ced5"></span>Placebo</span>
             </div>
@@ -1211,7 +1242,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h5>Fréquence des selles selon le sous-type IBS</h5>
                 <p class="metric-sub">Lecture simplifiee des sous-groupes IBS-D et IBS-C entre le depart, la semaine 4 et la semaine 8.</p>
               </div>
-              <span class="metric-pill" style="background:#edf6fa;color:#2a7b9b">Bristol</span>
+              <span class="metric-pill" style="background:#edf6fa;color:#00b5d3">Bristol</span>
             </div>
             <svg viewBox="0 0 360 220" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
               <line x1="30" y1="28" x2="30" y2="188" stroke="#d8d8de"/>
@@ -1219,18 +1250,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <text x="88" y="204" text-anchor="middle" font-size="10" fill="#7f8791">Depart</text>
               <text x="166" y="204" text-anchor="middle" font-size="10" fill="#7f8791">Sem. 4</text>
               <text x="244" y="204" text-anchor="middle" font-size="10" fill="#7f8791">Sem. 8</text>
-              <polyline points="64,96 166,106 268,132" fill="none" stroke="#2a7b9b" stroke-width="4" stroke-linecap="round"/>
+              <polyline points="64,96 166,106 268,132" fill="none" stroke="#00b5d3" stroke-width="4" stroke-linecap="round"/>
               <polyline points="64,74 166,66 268,70" fill="none" stroke="#9aa3ad" stroke-width="3" stroke-dasharray="7 6" stroke-linecap="round"/>
-              <circle cx="64" cy="96" r="5" fill="#2a7b9b"/><circle cx="166" cy="106" r="5" fill="#2a7b9b"/><circle cx="268" cy="132" r="5" fill="#2a7b9b"/>
+              <circle cx="64" cy="96" r="5" fill="#00b5d3"/><circle cx="166" cy="106" r="5" fill="#00b5d3"/><circle cx="268" cy="132" r="5" fill="#00b5d3"/>
               <circle cx="64" cy="74" r="4.5" fill="#9aa3ad"/><circle cx="166" cy="66" r="4.5" fill="#9aa3ad"/><circle cx="268" cy="70" r="4.5" fill="#9aa3ad"/>
               <polyline points="64,146 166,132 268,120" fill="none" stroke="#f0a54a" stroke-width="4" stroke-linecap="round"/>
-              <text x="274" y="126" font-size="11" font-weight="700" fill="#2a7b9b">-21%</text>
+              <text x="274" y="126" font-size="11" font-weight="700" fill="#00b5d3">-21%</text>
               <text x="274" y="114" font-size="11" font-weight="700" fill="#f0a54a">+33%</text>
               <text x="292" y="58" font-size="10" fill="#7f8791">IBS-D vs placebo</text>
               <text x="292" y="154" font-size="10" fill="#7f8791">IBS-C</text>
             </svg>
             <div class="chart-legend">
-              <span class="legend-item"><span class="legend-dot" style="background:#2a7b9b"></span>HA-196</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#00b5d3"></span>HA-196</span>
               <span class="legend-item"><span class="legend-dot" style="background:#f0a54a"></span>gain IBS-C</span>
               <span class="legend-item"><span class="legend-dot" style="background:#9aa3ad"></span>placebo</span>
             </div>
@@ -1239,17 +1270,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="insight-grid">
           <div class="insight-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
-            <strong style="color:#2a7b9b">-21%</strong>
+            <strong style="color:#00b5d3">-21%</strong>
             <span>fréquence des selles en IBS-D</span>
             <p>Une baisse significative apres 8 semaines versus placebo.</p>
           </div>
           <div class="insight-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
-            <strong style="color:#2a7b9b">+33%</strong>
+            <strong style="color:#00b5d3">+33%</strong>
             <span>fréquence des selles en IBS-C</span>
             <p>Accompagnée d'une réduction du besoin en laxatif.</p>
           </div>
           <div class="insight-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
-            <strong style="color:#2a7b9b">2</strong>
+            <strong style="color:#00b5d3">2</strong>
             <span>dimensions SF-36 marquees</span>
             <p>Bien-être émotionnel et fonctionnement social ressortent nettement.</p>
           </div>
@@ -1258,28 +1289,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="matrix-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
           <h5>Synthese clinique HA-196</h5>
           <div class="evidence-matrix">
-            <div class="matrix-head topic" style="background:#e7f2f7;color:#1a5a73">Axe</div>
-            <div class="matrix-head" style="background:#e7f2f7;color:#1a5a73">Observation</div>
-            <div class="matrix-head" style="background:#eef8fb;color:#1a5a73">Sous-groupe</div>
-            <div class="matrix-head" style="background:#eef8fb;color:#1a5a73">Impact</div>
+            <div class="matrix-head topic" style="background:#e7f2f7;color:#007e94">Axe</div>
+            <div class="matrix-head" style="background:#e7f2f7;color:#007e94">Observation</div>
+            <div class="matrix-head" style="background:#eef8fb;color:#007e94">Sous-groupe</div>
+            <div class="matrix-head" style="background:#eef8fb;color:#007e94">Impact</div>
 
             <div class="matrix-cell topic">Transit</div>
-            <div class="matrix-cell good" style="background:#f1f9fc;color:#1a5a73;border-color:rgba(42,123,155,.18)">-21% en IBS-D</div>
+            <div class="matrix-cell good" style="background:#f1f9fc;color:#007e94;border-color:rgba(42,123,155,.18)">-21% en IBS-D</div>
             <div class="matrix-cell mid" style="background:#fffaf2">IBS-D</div>
             <div class="matrix-cell">Habitudes intestinales plus régulières.</div>
 
             <div class="matrix-cell topic">Constipation</div>
-            <div class="matrix-cell good" style="background:#f1f9fc;color:#1a5a73;border-color:rgba(42,123,155,.18)">+33% en IBS-C</div>
+            <div class="matrix-cell good" style="background:#f1f9fc;color:#007e94;border-color:rgba(42,123,155,.18)">+33% en IBS-C</div>
             <div class="matrix-cell mid" style="background:#fffaf2">IBS-C</div>
             <div class="matrix-cell">Fréquence accrue et moindre recours aux laxatifs.</div>
 
             <div class="matrix-cell topic">Qualité de vie</div>
-            <div class="matrix-cell good" style="background:#f1f9fc;color:#1a5a73;border-color:rgba(42,123,155,.18)">amelioration SF-36</div>
+            <div class="matrix-cell good" style="background:#f1f9fc;color:#007e94;border-color:rgba(42,123,155,.18)">amelioration SF-36</div>
             <div class="matrix-cell mid" style="background:#fffaf2">cohorte globale</div>
             <div class="matrix-cell">Meilleur ressenti émotionnel et social.</div>
 
             <div class="matrix-cell topic">Methodologie</div>
-            <div class="matrix-cell good" style="background:#f1f9fc;color:#1a5a73;border-color:rgba(42,123,155,.18)">6 outils valides</div>
+            <div class="matrix-cell good" style="background:#f1f9fc;color:#007e94;border-color:rgba(42,123,155,.18)">6 outils valides</div>
             <div class="matrix-cell mid" style="background:#fffaf2">8 semaines</div>
             <div class="matrix-cell">Lecture clinique robuste et multi-dimensionnelle.</div>
           </div>
@@ -1317,7 +1348,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
 
-        <div class="info-box" style="border-color:#2a7b9b"><p><strong>Activité antimicrobienne démontrée in vitro</strong> contre <em>E. coli</em>, <em>Salmonella typhimurium</em>, <em>Listeria monocytogenes</em>, <em>Clostridium difficile</em>, <em>Staphylococcus aureus</em> SARM et <em>Klebsiella pneumoniae</em>. HA-196 produit également du peroxyde d'hydrogène, inhibant la croissance des pathogènes.</p></div>
+        <div class="info-box" style="border-color:#00b5d3"><p><strong>Activité antimicrobienne démontrée in vitro</strong> contre <em>E. coli</em>, <em>Salmonella typhimurium</em>, <em>Listeria monocytogenes</em>, <em>Clostridium difficile</em>, <em>Staphylococcus aureus</em> SARM et <em>Klebsiella pneumoniae</em>. HA-196 produit également du peroxyde d'hydrogène, inhibant la croissance des pathogènes.</p></div>
 
         <p class="sc-text"><strong>Données marché :</strong> 25 % des consommateurs canadiens souffrent du syndrome de l'intestin irritable au moins occasionnellement. Seuls 42 % se déclarent satisfaits de leur santé digestive en 2024, contre 61 % en 2022. 45 % trouveraient attrayant un complément portant l'allégation « soulage les symptômes du SII ».</p>
 
@@ -1602,6 +1633,20 @@ studyButtons.forEach(btn=>{
     if(target)target.classList.add('active');
     openStudyCardsInSection(target);
     setStudyActionsVisible(true);
+  });
+});
+
+// les cartes de statistiques ouvrent l'onglet correspondant
+document.querySelectorAll('.stat-card[data-tab]').forEach(card=>{
+  const open=()=>{
+    const btn=studyButtons.find(b=>b.dataset.tab===card.dataset.tab);
+    if(!btn)return;
+    if(!btn.classList.contains('active'))btn.click();
+    if(studyTabs)studyTabs.scrollIntoView({block:'start',behavior:'smooth'});
+  };
+  card.addEventListener('click',open);
+  card.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}
   });
 });
 
