@@ -29,3 +29,6 @@ adultes-stitch/
 histoire/
 VAGINAL-newlook.jpg
 en/blogue/_src/
+
+# Config locale de l'aperçu (Claude Code)
+.claude/
