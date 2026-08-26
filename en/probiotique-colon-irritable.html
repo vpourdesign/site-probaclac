@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <title>Probiotic IBS (Irritable Bowel Syndrome) — Probaclac</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon.png">
 <meta name="description" content="12 probiotic formulas, made in Quebec, validated by science.">
 
 <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
@@ -1708,6 +1710,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 .hero-badge{ display:flex; align-items:center; gap:.6rem; }
 .hero-badge img{ width:46px; height:46px; object-fit:contain; }
 .hero-badge span{ font-weight:700; font-size:.84rem; }
+
+/* Sceau de certification FODMAP Friendly */
+.hero-cert{ display:flex; align-items:center; gap:1.1rem; margin-top:1.7rem; padding-top:1.5rem; border-top:1px solid var(--rule); }
+.hero-cert__seal{ width:clamp(74px,8.5vw,94px); height:auto; flex:none; }
+.hero-cert__txt{ margin:0; font-size:.88rem; line-height:1.5; color:var(--mute); }
+.hero-cert__txt b{ display:block; color:var(--ink); font-weight:700; letter-spacing:-.012em; font-size:1rem; margin-bottom:.15rem; }
+@media(max-width:560px){ .hero-cert{ gap:.85rem; } }
 .pbl-hero__cta{ margin-top:1.7rem; }
 @media(max-width:880px){ .pbl-hero__grid{ grid-template-columns:1fr; gap:1.8rem; } .pbl-hero__media{ max-width:380px; } }
 
@@ -1937,6 +1946,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="hero-badge"><img src="../assets/wix/623234_82219e3c86ae48d9954baac0210d9aaf.jpg" alt=""><span>Soy Free</span></div>
           <div class="hero-badge"><img src="../assets/wix/623234_a069aaba10fc4cc2a0555f996d3cdf90.jpg" alt=""><span>No milk proteins</span></div>
           <div class="hero-badge"><img src="../assets/wix/623234_3f4f653f708d4a38879c16ecb35f8292.jpg" alt=""><span>Vegetable capsules</span></div>
+        </div>
+        <div class="hero-cert reveal">
+          <img class="hero-cert__seal" src="../assets/fodmap.png" width="512" height="512" alt="FODMAP Friendly seal — approved food product" decoding="async">
+          <p class="hero-cert__txt"><b>FODMAP Friendly certified</b>Approved by the international FODMAP Friendly certification program.</p>
         </div>
       </div>
     </div>
