@@ -13,8 +13,10 @@
 
 
 # ─── 1 · PAGES FR — fusionnées ou renommées ─────────────────────────────────
-/avantages                                                                                        /choisir                                            301
-/meilleur-probiotique-pour-vous                                                                   /choisir                                            301
+/avantages                                                                                        /meilleur-probiotique                               301
+/meilleur-probiotique-pour-vous                                                                   /meilleur-probiotique                               301
+/choisir                                                                                          /meilleur-probiotique                               301
+/choisir.html                                                                                     /meilleur-probiotique                               301
 /microbiote-probiotiques                                                                          /microbiote                                         301
 /etudes2                                                                                          /etudes                                             301
 /etudes2-1                                                                                        /etudes                                             301
@@ -27,8 +29,10 @@
 
 
 # ─── 2 · PAGES EN — fusionnées ou renommées ─────────────────────────────────
-/en/avantages                                                                                     /en/choisir                                         301
-/en/meilleur-probiotique-pour-vous                                                                /en/choisir                                         301
+/en/avantages                                                                                     /en/best-probiotic                                  301
+/en/meilleur-probiotique-pour-vous                                                                /en/best-probiotic                                  301
+/en/choisir                                                                                       /en/best-probiotic                                  301
+/en/choisir.html                                                                                  /en/best-probiotic                                  301
 /en/microbiote-probiotiques                                                                       /en/microbiote                                      301
 /en/etudes                                                                                        /studies                                            301
 /en/etudes2                                                                                       /studies                                            301
@@ -43,12 +47,12 @@
 # informationnelle conservée, et le lien d'achat est sur la page d'arrivée.
 /product-page/probaclac-adultes                                                                   /probiotique-adulte                                 301
 /en/product-page/probaclac-adultes                                                                /en/probiotique-adulte                              301
-/category/all-products                                                                            /choisir                                            301
-/en/category/all-products                                                                         /en/choisir                                         301
-/product-page/*                                                                                   /choisir                                            301
-/en/product-page/*                                                                                /en/choisir                                         301
-/category/*                                                                                       /choisir                                            301
-/en/category/*                                                                                    /en/choisir                                         301
+/category/all-products                                                                            /meilleur-probiotique                               301
+/en/category/all-products                                                                         /en/best-probiotic                                  301
+/product-page/*                                                                                   /meilleur-probiotique                               301
+/en/product-page/*                                                                                /en/best-probiotic                                  301
+/category/*                                                                                       /meilleur-probiotique                               301
+/en/category/*                                                                                    /en/best-probiotic                                  301
 
 
 # ─── 4 · BLOGUE — index ─────────────────────────────────────────────────────
@@ -184,8 +188,8 @@
 /en/post/burning-sensation-urinary-infections                                                     /en/probiotique-infection-urinaire                  301
 /en/post/intestine-patients-change-your-faith                                                     /en/probiotique-colon-irritable                     301
 /en/post/probiotics-your-travel-insurance                                                         /en/probiotique-voyage                              301
-/en/post/choosing-the-right-probiotic                                                             /en/choisir                                         301
-/en/post/probiotics-at-any-age                                                                    /en/choisir                                         301
+/en/post/choosing-the-right-probiotic                                                             /en/best-probiotic                                  301
+/en/post/probiotics-at-any-age                                                                    /en/best-probiotic                                  301
 /en/post/a-probiotic-overdose                                                                     /en/foire-aux-questions                             301
 /en/post/microbiota-and-autism                                                                    /en/microbiote                                      301
 /en/post/probiotics-a-matter-of-the-heart                                                         /en/microbiote                                      301
