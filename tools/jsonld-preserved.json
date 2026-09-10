@@ -1,0 +1,198 @@
+{
+  "etudes.html": {
+    "_source": "récupéré du bloc JSON-LD servi en ligne le 2026-09-10 avant remplacement",
+    "about": [
+      {
+        "@type": "MedicalCondition",
+        "name": "Diarrhée associée aux antibiotiques",
+        "alternateName": "DAA"
+      },
+      {
+        "@type": "MedicalCondition",
+        "name": "Vaginose bactérienne",
+        "alternateName": "VB"
+      },
+      {
+        "@type": "MedicalCondition",
+        "name": "Syndrome de l'intestin irritable",
+        "alternateName": "SII"
+      },
+      {
+        "@type": "MedicalCondition",
+        "name": "Infection vaginale à levures",
+        "alternateName": "Candidose vulvo-vaginale"
+      }
+    ],
+    "itemList": {
+      "name": "Études cliniques Probaclac",
+      "itemListElement": [
+        {
+          "@type": "MedicalStudy",
+          "name": "Réduction de la DACD en milieu hospitalier",
+          "studyType": "Essai randomisé contrôlé à double insu",
+          "outcome": "Réduction de 59% de la diarrhée à Clostridioides difficile en milieu hospitalier",
+          "healthCondition": {
+            "@type": "MedicalCondition",
+            "name": "Diarrhée associée au Clostridioides difficile"
+          }
+        },
+        {
+          "@type": "MedicalStudy",
+          "name": "Efficacité de S. boulardii contre la DAA",
+          "studyType": "Essai randomisé contrôlé à double insu",
+          "studySubject": {
+            "@type": "Drug",
+            "name": "Saccharomyces boulardii"
+          },
+          "outcome": "Réduction de 86% de la diarrhée associée aux antibiotiques chez 151 patients hospitalisés",
+          "healthCondition": {
+            "@type": "MedicalCondition",
+            "name": "Diarrhée associée aux antibiotiques"
+          }
+        },
+        {
+          "@type": "MedicalStudy",
+          "name": "Probiotiques et récurrence de la vaginose bactérienne",
+          "studyType": "Essai clinique contrôlé",
+          "outcome": "Réduction de 81% de la récurrence de la vaginose bactérienne",
+          "healthCondition": {
+            "@type": "MedicalCondition",
+            "name": "Vaginose bactérienne"
+          }
+        },
+        {
+          "@type": "MedicalStudy",
+          "name": "Probiotiques et infections à levures",
+          "studyType": "Essai clinique",
+          "outcome": "88% des femmes sans rechute après 4 mois de supplémentation probiotique",
+          "healthCondition": {
+            "@type": "MedicalCondition",
+            "name": "Candidose vulvo-vaginale"
+          }
+        },
+        {
+          "@type": "MedicalStudy",
+          "name": "L. paracasei HA-196 et SII-C",
+          "studyType": "Essai randomisé contrôlé",
+          "outcome": "Augmentation de 33% de la fréquence des selles en SII à constipation prédominante",
+          "healthCondition": {
+            "@type": "MedicalCondition",
+            "name": "Syndrome de l'intestin irritable - constipation"
+          }
+        },
+        {
+          "@type": "MedicalStudy",
+          "name": "L. paracasei HA-196 et SII-D",
+          "studyType": "Essai randomisé contrôlé",
+          "studySubject": {
+            "@type": "Drug",
+            "name": "Lacticaseibacillus paracasei HA-196"
+          },
+          "outcome": "Réduction de 21% de la fréquence des selles en SII à diarrhée prédominante après 8 semaines",
+          "healthCondition": {
+            "@type": "MedicalCondition",
+            "name": "Syndrome de l'intestin irritable - diarrhée"
+          }
+        }
+      ]
+    }
+  },
+  "studies.html": {
+    "_source": "récupéré du bloc JSON-LD servi en ligne le 2026-09-10 avant remplacement",
+    "about": [
+      {
+        "@type": "MedicalCondition",
+        "name": "Antibiotic-associated diarrhea",
+        "alternateName": "AAD"
+      },
+      {
+        "@type": "MedicalCondition",
+        "name": "Bacterial vaginosis",
+        "alternateName": "BV"
+      },
+      {
+        "@type": "MedicalCondition",
+        "name": "Irritable bowel syndrome",
+        "alternateName": "IBS"
+      },
+      {
+        "@type": "MedicalCondition",
+        "name": "Vulvovaginal candidiasis",
+        "alternateName": "Yeast infection"
+      }
+    ],
+    "itemList": {
+      "name": "Probaclac Clinical Studies",
+      "itemListElement": [
+        {
+          "@type": "MedicalStudy",
+          "name": "Reduction of CDAD in hospital settings",
+          "studyType": "Randomized double-blind controlled trial",
+          "outcome": "59% reduction in Clostridioides difficile-associated diarrhea in hospitalized patients",
+          "healthCondition": {
+            "@type": "MedicalCondition",
+            "name": "Clostridioides difficile-associated diarrhea"
+          }
+        },
+        {
+          "@type": "MedicalStudy",
+          "name": "Efficacy of S. boulardii against AAD",
+          "studyType": "Randomized double-blind controlled trial",
+          "studySubject": {
+            "@type": "Drug",
+            "name": "Saccharomyces boulardii"
+          },
+          "outcome": "86% reduction in antibiotic-associated diarrhea among 151 hospitalized patients",
+          "healthCondition": {
+            "@type": "MedicalCondition",
+            "name": "Antibiotic-associated diarrhea"
+          }
+        },
+        {
+          "@type": "MedicalStudy",
+          "name": "Probiotics and bacterial vaginosis recurrence",
+          "studyType": "Controlled clinical trial",
+          "outcome": "81% reduction in bacterial vaginosis recurrence",
+          "healthCondition": {
+            "@type": "MedicalCondition",
+            "name": "Bacterial vaginosis"
+          }
+        },
+        {
+          "@type": "MedicalStudy",
+          "name": "Probiotics and yeast infections",
+          "studyType": "Clinical trial",
+          "outcome": "88% of women remained relapse-free after 4 months of probiotic supplementation",
+          "healthCondition": {
+            "@type": "MedicalCondition",
+            "name": "Vulvovaginal candidiasis"
+          }
+        },
+        {
+          "@type": "MedicalStudy",
+          "name": "L. paracasei HA-196 and IBS-C",
+          "studyType": "Randomized controlled trial",
+          "outcome": "33% increase in stool frequency in constipation-predominant IBS",
+          "healthCondition": {
+            "@type": "MedicalCondition",
+            "name": "Irritable bowel syndrome - constipation"
+          }
+        },
+        {
+          "@type": "MedicalStudy",
+          "name": "L. paracasei HA-196 and IBS-D",
+          "studyType": "Randomized controlled trial",
+          "studySubject": {
+            "@type": "Drug",
+            "name": "Lacticaseibacillus paracasei HA-196"
+          },
+          "outcome": "21% reduction in stool frequency in diarrhea-predominant IBS after 8 weeks",
+          "healthCondition": {
+            "@type": "MedicalCondition",
+            "name": "Irritable bowel syndrome - diarrhea"
+          }
+        }
+      ]
+    }
+  }
+}
