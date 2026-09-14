@@ -352,3 +352,18 @@ else:
     r = r.replace(anchor, block + '\n\n\n' + anchor, 1)
 open(rp, 'w', encoding='utf-8').write(r)
 print(f'_redirects : {len(rules)} règles .html')
+
+# ── sitemap.xml + robots.txt ──────────────────────────────────────────────────
+# Mêmes URL que les canonical : apex, sans .html, une par page réelle.
+# Pas de <lastmod> : les commits touchent souvent les 108 pages d'un coup (en-têtes),
+# une date identique partout serait fausse et Google cesserait de s'y fier.
+locs = [url_for(rel) for rel in sorted(rels - {'dashboard.html'}, key=lambda r: (r.count('/'), not r.endswith('index.html'), r))]
+xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+       '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+       + ''.join(f'  <url><loc>{u}</loc></url>\n' for u in locs)
+       + '</urlset>\n')
+open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8').write(xml)
+rb = os.path.join(ROOT, 'robots.txt')
+t = re.sub(r'(?m)^Sitemap:.*$', f'Sitemap: {ORIGIN}/sitemap.xml', open(rb, encoding='utf-8').read())
+open(rb, 'w', encoding='utf-8').write(t)
+print(f'sitemap.xml : {len(locs)} URL')
