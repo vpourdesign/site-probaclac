@@ -88,6 +88,18 @@ def catalogue(h):
 def strip_old(h):
     return re.sub(rf'(?s)\n?<script type="application/ld\+json" {MARK}>.*?</script>', '', h)
 
+def set_canonical(h, url):
+    """Un seul canonical par page, sur l'apex, sans .html. Remplace l'existant, sinon le pose après <title>."""
+    tag = f'<link rel="canonical" href="{url}">'
+    pat = r'<link\s+rel="canonical"[^>]*>'
+    if re.search(pat, h):
+        h = re.sub(pat, lambda m: tag, h, count=1)
+        first = h.index(tag) + len(tag)
+        return h[:first] + re.sub(r'\n?' + pat, '', h[first:])   # doublons éventuels
+    if '</title>' in h:
+        return h.replace('</title>', '</title>\n' + tag, 1)
+    return h.replace('</head>', tag + '\n</head>', 1)
+
 # ── nœuds partagés ────────────────────────────────────────────────────────────
 def org_node():
     return {
@@ -313,10 +325,30 @@ for f in files:
     if '</head>' not in h:
         skipped += 1; continue
     h = strip_old(h)
+    h = set_canonical(h, url_for(rel))
     h = re.sub(r'(?s)<script type="application/ld\+json">.*?</script>\n?', '', h)  # anciens blocs
     ld = build(rel, h, pairs)
     tag = ('<script type="application/ld+json" ' + MARK + '>\n'
            + json.dumps(ld, ensure_ascii=False, indent=2) + '\n</script>\n')
     open(f, 'w', encoding='utf-8').write(h.replace('</head>', tag + '</head>', 1))
     done += 1
-print(f'JSON-LD écrit sur {done} pages · {skipped} ignorées')
+print(f'JSON-LD + canonical écrits sur {done} pages · {skipped} ignorées')
+
+# ── 301 .html → URL propre ────────────────────────────────────────────────────
+# Netlify sert /page ET /page.html en 200. Une règle forcée par page supprime le doublon.
+# Le bloc est régénéré entre ses deux marqueurs, le reste de _redirects n'est pas touché.
+BEGIN, END = '# >>> 0 · .html → URL propre (généré par tools/build-jsonld.py)', '# <<< fin .html'
+rules = []
+for rel in sorted(rels - {'dashboard.html'}):
+    dest = url_for(rel)[len(ORIGIN):]
+    rules.append(f'/{rel:<96}  {dest:<50}  301!')
+block = BEGIN + '\n' + '\n'.join(rules) + '\n' + END
+rp = os.path.join(ROOT, '_redirects')
+r = open(rp, encoding='utf-8').read()
+if BEGIN in r:
+    r = re.sub(r'(?s)' + re.escape(BEGIN) + r'.*?' + re.escape(END), lambda m: block, r)
+else:
+    anchor = '# ─── 1 · PAGES FR'
+    r = r.replace(anchor, block + '\n\n\n' + anchor, 1)
+open(rp, 'w', encoding='utf-8').write(r)
+print(f'_redirects : {len(rules)} règles .html')
