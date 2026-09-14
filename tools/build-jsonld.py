@@ -55,6 +55,26 @@ def url_for(path):
     if p == 'en/index.html':   return ORIGIN + '/en/'
     return f'{ORIGIN}/{p[:-5]}'
 
+EN_AT_ROOT = {'studies.html'}   # pages anglaises hors du dossier en/
+
+def lang_of(rel):
+    return 'en' if rel.startswith('en/') or rel in EN_AT_ROOT else 'fr'
+
+def set_lang(h, rel):
+    return re.sub(r'<html\s+lang="[^"]*"', f'<html lang="{lang_of(rel)}-CA"', h, count=1)
+
+def set_hreflang(h, rel, twin):
+    """Retire les hreflang existants, puis pose fr-CA / en-CA / x-default (FR) sous le canonical si la page a une traduction sûre."""
+    h = re.sub(r'\n?<link\s+rel="alternate"\s+hreflang="[^"]*"[^>]*>', '', h)
+    if not twin:
+        return h
+    fr, en = (rel, twin) if lang_of(rel) == 'fr' else (twin, rel)
+    links = (f'\n<link rel="alternate" hreflang="fr-CA" href="{url_for(fr)}">'
+             f'\n<link rel="alternate" hreflang="en-CA" href="{url_for(en)}">'
+             f'\n<link rel="alternate" hreflang="x-default" href="{url_for(fr)}">')
+    tag = f'<link rel="canonical" href="{url_for(rel)}">'
+    return h.replace(tag, tag + links, 1)
+
 def meta(h, name):
     m = re.search(rf'<meta\s+name="{name}"\s+content="([^"]*)"', h) \
         or re.search(rf'<meta\s+content="([^"]*)"\s+name="{name}"', h)
@@ -164,7 +184,7 @@ def faq_node(url, h, lang):
 def build(path, h, pairs):
     p    = path.replace(os.sep, '/')
     rel  = p[3:] if p.startswith('en/') else p
-    lang = 'en' if p.startswith('en/') else 'fr'
+    lang = lang_of(p)
     url  = url_for(p)
     base = os.path.basename(p)
     home = ORIGIN + ('/en/' if lang == 'en' else '/')
@@ -315,6 +335,10 @@ for r in rels:
         if en in rels: pairs[r] = en
 pairs['meilleur-probiotique.html'] = 'en/best-probiotic.html'
 pairs['en/best-probiotic.html']    = 'meilleur-probiotique.html'
+pairs['etudes.html']               = 'studies.html'
+pairs['studies.html']              = 'etudes.html'
+# Les articles de blogue n'ont pas de paire : slugs différents d'une langue à l'autre,
+# table de correspondance à valider avant de les déclarer.
 
 done = skipped = 0
 for f in files:
@@ -326,6 +350,8 @@ for f in files:
         skipped += 1; continue
     h = strip_old(h)
     h = set_canonical(h, url_for(rel))
+    h = set_hreflang(h, rel, pairs.get(rel))
+    h = set_lang(h, rel)
     h = re.sub(r'(?s)<script type="application/ld\+json">.*?</script>\n?', '', h)  # anciens blocs
     ld = build(rel, h, pairs)
     tag = ('<script type="application/ld+json" ' + MARK + '>\n'
