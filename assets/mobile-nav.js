@@ -72,7 +72,7 @@
   burger.type = 'button';
   burger.setAttribute('aria-expanded', 'false');
   burger.setAttribute('aria-controls', 'navDrawer');
-  burger.setAttribute('aria-label', document.documentElement.lang === 'en' ? 'Menu' : 'Menu');
+  burger.setAttribute('aria-label', document.documentElement.lang.startsWith('en') ? 'Menu' : 'Menu');
   burger.innerHTML = '<span class="navburger__box" aria-hidden="true"><i></i><i></i><i></i></span>';
   right.appendChild(burger);
 
