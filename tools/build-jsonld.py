@@ -368,7 +368,20 @@ rules = []
 for rel in sorted(rels - {'dashboard.html'}):
     dest = url_for(rel)[len(ORIGIN):]
     rules.append(f'/{rel:<96}  {dest:<50}  301!')
-block = BEGIN + '\n' + '\n'.join(rules) + '\n' + END
+
+# Copies de sauvegarde de juillet, publiques par erreur : doublons sans canonical pour Google.
+# Les fichiers restent dans le dépôt; toute URL qui les vise part vers la vraie page.
+BACKUP = 'assets/wix/_html_backup'
+BACKUP_DEST = {'adultes-stitch__index.html': 'probiotique-adulte.html'}   # gabarit de la page Adultes
+for f in sorted(glob.glob(f'{ROOT}/{BACKUP}/*.html')):
+    name = os.path.basename(f)
+    target = BACKUP_DEST.get(name, name)
+    if target not in rels:
+        continue
+    dest = url_for(target)[len(ORIGIN):]
+    for src in (f'/{BACKUP}/{name}', f'/{BACKUP}/{name[:-5]}'):
+        rules.append(f'{src:<97}  {dest:<50}  301!')
+block =BEGIN + '\n' + '\n'.join(rules) + '\n' + END
 rp = os.path.join(ROOT, '_redirects')
 r = open(rp, encoding='utf-8').read()
 if BEGIN in r:
@@ -377,7 +390,7 @@ else:
     anchor = '# ─── 1 · PAGES FR'
     r = r.replace(anchor, block + '\n\n\n' + anchor, 1)
 open(rp, 'w', encoding='utf-8').write(r)
-print(f'_redirects : {len(rules)} règles .html')
+print(f'_redirects : {len(rules)} règles (.html + copies de sauvegarde)')
 
 # ── sitemap.xml + robots.txt ──────────────────────────────────────────────────
 # Mêmes URL que les canonical : apex, sans .html, une par page réelle.
