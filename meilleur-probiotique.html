@@ -1768,6 +1768,14 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
 }
 .cmp__row:last-child .cmp__pbl{ padding-bottom:1.3rem; }
 
+/* crochet vert / X rouge */
+.cmp__mark{ display:inline-flex; align-items:center; gap:.5rem; font-size:.88rem; line-height:1.25; }
+.cmp__mark svg{ width:1.32rem; height:1.32rem; flex:none; }
+.cmp__mark--yes{ color:#0f7a45; font-weight:700; letter-spacing:-.02em; }
+.cmp__mark--no{ color:#b3301c; }
+.cmp__mark--no .cmp__marktxt{ color:var(--mute); font-weight:400; }
+
+
 /* en-tête */
 .cmp__row--head{ align-items:end; }
 .cmp__row--head .cmp__hd{
@@ -1913,7 +1921,9 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
   .cmp__idx{ display:none; }
   .cmp__spec{ padding-left:1rem; }
   .cmp__row--head .cmp__hd--spec{ padding-left:1rem; }
-  .cmp__row--head > div[aria-hidden]{ display:none; }
+  .cmp__row--head > [aria-hidden]{ display:none; }
+  .cmp__mark{ font-size:.78rem; gap:.35rem; }
+  .cmp__mark svg{ width:1.1rem; height:1.1rem; }
   .cmp__spec strong{ font-size:.92rem; }
   .cmp__spec span{ display:none; }
   .cmp__other,.cmp__pbl{ font-size:.8rem; padding-left:.7rem; padding-right:.7rem; }
@@ -2429,41 +2439,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <tr class="cmp__row cmp__row--head">
             <td aria-hidden="true"></td>
             <th scope="col" class="cmp__hd cmp__hd--spec">Spécification</th>
-            <th scope="col" class="cmp__hd">Les autres<br><span class="cmp__scope">5 produits</span></th>
+            <th scope="col" class="cmp__hd">Les autres<br><span class="cmp__scope">5 grandes marques</span></th>
             <th scope="col" class="cmp__badgecell"><span class="cmp__badge">Probaclac</span></th>
           </tr>
         </thead>
         <tbody>
-        <tr class="cmp__row">
-          <td class="cmp__idx" aria-hidden="true">1.</td>
-          <th scope="row" class="cmp__spec"><strong>Nombre de souches</strong><span>La diversité, pas seulement la quantité</span></th>
-          <td class="cmp__other">1 à 3</td>
-          <td class="cmp__pbl">5 à 9</td>
-        </tr>
-        <tr class="cmp__row">
-          <td class="cmp__idx" aria-hidden="true">2.</td>
-          <th scope="row" class="cmp__spec"><strong>Fibre prébiotique</strong><span>F.O.S. et inuline, la nourriture des souches</span></th>
-          <td class="cmp__other">1 produit sur 5</td>
-          <td class="cmp__pbl">Les 6 formules</td>
-        </tr>
-        <tr class="cmp__row">
-          <td class="cmp__idx" aria-hidden="true">3.</td>
-          <th scope="row" class="cmp__spec"><strong>Allergènes prioritaires</strong><span>Lait, gluten, soya</span></th>
-          <td class="cmp__other">4 sur 5 contiennent du lait</td>
-          <td class="cmp__pbl">Sans allergène prioritaire</td>
-        </tr>
-        <tr class="cmp__row">
-          <td class="cmp__idx" aria-hidden="true">4.</td>
-          <th scope="row" class="cmp__spec"><strong>Lactobacilles</strong><span>Équilibre de la flore de l&rsquo;intestin grêle</span></th>
-          <td class="cmp__other">0 à 3 souches</td>
-          <td class="cmp__pbl">2 à 5 souches</td>
-        </tr>
-        <tr class="cmp__row">
-          <td class="cmp__idx" aria-hidden="true">5.</td>
-          <th scope="row" class="cmp__spec"><strong>Bifidobactéries</strong><span>Équilibre de la flore du côlon</span></th>
-          <td class="cmp__other">0 à 1 souche</td>
-          <td class="cmp__pbl">2 à 3 souches</td>
-        </tr>
+          <tr class="cmp__row">
+            <td class="cmp__idx" aria-hidden="true">1.</td>
+            <th scope="row" class="cmp__spec"><strong>Multisouche</strong><span>Lactobacilles et bifidobactéries dans la même capsule</span></th>
+            <td class="cmp__other"><span class="cmp__mark cmp__mark--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="cmp__marktxt">Non</span></span></td>
+            <td class="cmp__pbl"><span class="cmp__mark cmp__mark--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.6"/></svg><span class="cmp__marktxt">Oui</span></span></td>
+          </tr>
+          <tr class="cmp__row">
+            <td class="cmp__idx" aria-hidden="true">2.</td>
+            <th scope="row" class="cmp__spec"><strong>Fibre prébiotique</strong><span>F.O.S. et inuline, la nourriture des souches</span></th>
+            <td class="cmp__other"><span class="cmp__mark cmp__mark--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="cmp__marktxt">1 produit sur 5</span></span></td>
+            <td class="cmp__pbl"><span class="cmp__mark cmp__mark--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.6"/></svg><span class="cmp__marktxt">Oui</span></span></td>
+          </tr>
+          <tr class="cmp__row">
+            <td class="cmp__idx" aria-hidden="true">3.</td>
+            <th scope="row" class="cmp__spec"><strong>Sans allergène prioritaire</strong><span>Lait, gluten, soya</span></th>
+            <td class="cmp__other"><span class="cmp__mark cmp__mark--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="cmp__marktxt">Non</span></span></td>
+            <td class="cmp__pbl"><span class="cmp__mark cmp__mark--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.6"/></svg><span class="cmp__marktxt">Oui</span></span></td>
+          </tr>
+          <tr class="cmp__row">
+            <td class="cmp__idx" aria-hidden="true">4.</td>
+            <th scope="row" class="cmp__spec"><strong>Certifié Produits du Québec</strong><span>La certification des produits fabriqués ici</span></th>
+            <td class="cmp__other"><span class="cmp__mark cmp__mark--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="cmp__marktxt">Non</span></span></td>
+            <td class="cmp__pbl"><span class="cmp__mark cmp__mark--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.6"/></svg><span class="cmp__marktxt">Oui</span></span></td>
+          </tr>
+          <tr class="cmp__row">
+            <td class="cmp__idx" aria-hidden="true">5.</td>
+            <th scope="row" class="cmp__spec"><strong>Formules adaptées à l’âge et au besoin</strong><span>Enfants, adultes, 50 ans et +, voyage, antibiotiques</span></th>
+            <td class="cmp__other"><span class="cmp__mark cmp__mark--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="cmp__marktxt">Non</span></span></td>
+            <td class="cmp__pbl"><span class="cmp__mark cmp__mark--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.6"/></svg><span class="cmp__marktxt">Oui</span></span></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -2475,9 +2485,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Le microbiote n&rsquo;est pas une seule bactérie. Les produits comparés en contiennent une à trois. Les formules Probaclac en réunissent cinq à neuf, réparties entre l&rsquo;intestin grêle et le côlon.</p>
       </div>
       <div class="cmp__tk r">
-        <p class="cmp__num"><em>6</em><span>formules sur 6</span></p>
+        <p class="cmp__num"><em>12</em><span>formules sur 12</span></p>
         <h3>Sans allergène prioritaire, et toujours avec un prébiotique.</h3>
-        <p>Quatre des cinq produits comparés contiennent du lait, et un seul renferme une fibre prébiotique. Les six formules Probaclac sont sans allergène prioritaire et contiennent toutes des F.O.S. et de l&rsquo;inuline.</p>
+        <p>Quatre des cinq produits comparés contiennent du lait, et un seul renferme une fibre prébiotique. Les douze formules Probaclac sont sans allergène prioritaire et contiennent toutes des F.O.S. et de l&rsquo;inuline.</p>
       </div>
       <div class="cmp__tk r">
         <p class="cmp__num"><em>24</em><span>mois sur la tablette</span></p>
