@@ -163,6 +163,10 @@
 /politique-de-confidentialite                                                                     /privacy-policy                                     301
 /terms-and-coniditions                                                                            /privacy-policy                                     301
 
+# Codes QR imprimés sur les boîtes (étiquettes 2026) — slugs qui n'existent pas sur le site.
+/probiotique-infection-levure                                                                     /probiotique-infection-a-levure                     301
+/probiotique-sci                                                                                  /probiotique-colon-irritable                        301
+
 # Gabarits Wix vides indexés par erreur — on consolide vers l'accueil.
 /blank                                                                                            /                                                   301
 /blank-1                                                                                          /                                                   301
