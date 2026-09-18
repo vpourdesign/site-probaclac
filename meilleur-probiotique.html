@@ -1732,7 +1732,7 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
 
 .cmp__row{
   display:grid;
-  grid-template-columns:2.6rem minmax(0,1fr) clamp(8rem,15vw,13rem) clamp(8rem,15vw,13rem);
+  grid-template-columns:2.6rem minmax(0,1fr) clamp(9rem,17vw,15rem) clamp(8rem,15vw,13rem);
   align-items:center;
   border-top:1px solid var(--rule);
   transition:background .4s var(--ease);
@@ -1778,7 +1778,7 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
 
 /* en-tête */
 .cmp__row--head{ align-items:end; }
-.cmp__row--head .cmp__hd{
+.cmp__row--head .cmp__hd{ text-wrap:balance;
   margin:0; font-size:var(--t-micro); font-weight:700;
   text-transform:uppercase; letter-spacing:.18em; color:var(--mute);
   padding:clamp(1.4rem,2.6vw,2rem) clamp(.8rem,1.6vw,1.4rem) 1.2rem;
@@ -1791,7 +1791,7 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
   padding:clamp(1.4rem,2.6vw,2rem) clamp(.8rem,1.6vw,1.4rem) .95rem;
   display:flex; align-items:flex-end;
 }
-.cmp__badge{
+.cmp__badge{ white-space:nowrap;
   display:inline-block; background:var(--ink); color:var(--paper);
   border-radius:10px; padding:.5rem .8rem;
   font-weight:700; letter-spacing:-.03em; font-size:.95rem; line-height:1;
@@ -1917,7 +1917,7 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
 }
 
 @media(max-width:860px){
-  .cmp__row{ grid-template-columns:minmax(0,1fr) 5.4rem 6.6rem; }
+  .cmp__row{ grid-template-columns:minmax(0,1fr) 5.8rem 6.6rem; }
   .cmp__idx{ display:none; }
   .cmp__spec{ padding-left:1rem; }
   .cmp__row--head .cmp__hd--spec{ padding-left:1rem; }
@@ -2427,7 +2427,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="shd">
       <div class="r">
         <div class="eyebrow"><span class="dot"></span>Comparatif</div>
-        <h2>Toutes les capsules ne contiennent pas la même chose.</h2>
+        <h2>Toutes les formules ne sont pas identiques.</h2>
       </div>
       <p class="cmp__lead r">Sur la tablette, les boîtes se ressemblent. À l&rsquo;intérieur, la composition varie du simple au multiple. Voici Probaclac face aux cinq probiotiques les plus vendus au Canada, spécification par spécification.</p>
     </div>
@@ -2439,38 +2439,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <tr class="cmp__row cmp__row--head">
             <td aria-hidden="true"></td>
             <th scope="col" class="cmp__hd cmp__hd--spec">Spécification</th>
-            <th scope="col" class="cmp__hd">Les autres<br><span class="cmp__scope">5 grandes marques</span></th>
+            <th scope="col" class="cmp__hd">5 grandes marques populaires</th>
             <th scope="col" class="cmp__badgecell"><span class="cmp__badge">Probaclac</span></th>
           </tr>
         </thead>
         <tbody>
           <tr class="cmp__row">
             <td class="cmp__idx" aria-hidden="true">1.</td>
-            <th scope="row" class="cmp__spec"><strong>Multisouche</strong><span>Lactobacilles et bifidobactéries dans la même capsule</span></th>
+            <th scope="row" class="cmp__spec"><strong>Multisouche</strong></th>
             <td class="cmp__other"><span class="cmp__mark cmp__mark--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="cmp__marktxt">Non</span></span></td>
             <td class="cmp__pbl"><span class="cmp__mark cmp__mark--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.6"/></svg><span class="cmp__marktxt">Oui</span></span></td>
           </tr>
           <tr class="cmp__row">
             <td class="cmp__idx" aria-hidden="true">2.</td>
-            <th scope="row" class="cmp__spec"><strong>Fibre prébiotique</strong><span>F.O.S. et inuline, la nourriture des souches</span></th>
+            <th scope="row" class="cmp__spec"><strong>Fibre prébiotique</strong></th>
             <td class="cmp__other"><span class="cmp__mark cmp__mark--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="cmp__marktxt">1 produit sur 5</span></span></td>
             <td class="cmp__pbl"><span class="cmp__mark cmp__mark--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.6"/></svg><span class="cmp__marktxt">Oui</span></span></td>
           </tr>
           <tr class="cmp__row">
             <td class="cmp__idx" aria-hidden="true">3.</td>
-            <th scope="row" class="cmp__spec"><strong>Sans allergène prioritaire</strong><span>Lait, gluten, soya</span></th>
+            <th scope="row" class="cmp__spec"><strong>Sans allergène prioritaire</strong></th>
             <td class="cmp__other"><span class="cmp__mark cmp__mark--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="cmp__marktxt">Non</span></span></td>
             <td class="cmp__pbl"><span class="cmp__mark cmp__mark--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.6"/></svg><span class="cmp__marktxt">Oui</span></span></td>
           </tr>
           <tr class="cmp__row">
             <td class="cmp__idx" aria-hidden="true">4.</td>
-            <th scope="row" class="cmp__spec"><strong>Certifié Produits du Québec</strong><span>La certification des produits fabriqués ici</span></th>
+            <th scope="row" class="cmp__spec"><strong>Certifié Produits du Québec</strong></th>
             <td class="cmp__other"><span class="cmp__mark cmp__mark--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="cmp__marktxt">Non</span></span></td>
             <td class="cmp__pbl"><span class="cmp__mark cmp__mark--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.6"/></svg><span class="cmp__marktxt">Oui</span></span></td>
           </tr>
           <tr class="cmp__row">
             <td class="cmp__idx" aria-hidden="true">5.</td>
-            <th scope="row" class="cmp__spec"><strong>Formules adaptées à l’âge et au besoin</strong><span>Enfants, adultes, 50 ans et +, voyage, antibiotiques</span></th>
+            <th scope="row" class="cmp__spec"><strong>Formules adaptées à l’âge et aux besoins</strong></th>
             <td class="cmp__other"><span class="cmp__mark cmp__mark--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span class="cmp__marktxt">Non</span></span></td>
             <td class="cmp__pbl"><span class="cmp__mark cmp__mark--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.8l5.2 5.2L20 6.6"/></svg><span class="cmp__marktxt">Oui</span></span></td>
           </tr>
