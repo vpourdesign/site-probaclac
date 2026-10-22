@@ -4,7 +4,12 @@ Génère le JSON-LD schema.org de toutes les pages de site-2026/.
 Ne touche ni au contenu visible ni aux URL : tout est dérivé de ce que la page contient déjà.
 Idempotent — relancer remplace le bloc existant.
 """
-import re, json, glob, os, html as H
+import re, json, glob, os, sys, html as H
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from importlib import import_module
+EN_SLUGS = import_module('en-slugs').EN_SLUGS     # table FR → EN des slugs (tools/en-slugs.py)
+FR_OF    = {en: fr for fr, en in EN_SLUGS.items()}
+BLOG     = {'fr': 'blogue', 'en': 'blog'}            # dossier des articles par langue
 
 # Usage : python3 tools/build-jsonld.py   (depuis la racine du dépôt ou n'importe où)
 ROOT   = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
@@ -183,7 +188,10 @@ def faq_node(url, h, lang):
 # ── construction par page ─────────────────────────────────────────────────────
 def build(path, h, pairs):
     p    = path.replace(os.sep, '/')
-    rel  = p[3:] if p.startswith('en/') else p
+    # rel = l'équivalent FR de la page : les règles ci-dessous sont écrites sur les slugs FR
+    # (sauf best-probiotic et studies, qui ont leurs propres règles anglaises)
+    rel  = ({'en/best-probiotic.html': 'best-probiotic.html', 'studies.html': 'studies.html'}.get(p)
+            or FR_OF.get(p) or (('blogue/' + p[8:]) if p.startswith('en/blog/') else p))
     lang = lang_of(p)
     url  = url_for(p)
     base = os.path.basename(p)
@@ -256,13 +264,13 @@ def build(path, h, pairs):
     elif rel == 'blogue.html':
         page["@type"] = ["Blog", "CollectionPage"]
         trail += [("Blogue" if lang == 'fr' else "Blog", None)]
-        links = sorted(set(re.findall(r'href="((?:\.\./)?blogue/[^"#]+)\.html"', h)))
+        links = sorted(set(re.findall(r'href="((?:\.\./)?blog(?:ue)?/[^"#]+)\.html"', h)))
         if links:
             g.append({"@type": "ItemList", "@id": url + "#articles",
                       "numberOfItems": len(links),
                       "itemListElement": [
                           {"@type": "ListItem", "position": i,
-                           "url": f"{home}blogue/{l.split('/')[-1]}"}
+                           "url": f"{home}{BLOG[lang]}/{l.split('/')[-1]}"}
                           for i, l in enumerate(links, 1)]})
     # ── articles
     elif '/blogue/' in rel or rel.startswith('blogue/'):
@@ -273,7 +281,7 @@ def build(path, h, pairs):
         if d:
             page["datePublished"] = d
             page["dateModified"]  = d
-        trail += [("Blogue" if lang == 'fr' else "Blog", f"{home}blogue"),
+        trail += [("Blogue" if lang == 'fr' else "Blog", f"{home}{BLOG[lang]}"),
                   (h1_of(h) or ttl, None)]
     # ── pages éditoriales santé
     elif rel in ('microbiote.html', 'diarrhee-du-voyageur.html', 'etudes.html', 'studies.html'):
@@ -326,17 +334,9 @@ files = sorted(f for f in glob.glob(f'{ROOT}/**/*.html', recursive=True)
                if not any(x in f.replace(os.sep, '/') for x in EXCLUDE))
 rels  = {f[len(ROOT) + 1:].replace(os.sep, '/') for f in files}
 pairs = {}
-for r in rels:
-    if r.startswith('en/'):
-        fr = r[3:]
-        if fr in rels: pairs[r] = fr
-    else:
-        en = 'en/' + r
-        if en in rels: pairs[r] = en
-pairs['meilleur-probiotique.html'] = 'en/best-probiotic.html'
-pairs['en/best-probiotic.html']    = 'meilleur-probiotique.html'
-pairs['etudes.html']               = 'studies.html'
-pairs['studies.html']              = 'etudes.html'
+for fr, en in EN_SLUGS.items():
+    if fr in rels and en in rels:
+        pairs[fr], pairs[en] = en, fr
 # Les articles de blogue n'ont pas de paire : slugs différents d'une langue à l'autre,
 # table de correspondance à valider avant de les déclarer.
 

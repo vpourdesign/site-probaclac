@@ -28,7 +28,7 @@ adultes-stitch/
 # Sources locales non destinées à la prod
 histoire/
 VAGINAL-newlook.jpg
-en/blogue/_src/
+en/blog/_src/
 
 # Config locale de l'aperçu (Claude Code)
 .claude/

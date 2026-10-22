@@ -7,8 +7,9 @@
 #   pages FR 26 · pages EN 26 · articles FR 47 · articles EN 35 · produit 1 · catégorie 1
 # Inventaire cible : site-2026 — 22 pages FR/EN + 46 articles FR + 20 articles EN
 #
-# ⚠ Les URL produit /probiotique-* et /en/probiotique-* sont IDENTIQUES sur les
-#   deux sites : aucune règle, aucun saut, le jus SEO reste intact. Ne pas y toucher.
+# ⚠ Les URL produit FR /probiotique-* sont IDENTIQUES sur Wix et site-2026 : aucune
+#   règle, le jus SEO reste intact. Ne pas y toucher.
+#   Les URL EN /en/probiotique-* passent aux slugs anglais : voir la section 0b.
 # ════════════════════════════════════════════════════════════════════════════
 
 
@@ -61,46 +62,46 @@
 /blogue/vaincre-la-constipation-une-fois-pour-toute.html                                           /blogue/vaincre-la-constipation-une-fois-pour-toute  301!
 /blogue/votre-assurance-voyage-les-probiotiques.html                                               /blogue/votre-assurance-voyage-les-probiotiques     301!
 /diarrhee-du-voyageur.html                                                                         /diarrhee-du-voyageur                               301!
+/en/adult-probiotic.html                                                                           /en/adult-probiotic                                 301!
+/en/baby-probiotic.html                                                                            /en/baby-probiotic                                  301!
 /en/best-probiotic.html                                                                            /en/best-probiotic                                  301!
-/en/blogue.html                                                                                    /en/blogue                                          301!
-/en/blogue/acne-prone-skins-get-your-probiotics.html                                               /en/blogue/acne-prone-skins-get-your-probiotics     301!
-/en/blogue/bacteria-help-people-with-diabetes.html                                                 /en/blogue/bacteria-help-people-with-diabetes       301!
-/en/blogue/bacterial-colonization-and-dentition.html                                               /en/blogue/bacterial-colonization-and-dentition     301!
-/en/blogue/bacteriotherapy-at-your-fingertips.html                                                 /en/blogue/bacteriotherapy-at-your-fingertips       301!
-/en/blogue/brighten-up-your-menu-with-probiotics.html                                              /en/blogue/brighten-up-your-menu-with-probiotics    301!
-/en/blogue/defeat-constipation-once-and-for-all.html                                               /en/blogue/defeat-constipation-once-and-for-all     301!
-/en/blogue/food-allergies-pandemic.html                                                            /en/blogue/food-allergies-pandemic                  301!
-/en/blogue/health-through-the-belly.html                                                           /en/blogue/health-through-the-belly                 301!
-/en/blogue/healthy-aging-through-the-microbiota.html                                               /en/blogue/healthy-aging-through-the-microbiota     301!
-/en/blogue/insatiable-appetite-think-of-bacteria.html                                              /en/blogue/insatiable-appetite-think-of-bacteria    301!
-/en/blogue/les-probiotiques-panacee-pour-l-obesite.html                                            /en/blogue/les-probiotiques-panacee-pour-l-obesite  301!
-/en/blogue/never-leave-without-them-travel-probiotics.html                                         /en/blogue/never-leave-without-them-travel-probiotics  301!
-/en/blogue/prevail-over-vaginitis-bacterial-vaginosis.html                                         /en/blogue/prevail-over-vaginitis-bacterial-vaginosis  301!
-/en/blogue/probiotic-support-during-menopause.html                                                 /en/blogue/probiotic-support-during-menopause       301!
-/en/blogue/probiotics-and-pregnancy-mix-well.html                                                  /en/blogue/probiotics-and-pregnancy-mix-well        301!
-/en/blogue/probiotics-for-a-genius-mind.html                                                       /en/blogue/probiotics-for-a-genius-mind             301!
-/en/blogue/probiotics-immune-revolution.html                                                       /en/blogue/probiotics-immune-revolution             301!
-/en/blogue/spotlight-on-prebiotics.html                                                            /en/blogue/spotlight-on-prebiotics                  301!
-/en/blogue/when-bacteria-takes-over-s-o-s-sibo.html                                                /en/blogue/when-bacteria-takes-over-s-o-s-sibo      301!
-/en/blogue/where-do-probiotics-come-from.html                                                      /en/blogue/where-do-probiotics-come-from            301!
-/en/diarrhee-du-voyageur.html                                                                      /en/diarrhee-du-voyageur                            301!
-/en/foire-aux-questions.html                                                                       /en/foire-aux-questions                             301!
-/en/histoire.html                                                                                  /en/histoire                                        301!
+/en/blog.html                                                                                      /en/blog                                            301!
+/en/blog/acne-prone-skins-get-your-probiotics.html                                                 /en/blog/acne-prone-skins-get-your-probiotics       301!
+/en/blog/bacteria-help-people-with-diabetes.html                                                   /en/blog/bacteria-help-people-with-diabetes         301!
+/en/blog/bacterial-colonization-and-dentition.html                                                 /en/blog/bacterial-colonization-and-dentition       301!
+/en/blog/bacteriotherapy-at-your-fingertips.html                                                   /en/blog/bacteriotherapy-at-your-fingertips         301!
+/en/blog/brighten-up-your-menu-with-probiotics.html                                                /en/blog/brighten-up-your-menu-with-probiotics      301!
+/en/blog/defeat-constipation-once-and-for-all.html                                                 /en/blog/defeat-constipation-once-and-for-all       301!
+/en/blog/food-allergies-pandemic.html                                                              /en/blog/food-allergies-pandemic                    301!
+/en/blog/health-through-the-belly.html                                                             /en/blog/health-through-the-belly                   301!
+/en/blog/healthy-aging-through-the-microbiota.html                                                 /en/blog/healthy-aging-through-the-microbiota       301!
+/en/blog/insatiable-appetite-think-of-bacteria.html                                                /en/blog/insatiable-appetite-think-of-bacteria      301!
+/en/blog/never-leave-without-them-travel-probiotics.html                                           /en/blog/never-leave-without-them-travel-probiotics  301!
+/en/blog/prevail-over-vaginitis-bacterial-vaginosis.html                                           /en/blog/prevail-over-vaginitis-bacterial-vaginosis  301!
+/en/blog/probiotic-support-during-menopause.html                                                   /en/blog/probiotic-support-during-menopause         301!
+/en/blog/probiotics-and-pregnancy-mix-well.html                                                    /en/blog/probiotics-and-pregnancy-mix-well          301!
+/en/blog/probiotics-for-a-genius-mind.html                                                         /en/blog/probiotics-for-a-genius-mind               301!
+/en/blog/probiotics-immune-revolution.html                                                         /en/blog/probiotics-immune-revolution               301!
+/en/blog/probiotics-the-solution-to-obesity.html                                                   /en/blog/probiotics-the-solution-to-obesity         301!
+/en/blog/spotlight-on-prebiotics.html                                                              /en/blog/spotlight-on-prebiotics                    301!
+/en/blog/when-bacteria-takes-over-s-o-s-sibo.html                                                  /en/blog/when-bacteria-takes-over-s-o-s-sibo        301!
+/en/blog/where-do-probiotics-come-from.html                                                        /en/blog/where-do-probiotics-come-from              301!
+/en/extra-strength-probiotic.html                                                                  /en/extra-strength-probiotic                        301!
+/en/faq.html                                                                                       /en/faq                                             301!
+/en/gastrointestinal-probiotic.html                                                                /en/gastrointestinal-probiotic                      301!
 /en/index.html                                                                                     /en/                                                301!
-/en/microbiote.html                                                                                /en/microbiote                                      301!
+/en/kids-probiotic.html                                                                            /en/kids-probiotic                                  301!
+/en/microbiome.html                                                                                /en/microbiome                                      301!
+/en/our-story.html                                                                                 /en/our-story                                       301!
 /en/privacy-policy.html                                                                            /en/privacy-policy                                  301!
-/en/probiotique-50-et-plus.html                                                                    /en/probiotique-50-et-plus                          301!
-/en/probiotique-adulte.html                                                                        /en/probiotique-adulte                              301!
-/en/probiotique-antibiotique.html                                                                  /en/probiotique-antibiotique                        301!
-/en/probiotique-bebes.html                                                                         /en/probiotique-bebes                               301!
-/en/probiotique-colon-irritable.html                                                               /en/probiotique-colon-irritable                     301!
-/en/probiotique-enfant.html                                                                        /en/probiotique-enfant                              301!
-/en/probiotique-extra-fort.html                                                                    /en/probiotique-extra-fort                          301!
-/en/probiotique-gastro-intestinal.html                                                             /en/probiotique-gastro-intestinal                   301!
-/en/probiotique-infection-a-levure.html                                                            /en/probiotique-infection-a-levure                  301!
-/en/probiotique-infection-urinaire.html                                                            /en/probiotique-infection-urinaire                  301!
-/en/probiotique-vaginal.html                                                                       /en/probiotique-vaginal                             301!
-/en/probiotique-voyage.html                                                                        /en/probiotique-voyage                              301!
+/en/probiotic-50-plus.html                                                                         /en/probiotic-50-plus                               301!
+/en/probiotic-for-antibiotics.html                                                                 /en/probiotic-for-antibiotics                       301!
+/en/probiotic-for-ibs.html                                                                         /en/probiotic-for-ibs                               301!
+/en/probiotic-for-uti.html                                                                         /en/probiotic-for-uti                               301!
+/en/probiotic-for-yeast-infections.html                                                            /en/probiotic-for-yeast-infections                  301!
+/en/travel-probiotic.html                                                                          /en/travel-probiotic                                301!
+/en/travelers-diarrhea.html                                                                        /en/travelers-diarrhea                              301!
+/en/vaginal-probiotic.html                                                                         /en/vaginal-probiotic                               301!
 /etudes.html                                                                                       /etudes                                             301!
 /foire-aux-questions.html                                                                          /foire-aux-questions                                301!
 /histoire.html                                                                                     /histoire                                           301!
@@ -152,6 +153,87 @@
 # <<< fin .html
 
 
+# ─── 0b · PAGES EN — slugs anglais (2026-10-21) ───────────────────────────
+# Les pages /en/ portaient les slugs français (/en/probiotique-voyage). Renommées
+# en anglais; table unique dans tools/en-slugs.py. URL propre ET .html, car les
+# deux circulent (liens entrants, pubs, favoris). Garder au moins 12 mois.
+/en/blogue                                                                                         /en/blog                                            301!
+/en/blogue.html                                                                                    /en/blog                                            301!
+/en/blogue/acne-prone-skins-get-your-probiotics                                                    /en/blog/acne-prone-skins-get-your-probiotics       301!
+/en/blogue/acne-prone-skins-get-your-probiotics.html                                               /en/blog/acne-prone-skins-get-your-probiotics       301!
+/en/blogue/bacteria-help-people-with-diabetes                                                      /en/blog/bacteria-help-people-with-diabetes         301!
+/en/blogue/bacteria-help-people-with-diabetes.html                                                 /en/blog/bacteria-help-people-with-diabetes         301!
+/en/blogue/bacterial-colonization-and-dentition                                                    /en/blog/bacterial-colonization-and-dentition       301!
+/en/blogue/bacterial-colonization-and-dentition.html                                               /en/blog/bacterial-colonization-and-dentition       301!
+/en/blogue/bacteriotherapy-at-your-fingertips                                                      /en/blog/bacteriotherapy-at-your-fingertips         301!
+/en/blogue/bacteriotherapy-at-your-fingertips.html                                                 /en/blog/bacteriotherapy-at-your-fingertips         301!
+/en/blogue/brighten-up-your-menu-with-probiotics                                                   /en/blog/brighten-up-your-menu-with-probiotics      301!
+/en/blogue/brighten-up-your-menu-with-probiotics.html                                              /en/blog/brighten-up-your-menu-with-probiotics      301!
+/en/blogue/defeat-constipation-once-and-for-all                                                    /en/blog/defeat-constipation-once-and-for-all       301!
+/en/blogue/defeat-constipation-once-and-for-all.html                                               /en/blog/defeat-constipation-once-and-for-all       301!
+/en/blogue/food-allergies-pandemic                                                                 /en/blog/food-allergies-pandemic                    301!
+/en/blogue/food-allergies-pandemic.html                                                            /en/blog/food-allergies-pandemic                    301!
+/en/blogue/health-through-the-belly                                                                /en/blog/health-through-the-belly                   301!
+/en/blogue/health-through-the-belly.html                                                           /en/blog/health-through-the-belly                   301!
+/en/blogue/healthy-aging-through-the-microbiota                                                    /en/blog/healthy-aging-through-the-microbiota       301!
+/en/blogue/healthy-aging-through-the-microbiota.html                                               /en/blog/healthy-aging-through-the-microbiota       301!
+/en/blogue/insatiable-appetite-think-of-bacteria                                                   /en/blog/insatiable-appetite-think-of-bacteria      301!
+/en/blogue/insatiable-appetite-think-of-bacteria.html                                              /en/blog/insatiable-appetite-think-of-bacteria      301!
+/en/blogue/les-probiotiques-panacee-pour-l-obesite                                                 /en/blog/probiotics-the-solution-to-obesity         301!
+/en/blogue/les-probiotiques-panacee-pour-l-obesite.html                                            /en/blog/probiotics-the-solution-to-obesity         301!
+/en/blogue/never-leave-without-them-travel-probiotics                                              /en/blog/never-leave-without-them-travel-probiotics  301!
+/en/blogue/never-leave-without-them-travel-probiotics.html                                         /en/blog/never-leave-without-them-travel-probiotics  301!
+/en/blogue/prevail-over-vaginitis-bacterial-vaginosis                                              /en/blog/prevail-over-vaginitis-bacterial-vaginosis  301!
+/en/blogue/prevail-over-vaginitis-bacterial-vaginosis.html                                         /en/blog/prevail-over-vaginitis-bacterial-vaginosis  301!
+/en/blogue/probiotic-support-during-menopause                                                      /en/blog/probiotic-support-during-menopause         301!
+/en/blogue/probiotic-support-during-menopause.html                                                 /en/blog/probiotic-support-during-menopause         301!
+/en/blogue/probiotics-and-pregnancy-mix-well                                                       /en/blog/probiotics-and-pregnancy-mix-well          301!
+/en/blogue/probiotics-and-pregnancy-mix-well.html                                                  /en/blog/probiotics-and-pregnancy-mix-well          301!
+/en/blogue/probiotics-for-a-genius-mind                                                            /en/blog/probiotics-for-a-genius-mind               301!
+/en/blogue/probiotics-for-a-genius-mind.html                                                       /en/blog/probiotics-for-a-genius-mind               301!
+/en/blogue/probiotics-immune-revolution                                                            /en/blog/probiotics-immune-revolution               301!
+/en/blogue/probiotics-immune-revolution.html                                                       /en/blog/probiotics-immune-revolution               301!
+/en/blogue/spotlight-on-prebiotics                                                                 /en/blog/spotlight-on-prebiotics                    301!
+/en/blogue/spotlight-on-prebiotics.html                                                            /en/blog/spotlight-on-prebiotics                    301!
+/en/blogue/when-bacteria-takes-over-s-o-s-sibo                                                     /en/blog/when-bacteria-takes-over-s-o-s-sibo        301!
+/en/blogue/when-bacteria-takes-over-s-o-s-sibo.html                                                /en/blog/when-bacteria-takes-over-s-o-s-sibo        301!
+/en/blogue/where-do-probiotics-come-from                                                           /en/blog/where-do-probiotics-come-from              301!
+/en/blogue/where-do-probiotics-come-from.html                                                      /en/blog/where-do-probiotics-come-from              301!
+/en/diarrhee-du-voyageur                                                                           /en/travelers-diarrhea                              301!
+/en/diarrhee-du-voyageur.html                                                                      /en/travelers-diarrhea                              301!
+/en/foire-aux-questions                                                                            /en/faq                                             301!
+/en/foire-aux-questions.html                                                                       /en/faq                                             301!
+/en/histoire                                                                                       /en/our-story                                       301!
+/en/histoire.html                                                                                  /en/our-story                                       301!
+/en/microbiote                                                                                     /en/microbiome                                      301!
+/en/microbiote.html                                                                                /en/microbiome                                      301!
+/en/probiotique-50-et-plus                                                                         /en/probiotic-50-plus                               301!
+/en/probiotique-50-et-plus.html                                                                    /en/probiotic-50-plus                               301!
+/en/probiotique-adulte                                                                             /en/adult-probiotic                                 301!
+/en/probiotique-adulte.html                                                                        /en/adult-probiotic                                 301!
+/en/probiotique-antibiotique                                                                       /en/probiotic-for-antibiotics                       301!
+/en/probiotique-antibiotique.html                                                                  /en/probiotic-for-antibiotics                       301!
+/en/probiotique-bebes                                                                              /en/baby-probiotic                                  301!
+/en/probiotique-bebes.html                                                                         /en/baby-probiotic                                  301!
+/en/probiotique-colon-irritable                                                                    /en/probiotic-for-ibs                               301!
+/en/probiotique-colon-irritable.html                                                               /en/probiotic-for-ibs                               301!
+/en/probiotique-enfant                                                                             /en/kids-probiotic                                  301!
+/en/probiotique-enfant.html                                                                        /en/kids-probiotic                                  301!
+/en/probiotique-extra-fort                                                                         /en/extra-strength-probiotic                        301!
+/en/probiotique-extra-fort.html                                                                    /en/extra-strength-probiotic                        301!
+/en/probiotique-gastro-intestinal                                                                  /en/gastrointestinal-probiotic                      301!
+/en/probiotique-gastro-intestinal.html                                                             /en/gastrointestinal-probiotic                      301!
+/en/probiotique-infection-a-levure                                                                 /en/probiotic-for-yeast-infections                  301!
+/en/probiotique-infection-a-levure.html                                                            /en/probiotic-for-yeast-infections                  301!
+/en/probiotique-infection-urinaire                                                                 /en/probiotic-for-uti                               301!
+/en/probiotique-infection-urinaire.html                                                            /en/probiotic-for-uti                               301!
+/en/probiotique-vaginal                                                                            /en/vaginal-probiotic                               301!
+/en/probiotique-vaginal.html                                                                       /en/vaginal-probiotic                               301!
+/en/probiotique-voyage                                                                             /en/travel-probiotic                                301!
+/en/probiotique-voyage.html                                                                        /en/travel-probiotic                                301!
+/en/blogue/*                                                                                       /en/blog/:splat                                     301!
+
+
 # ─── 1 · PAGES FR — fusionnées ou renommées ─────────────────────────────────
 /avantages                                                                                        /meilleur-probiotique                               301
 /meilleur-probiotique-pour-vous                                                                   /meilleur-probiotique                               301
@@ -177,7 +259,7 @@
 /en/meilleur-probiotique-pour-vous                                                                /en/best-probiotic                                  301
 /en/choisir                                                                                       /en/best-probiotic                                  301
 /en/choisir.html                                                                                  /en/best-probiotic                                  301
-/en/microbiote-probiotiques                                                                       /en/microbiote                                      301
+/en/microbiote-probiotiques                                                                       /en/microbiome                                      301
 /en/etudes                                                                                        /studies                                            301
 /en/etudes2                                                                                       /studies                                            301
 /en/etudes2-1                                                                                     /studies                                            301
@@ -190,7 +272,7 @@
 # On renvoie vers la page de contenu équivalente, pas vers un panier : intention
 # informationnelle conservée, et le lien d'achat est sur la page d'arrivée.
 /product-page/probaclac-adultes                                                                   /probiotique-adulte                                 301
-/en/product-page/probaclac-adultes                                                                /en/probiotique-adulte                              301
+/en/product-page/probaclac-adultes                                                                /en/adult-probiotic                                 301
 /category/all-products                                                                            /meilleur-probiotique                               301
 /en/category/all-products                                                                         /en/best-probiotic                                  301
 /product-page/*                                                                                   /meilleur-probiotique                               301
@@ -201,9 +283,8 @@
 
 # ─── 4 · BLOGUE — index ─────────────────────────────────────────────────────
 /blog                                                                                             /blogue                                             301
-/en/blog                                                                                          /en/blogue                                          301
 /blog-categories/*                                                                                /blogue                                             301
-/en/blog-categories/*                                                                             /en/blogue                                          301
+/en/blog-categories/*                                                                             /en/blog                                            301
 
 
 # ─── 5 · ARTICLES FR — 46 correspondances 1:1 (/post/<slug> → /blogue/<slug>) ─
@@ -296,55 +377,55 @@
 
 
 # ─── 6 · ARTICLES EN — 20 correspondances 1:1 ───────────────────────────────
-/en/post/acne-prone-skins-get-your-probiotics                                                     /en/blogue/acne-prone-skins-get-your-probiotics     301
-/en/post/bacteria-help-people-with-diabetes                                                       /en/blogue/bacteria-help-people-with-diabetes       301
-/en/post/bacterial-colonization-and-dentition                                                     /en/blogue/bacterial-colonization-and-dentition     301
-/en/post/bacteriotherapy-at-your-fingertips                                                       /en/blogue/bacteriotherapy-at-your-fingertips       301
-/en/post/brighten-up-your-menu-with-probiotics                                                    /en/blogue/brighten-up-your-menu-with-probiotics    301
-/en/post/defeat-constipation-once-and-for-all                                                     /en/blogue/defeat-constipation-once-and-for-all     301
-/en/post/food-allergies-pandemic                                                                  /en/blogue/food-allergies-pandemic                  301
-/en/post/health-through-the-belly                                                                 /en/blogue/health-through-the-belly                 301
-/en/post/healthy-aging-through-the-microbiota                                                     /en/blogue/healthy-aging-through-the-microbiota     301
-/en/post/insatiable-appetite-think-of-bacteria                                                    /en/blogue/insatiable-appetite-think-of-bacteria    301
-/en/post/les-probiotiques-panacée-pour-l-obésité                                                  /en/blogue/les-probiotiques-panacee-pour-l-obesite  301
-/en/post/les-probiotiques-panac%C3%A9e-pour-l-ob%C3%A9sit%C3%A9                                   /en/blogue/les-probiotiques-panacee-pour-l-obesite  301
-/en/post/never-leave-without-them-travel-probiotics                                               /en/blogue/never-leave-without-them-travel-probiotics  301
-/en/post/prevail-over-vaginitis-bacterial-vaginosis                                               /en/blogue/prevail-over-vaginitis-bacterial-vaginosis  301
-/en/post/probiotic-support-during-menopause                                                       /en/blogue/probiotic-support-during-menopause       301
-/en/post/probiotics-and-pregnancy-mix-well                                                        /en/blogue/probiotics-and-pregnancy-mix-well        301
-/en/post/probiotics-for-a-genius-mind                                                             /en/blogue/probiotics-for-a-genius-mind             301
-/en/post/probiotics-immune-revolution                                                             /en/blogue/probiotics-immune-revolution             301
-/en/post/spotlight-on-prebiotics                                                                  /en/blogue/spotlight-on-prebiotics                  301
-/en/post/when-bacteria-takes-over-s-o-s-sibo                                                      /en/blogue/when-bacteria-takes-over-s-o-s-sibo      301
-/en/post/where-do-probiotics-come-from                                                            /en/blogue/where-do-probiotics-come-from            301
+/en/post/acne-prone-skins-get-your-probiotics                                                     /en/blog/acne-prone-skins-get-your-probiotics       301
+/en/post/bacteria-help-people-with-diabetes                                                       /en/blog/bacteria-help-people-with-diabetes         301
+/en/post/bacterial-colonization-and-dentition                                                     /en/blog/bacterial-colonization-and-dentition       301
+/en/post/bacteriotherapy-at-your-fingertips                                                       /en/blog/bacteriotherapy-at-your-fingertips         301
+/en/post/brighten-up-your-menu-with-probiotics                                                    /en/blog/brighten-up-your-menu-with-probiotics      301
+/en/post/defeat-constipation-once-and-for-all                                                     /en/blog/defeat-constipation-once-and-for-all       301
+/en/post/food-allergies-pandemic                                                                  /en/blog/food-allergies-pandemic                    301
+/en/post/health-through-the-belly                                                                 /en/blog/health-through-the-belly                   301
+/en/post/healthy-aging-through-the-microbiota                                                     /en/blog/healthy-aging-through-the-microbiota       301
+/en/post/insatiable-appetite-think-of-bacteria                                                    /en/blog/insatiable-appetite-think-of-bacteria      301
+/en/post/les-probiotiques-panacée-pour-l-obésité                                                  /en/blog/probiotics-the-solution-to-obesity         301
+/en/post/les-probiotiques-panac%C3%A9e-pour-l-ob%C3%A9sit%C3%A9                                   /en/blog/probiotics-the-solution-to-obesity         301
+/en/post/never-leave-without-them-travel-probiotics                                               /en/blog/never-leave-without-them-travel-probiotics    301
+/en/post/prevail-over-vaginitis-bacterial-vaginosis                                               /en/blog/prevail-over-vaginitis-bacterial-vaginosis    301
+/en/post/probiotic-support-during-menopause                                                       /en/blog/probiotic-support-during-menopause         301
+/en/post/probiotics-and-pregnancy-mix-well                                                        /en/blog/probiotics-and-pregnancy-mix-well          301
+/en/post/probiotics-for-a-genius-mind                                                             /en/blog/probiotics-for-a-genius-mind               301
+/en/post/probiotics-immune-revolution                                                             /en/blog/probiotics-immune-revolution               301
+/en/post/spotlight-on-prebiotics                                                                  /en/blog/spotlight-on-prebiotics                    301
+/en/post/when-bacteria-takes-over-s-o-s-sibo                                                      /en/blog/when-bacteria-takes-over-s-o-s-sibo        301
+/en/post/where-do-probiotics-come-from                                                            /en/blog/where-do-probiotics-come-from              301
 
 
 # ─── 7 · ARTICLES EN ORPHELINS — 15 sans traduction sur le nouveau site ─────
 # Redirigés vers la page EN la plus proche par sujet (jamais en vrac vers un
 # index : Google traite ça en soft 404 et le jus se perd).
 # ⚑ Le bon correctif reste de traduire ces 15 articles ; ces règles sont un pont.
-/en/post/a-clear-picture-of-antibiotics-and-probiotics                                            /en/probiotique-antibiotique                        301
-/en/post/anti-aging-probiotic-cure                                                                /en/probiotique-50-et-plus                          301
-/en/post/gloomy-end-of-life-rather-than-happy                                                     /en/probiotique-50-et-plus                          301
-/en/post/be-wise-back-to-school-with-probiotics                                                   /en/probiotique-enfant                              301
-/en/post/probiotics-not-just-for-grownups                                                         /en/probiotique-enfant                              301
-/en/post/being-a-woman-the-unfortunate-vaginitis-problem                                          /en/probiotique-vaginal                             301
-/en/post/burning-sensation-urinary-infections                                                     /en/probiotique-infection-urinaire                  301
-/en/post/intestine-patients-change-your-faith                                                     /en/probiotique-colon-irritable                     301
-/en/post/probiotics-your-travel-insurance                                                         /en/probiotique-voyage                              301
+/en/post/a-clear-picture-of-antibiotics-and-probiotics                                            /en/probiotic-for-antibiotics                        301
+/en/post/anti-aging-probiotic-cure                                                                /en/probiotic-50-plus                               301
+/en/post/gloomy-end-of-life-rather-than-happy                                                     /en/probiotic-50-plus                               301
+/en/post/be-wise-back-to-school-with-probiotics                                                   /en/kids-probiotic                                  301
+/en/post/probiotics-not-just-for-grownups                                                         /en/kids-probiotic                                  301
+/en/post/being-a-woman-the-unfortunate-vaginitis-problem                                          /en/vaginal-probiotic                               301
+/en/post/burning-sensation-urinary-infections                                                     /en/probiotic-for-uti                               301
+/en/post/intestine-patients-change-your-faith                                                     /en/probiotic-for-ibs                               301
+/en/post/probiotics-your-travel-insurance                                                         /en/travel-probiotic                                301
 /en/post/choosing-the-right-probiotic                                                             /en/best-probiotic                                  301
 /en/post/probiotics-at-any-age                                                                    /en/best-probiotic                                  301
-/en/post/a-probiotic-overdose                                                                     /en/foire-aux-questions                             301
-/en/post/microbiota-and-autism                                                                    /en/microbiote                                      301
-/en/post/probiotics-a-matter-of-the-heart                                                         /en/microbiote                                      301
-/en/post/worn-down-by-stress-bacteria-to-the-rescue                                               /en/microbiote                                      301
+/en/post/a-probiotic-overdose                                                                     /en/faq                                             301
+/en/post/microbiota-and-autism                                                                    /en/microbiome                                      301
+/en/post/probiotics-a-matter-of-the-heart                                                         /en/microbiome                                      301
+/en/post/worn-down-by-stress-bacteria-to-the-rescue                                               /en/microbiome                                      301
 
 
 # ─── 8 · FILETS DE SÉCURITÉ — toujours en DERNIER ───────────────────────────
 # Attrape les URL d'articles absentes des sitemaps (brouillons, vieux slugs,
 # variantes encodées). Un /post/ inconnu atterrit sur l'index du blogue plutôt
 # que sur un 404.
-/en/post/*                                                                                        /en/blogue                                          301
+/en/post/*                                                                                        /en/blog                                            301
 /post/*                                                                                           /blogue                                             301
 
 # Espace membres Wix — jamais recréé, aucune valeur SEO.
