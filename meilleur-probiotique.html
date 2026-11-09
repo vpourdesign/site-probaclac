@@ -1934,6 +1934,21 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
 }
 @media(prefers-reduced-motion:reduce){ .cmp__row,.cmp__tk{ transition:none; } }
 
+/* ─── Lien vers le guide voyage ─── */
+.vguide{ display:grid; grid-template-columns:minmax(0,1fr) auto; grid-template-areas:"k arr" "t arr" "d arr"; column-gap:1.5rem;
+  margin-top:clamp(1.6rem,3vw,2.4rem); padding:clamp(1.3rem,2.4vw,1.9rem) clamp(1.3rem,2.6vw,2.2rem);
+  border:1px solid rgba(255,255,255,.22); border-radius:22px; color:var(--paper);
+  transition:border-color .4s var(--ease), background-color .4s var(--ease); }
+.vguide:hover{ border-color:var(--paper); background:rgba(255,255,255,.04); }
+.vguide:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+.vguide__k{ grid-area:k; font-size:var(--t-micro); font-weight:700; text-transform:uppercase; letter-spacing:.18em; color:rgba(255,255,255,.55); }
+.vguide__t{ grid-area:t; font-weight:700; letter-spacing:-.03em; font-size:clamp(1.3rem,2.2vw,2rem); line-height:1.1; margin:.45rem 0 .4rem; }
+.vguide__d{ grid-area:d; color:rgba(255,255,255,.65); font-size:.92rem; line-height:1.5; max-width:62ch; }
+.vguide__arr{ grid-area:arr; align-self:center; color:var(--accent); }
+.vguide__arr svg{ width:30px; height:30px; transition:transform .5s var(--ease); }
+.vguide:hover .vguide__arr svg{ transform:translateX(5px); }
+@media(prefers-reduced-motion:reduce){ .vguide, .vguide__arr svg{ transition:none; } }
+
 </style><style>.ndash{ display:inline-block; transform:scaleX(.6); margin:0 .18em; letter-spacing:0; }</style>
 <link rel="stylesheet" href="assets/mobile-nav.css">
 <meta name="google-site-verification" content="1AsR3JhQcSiqQQ4n0YaYIEP1OrwfkngiUJAg6A1Nhfo">
@@ -2132,7 +2147,7 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
           "name": "Vaginose bactérienne"
         }
       ],
-      "dateModified": "2026-09-10"
+      "dateModified": "2026-11-09"
     },
     {
       "@type": "BreadcrumbList",
@@ -2229,6 +2244,14 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Tout produit de santé naturel vendu légalement au Canada porte un NPN, un numéro de produit naturel à huit chiffres délivré par Santé Canada, imprimé sur l’emballage. Ce numéro atteste que le produit a été évalué pour son innocuité, sa qualité et ses allégations. Les douze formules Probaclac portent chacune leur propre NPN. En l’absence de NPN, le produit n’est pas homologué au Canada."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le meilleur probiotique pour voyager ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pour un voyage, choisissez une formule multisouche, stable sans réfrigération, dont le NPN porte une allégation pour la diarrhée du voyageur, et commencez-la avant le départ. Probaclac Voyageurs (NPN 80108358) réunit 9 souches et de la vitamine C, se prend 5 jours avant le voyage et pendant toute sa durée. Les détails sont dans notre guide le meilleur probiotique pour les voyages ."
           }
         }
       ]
@@ -2379,6 +2402,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="pgrid" data-panel="age"><a class="pcard r" href="probiotique-bebes.html"><div class="pcard__img"><picture><source type="image/webp" srcset="assets/produits/enfants.webp"><img class="pcard__i" src="assets/produits/enfants.jpg" alt="Probaclac enfants"></picture></div><div class="pcard__b"><h4>Enfants 1 à 3 ans</h4><p>Dès la naissance, le microbiote se développe et se diversifie. La capsule ouvrable facilite la consommation chez l'enfant.</p></div></a><a class="pcard r" href="probiotique-enfant.html"><div class="pcard__img"><picture><source type="image/webp" srcset="assets/produits/croquable.webp"><img class="pcard__i" src="assets/produits/croquable.jpg" alt="Probaclac croquable"></picture></div><div class="pcard__b"><h4>Enfants croquables 3 ans +</h4><p>Dès 3 ans, le microbiote intestinal continue de se développer jusqu'à l'âge adulte.</p></div></a><a class="pcard r" href="probiotique-adulte.html"><div class="pcard__img"><picture><source type="image/webp" srcset="assets/produits/adultes.webp"><img class="pcard__i" src="assets/produits/adultes.jpg" alt="Probaclac adultes"></picture></div><div class="pcard__b"><h4>Adultes</h4><p>À l'âge adulte, la composition de la flore probiotique intestinale se stabilise.</p></div></a><a class="pcard r" href="probiotique-50-et-plus.html"><div class="pcard__img"><picture><source type="image/webp" srcset="assets/produits/50plus.webp"><img class="pcard__i" src="assets/produits/50plus.jpg" alt="Probaclac 50plus"></picture></div><div class="pcard__b"><h4>50 ans et +</h4><p>Après 50 ans, la concentration de bonnes bactéries, particulièrement les Bifidobactéries, diminue graduellement.</p></div></a></div>
     <div class="pgrid" data-panel="cond" hidden><a class="pcard r" href="probiotique-voyage.html"><div class="pcard__img"><picture><source type="image/webp" srcset="assets/produits/voyage.webp"><img class="pcard__i" src="assets/produits/voyage.jpg" alt="Probaclac voyage"></picture></div><div class="pcard__b"><h4>Voyageurs</h4><span class="pcard__tag">Diarrhée du voyageur</span><p>Formule assurant un confort intestinal durant les voyages.</p></div></a><a class="pcard r" href="probiotique-antibiotique.html"><div class="pcard__img"><picture><source type="image/webp" srcset="assets/produits/medic.webp"><img class="pcard__i" src="assets/produits/medic.jpg" alt="Probaclac medic"></picture></div><div class="pcard__b"><h4>Medic</h4><span class="pcard__tag">Diarrhée · antibiotiques</span><p>Réduction de la diarrhée associée à la prise d'antibiotiques.</p></div></a><a class="pcard r" href="probiotique-extra-fort.html"><div class="pcard__img"><picture><source type="image/webp" srcset="assets/produits/extra.webp"><img class="pcard__i" src="assets/produits/extra.jpg" alt="Probaclac extra"></picture></div><div class="pcard__b"><h4>Extra-fort</h4><span class="pcard__tag">Problèmes intestinaux aigus</span><p>Concentration élevée pour les problèmes intestinaux aigus.</p></div></a><a class="pcard r" href="probiotique-colon-irritable.html"><div class="pcard__img"><picture><source type="image/webp" srcset="assets/produits/sci.webp"><img class="pcard__i" src="assets/produits/sci.jpg" alt="Probaclac sci"></picture></div><div class="pcard__b"><h4>Côlon irritable (SCI)</h4><span class="pcard__tag">Syndrome du côlon irritable</span><p>Soulage gaz, ballonnements et inconforts. 10 milliards de cellules actives.</p></div></a><a class="pcard r" href="probiotique-gastro-intestinal.html"><div class="pcard__img"><picture><source type="image/webp" srcset="assets/produits/gi.webp"><img class="pcard__i" src="assets/produits/gi.jpg" alt="Probaclac gi"></picture></div><div class="pcard__b"><h4>Gastro-intestinal</h4><span class="pcard__tag">Antibiothérapie</span><p>Réduction de la diarrhée associée aux antibiotiques et de la diarrhée infectieuse aiguë.</p></div></a><a class="pcard r" href="probiotique-infection-urinaire.html"><div class="pcard__img"><picture><source type="image/webp" srcset="assets/produits/canneberge.webp"><img class="pcard__i" src="assets/produits/canneberge.jpg" alt="Probaclac canneberge"></picture></div><div class="pcard__b"><h4>Canneberges</h4><span class="pcard__tag">Infection urinaire</span><p>Supporte l'équilibre bactérien du tractus urinaire.</p></div></a><a class="pcard r" href="probiotique-infection-a-levure.html"><div class="pcard__img"><picture><source type="image/webp" srcset="assets/produits/rosella.webp"><img class="pcard__i" src="assets/produits/rosella.jpg" alt="Probaclac rosella"></picture></div><div class="pcard__b"><h4>Infection à levure</h4><span class="pcard__tag">Candidose vulvo-vaginale</span><p>Réduit les signes de candidose vulvo-vaginale avec la souche Rosella.</p></div></a><a class="pcard r" href="probiotique-vaginal.html"><div class="pcard__img"><img class="pcard__i" src="assets/mainvaginal.avif" alt="Probaclac vaginose bactérienne"></div><div class="pcard__b"><h4>Vaginose bactérienne</h4><span class="pcard__tag">Santé féminine</span><p>Aide à réduire la récurrence de la vaginose bactérienne.</p></div></a></div>
+    <a class="vguide r" href="meilleur-probiotique-voyage.html">
+      <span class="vguide__k">Vous partez en voyage&nbsp;?</span>
+      <span class="vguide__t">Le meilleur probiotique pour les voyages</span>
+      <span class="vguide__d">Tourista et diarrhée du voyageur&nbsp;: quel probiotique prendre, quand commencer avant le départ et combien de capsules apporter.</span>
+      <span class="vguide__arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
   </div>
 </section>
 
@@ -2508,7 +2537,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="eyebrow"><span class="dot"></span>Questions fréquentes</div>
         <h2>Ce qu&rsquo;on nous demande le plus souvent.</h2>
       </div>
-      <p class="cmp__lead r">Neuf réponses courtes et vérifiables, dans le cadre des allégations autorisées par Santé Canada.</p>
+      <p class="cmp__lead r">Dix réponses courtes et vérifiables, dans le cadre des allégations autorisées par Santé Canada.</p>
     </div>
     <div class="faqlist r">
         <div class="faq">
@@ -2583,11 +2612,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="faq__inner"><p class="faq__a">Tout produit de santé naturel vendu légalement au Canada porte un NPN, un numéro de produit naturel à huit chiffres délivré par Santé Canada, imprimé sur l&rsquo;emballage. Ce numéro atteste que le produit a été évalué pour son innocuité, sa qualité et ses allégations. Les douze formules Probaclac portent chacune leur propre NPN. En l&rsquo;absence de NPN, le produit n&rsquo;est pas homologué au Canada.</p></div>
           </div>
         </div>
+        <div class="faq">
+          <button class="faq__q" aria-expanded="false" id="mp-q10" aria-controls="mp-p10">
+            <span>Quel est le meilleur probiotique pour voyager&nbsp;?</span><span class="faq__ic" aria-hidden="true"></span>
+          </button>
+          <div class="faq__panel" role="region" aria-labelledby="mp-q10" id="mp-p10">
+            <div class="faq__inner"><p class="faq__a">Pour un voyage, choisissez une formule multisouche, stable sans réfrigération, dont le NPN porte une allégation pour la diarrhée du voyageur, et commencez-la avant le départ. Probaclac Voyageurs (NPN 80108358) réunit 9 souches et de la vitamine C, se prend 5 jours avant le voyage et pendant toute sa durée. Les détails sont dans notre guide <a href="meilleur-probiotique-voyage.html">le meilleur probiotique pour les voyages</a>.</p></div>
+          </div>
+        </div>
     </div>
     <p class="rev">
       <span><b>Rédigé par</b> l&rsquo;équipe Probaclac</span>
       <span><b>Révision scientifique</b> à confirmer</span>
-      <span><b>Mise à jour</b> le 10 septembre 2026</span>
+      <span><b>Mise à jour</b> le 9 novembre 2026</span>
       <span>Information générale, qui ne remplace pas l&rsquo;avis d&rsquo;un professionnel de la santé.</span>
     </p>
   </div>
