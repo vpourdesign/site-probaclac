@@ -6,6 +6,8 @@
  * Utilise la même stack que notre CLI `meta` :
  *   • jeton system-user : ~/.config/meta-ads/.token   (ou TOKEN_FILE du .env)
  *   • compte : AD_ACCOUNT_ID dans PROBACLAC/Probaclac/.env
+ *   • mot de passe du rapport : DASHBOARD_PASSWORD dans le même .env
+ *     (dashboard-data.json et le snapshot de dashboard.html sont chiffrés avec)
  *   • même endpoint Graph que `meta ads insights get` (v23.0, level=campaign)
  *
  * Usage :
@@ -16,6 +18,7 @@
  * (ce que l'agent fait quand tu écris « rafraîchi le dashboard pour le mois passé »).
  */
 import { readFileSync, writeFileSync } from 'node:fs';
+import { webcrypto as crypto } from 'node:crypto';
 import { homedir } from 'node:os';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -50,6 +53,20 @@ let TOKEN;
 try { TOKEN = readFileSync(tokenFile,'utf8').trim(); }
 catch { console.error('✖ Jeton introuvable :', tokenFile); process.exit(1); }
 
+// ── Chiffrement : le site et le dépôt sont publics, les données n'y vont que chiffrées ──
+// AES-256-GCM, clé dérivée du mot de passe (PBKDF2-SHA256). Le dashboard déchiffre dans le navigateur.
+const PASSWORD = env.DASHBOARD_PASSWORD;
+if (!PASSWORD || PASSWORD.length < 12) { console.error('✖ DASHBOARD_PASSWORD (12 caractères min.) introuvable dans', join(PROJECT,'.env')); process.exit(1); }
+const KDF_ITER = 600000;
+const b64 = u8 => Buffer.from(u8).toString('base64');
+async function encrypt(obj){
+  const salt = crypto.getRandomValues(new Uint8Array(16)), iv = crypto.getRandomValues(new Uint8Array(12));
+  const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(PASSWORD), 'PBKDF2', false, ['deriveKey']);
+  const key = await crypto.subtle.deriveKey({name:'PBKDF2', salt, iterations:KDF_ITER, hash:'SHA-256'}, base, {name:'AES-GCM', length:256}, false, ['encrypt']);
+  const ct = await crypto.subtle.encrypt({name:'AES-GCM', iv}, key, new TextEncoder().encode(JSON.stringify(obj)));
+  return { v:1, alg:'AES-256-GCM', kdf:'PBKDF2-SHA256', iter:KDF_ITER, salt:b64(salt), iv:b64(iv), ct:b64(new Uint8Array(ct)) };
+}
+
 // ── Date range : previous complete month (or the YYYY-MM arg) ──
 const arg = process.argv[2];
 let y, m; // m = 0-indexed
@@ -82,15 +99,33 @@ let pm = m-1, py = y; if (pm<0){ pm=11; py--; }
 const pSince = `${py}-${pad(pm+1)}-01`;
 const pUntil = `${py}-${pad(pm+1)}-${pad(new Date(py, pm+1, 0).getDate())}`;
 
+// ── Historique : les HISTORY_MONTHS derniers mois complets, jusqu'au mois du rapport ──
+const HISTORY_MONTHS = 6;
+let hm = m-(HISTORY_MONTHS-1), hy = y; while (hm<0){ hm+=12; hy--; }
+const hSince = `${hy}-${pad(hm+1)}-01`;
+
 (async () => {
   const fields = 'campaign_name,campaign_id,objective,spend,impressions,reach,clicks,ctr,cpc,cpm,frequency';
   const acctFields = 'spend,impressions,reach,clicks,ctr,cpc,cpm,frequency';
-  const [perCamp, acct, daily, prevAcct] = await Promise.all([
+  const [perCamp, acct, daily, prevAcct, hist] = await Promise.all([
     graph(`${ACCOUNT}/insights`, { level:'campaign', time_range:JSON.stringify({since,until}), fields, limit:'500' }),
     graph(`${ACCOUNT}/insights`, { time_range:JSON.stringify({since,until}), fields:acctFields }),
     graph(`${ACCOUNT}/insights`, { level:'campaign', time_range:JSON.stringify({since,until}), time_increment:'1', fields:'campaign_name,campaign_id,impressions,reach', limit:'500' }),
-    graph(`${ACCOUNT}/insights`, { time_range:JSON.stringify({since:pSince,until:pUntil}), fields:acctFields }).catch(()=>({data:[]}))
+    graph(`${ACCOUNT}/insights`, { time_range:JSON.stringify({since:pSince,until:pUntil}), fields:acctFields }).catch(()=>({data:[]})),
+    graph(`${ACCOUNT}/insights`, { time_range:JSON.stringify({since:hSince,until}), time_increment:'monthly', fields:acctFields, limit:'50' }).catch(()=>({data:[]}))
   ]);
+
+  // ── Historique mensuel (mois sans diffusion = zéros, pour garder la série continue) ──
+  const histRows = Object.fromEntries((hist.data||[]).map(r=>[r.date_start.slice(0,7), r]));
+  const history = Array.from({length:HISTORY_MONTHS}, (_,i)=>{
+    let mm = hm+i, yy = hy; while (mm>11){ mm-=12; yy++; }
+    const key = `${yy}-${pad(mm+1)}`, r = histRows[key] || {};
+    return {
+      month:key, label:`${MONTHS[mm][0].toUpperCase()+MONTHS[mm].slice(1)} ${yy}`,
+      spend:num(r.spend), impressions:num(r.impressions), reach:num(r.reach), clicks:num(r.clicks),
+      ctr:num(r.ctr)/100, cpm:num(r.cpm), cpc:num(r.cpc), frequency:num(r.frequency)
+    };
+  });
 
   const campaigns = (perCamp.data||[])
     .filter(c => num(c.impressions) > 0)
@@ -140,22 +175,23 @@ const pUntil = `${py}-${pad(pm+1)}-${pad(new Date(py, pm+1, 0).getDate())}`;
       label: `${MONTHS[m][0].toUpperCase()+MONTHS[m].slice(1)} ${y}`,
       label_en: `${MONTHS_EN[m]} ${y}`, since, until
     },
-    totals, previous, campaigns, daily: dailyOut
+    totals, previous, history, campaigns, daily: dailyOut
   };
-  writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');
+  const sealed = await encrypt(out);
+  writeFileSync(OUT, JSON.stringify(sealed) + '\n');
 
-  // ── Snapshot intégré dans dashboard.html (fallback si fetch échoue : file://, hors-ligne) ──
+  // ── Snapshot chiffré intégré dans dashboard.html (fallback si fetch échoue : file://, hors-ligne) ──
   const HTML = join(SITE, 'dashboard.html');
   try {
     const html = readFileSync(HTML, 'utf8');
     const tag = /(<script type="application\/json" id="dashData">)[\s\S]*?(<\/script>)/;
     if (tag.test(html)) {
-      writeFileSync(HTML, html.replace(tag, (_, a, b) => `${a}\n${JSON.stringify(out)}\n${b}`));
+      writeFileSync(HTML, html.replace(tag, (_, a, b) => `${a}\n${JSON.stringify(sealed)}\n${b}`));
       console.log('✔ snapshot intégré dans dashboard.html');
     }
   } catch (e) { console.warn('⚠ dashboard.html non mis à jour :', e.message); }
 
-  console.log(`✔ ${OUT}`);
+  console.log(`✔ ${OUT} (chiffré, AES-256-GCM)`);
   console.log(`  Période : ${out.period.label} (${since} → ${until})`);
   console.log(`  Campagnes avec diffusion : ${campaigns.length}`);
   console.log(`  Portée ${totals.reach.toLocaleString('fr-CA')} · Impressions ${totals.impressions.toLocaleString('fr-CA')} · Dépense ${totals.spend} $`);

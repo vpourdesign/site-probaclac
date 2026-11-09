@@ -68,6 +68,7 @@ img,svg{ display:block; max-width:100%; height:auto; }
   transition:opacity .7s var(--ease);
 }
 .gate.out{ opacity:0; pointer-events:none; }
+.gate[hidden]{ display:none; }
 .gate::after{
   content:"Confidentiel"; position:absolute; left:50%; bottom:6vh; transform:translateX(-50%);
   font-size:var(--t-micro); font-weight:700; text-transform:uppercase; letter-spacing:.34em;
@@ -100,6 +101,8 @@ img,svg{ display:block; max-width:100%; height:auto; }
 }
 .gate__btn:hover{ transform:translateY(-2px); box-shadow:0 10px 26px rgba(10,10,10,.22); }
 .gate__btn:active{ transform:translateY(0); }
+.gate__btn:disabled{ opacity:.6; cursor:progress; transform:none; box-shadow:none; }
+.gate__btn:focus-visible,.gate__input:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
 .gate__err{ color:var(--accent); font-size:.85rem; min-height:1.1em; margin:.2rem 0 0; font-weight:700; }
 .gate__hint{ color:var(--mute); font-size:.76rem; margin:1.6rem 0 0; line-height:1.55; }
 
@@ -172,6 +175,18 @@ img,svg{ display:block; max-width:100%; height:auto; }
 .dbar{ transform:scaleY(0); transform-box:fill-box; transform-origin:bottom; transition:transform 1.1s var(--ease); }
 .in .dbar{ transform:scaleY(1); }
 
+/* ─── évolution mensuelle ─── */
+.trend__tabs{ display:flex; gap:.45rem; flex-wrap:wrap; margin-bottom:1.4rem; }
+.trend__tabs .btn-ghost[aria-pressed="true"]{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.btn-ghost:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+.trend svg{ width:100%; height:auto; }
+.mbar{ transform:scaleY(0); transform-box:fill-box; transform-origin:bottom; transition:transform 1.1s var(--ease); }
+.in .mbar{ transform:scaleY(1); }
+.trend .cap{ margin-top:1rem; font-size:.8rem; color:var(--mute); }
+#htbl tbody tr.cur td{ background:var(--accent-soft); }
+#htbl tbody tr.cur td:first-child{ font-weight:700; }
+.delta{ font-size:.78rem; color:var(--mute); }
+
 /* ─── legend ─── */
 .legend{ display:flex; gap:1.3rem; margin-bottom:1.5rem; flex-wrap:wrap; }
 .legend span{ display:flex; align-items:center; gap:.5rem; font-size:.8rem; font-weight:700; letter-spacing:-.01em; }
@@ -182,7 +197,8 @@ img,svg{ display:block; max-width:100%; height:auto; }
 .crow:first-of-type{ border-top:0; padding-top:0; }
 .crow:last-of-type{ padding-bottom:0; }
 .crow__name{ display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:.75rem; }
-.crow__name b{ font-weight:700; letter-spacing:-.02em; font-size:1.05rem; }
+.crow__name{ flex-wrap:wrap; }
+.crow__name b{ font-weight:700; letter-spacing:-.02em; font-size:1.05rem; min-width:0; overflow-wrap:anywhere; }
 .crow__obj{ font-size:.66rem; font-weight:700; text-transform:uppercase; letter-spacing:.13em; color:var(--mute); background:var(--paper); border:1px solid var(--rule); padding:.22rem .6rem; border-radius:999px; }
 .bar{ display:grid; grid-template-columns:82px 1fr 84px; align-items:center; gap:.85rem; margin:.4rem 0; }
 .bar__k{ font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.11em; color:var(--mute); }
@@ -231,7 +247,8 @@ tfoot td{ font-weight:700; border-top:2px solid var(--ink); border-bottom:0; bac
   .dash{ display:block !important; }
   .card,.kpis,.tablewrap{ box-shadow:none; }
   .rv{ opacity:1 !important; transform:none !important; }
-  .dbar{ transform:scaleY(1) !important; }
+  .dbar,.mbar{ transform:scaleY(1) !important; }
+  .trend__tabs{ display:none; }
   .section{ break-inside:avoid; }
 }
 </style>
@@ -289,10 +306,40 @@ tfoot td{ font-weight:700; border-top:2px solid var(--ink); border-bottom:0; bac
     <!-- KPIs -->
     <div class="kpis rv" id="kpis"></div>
 
+    <!-- ÉVOLUTION MENSUELLE -->
+    <section class="section" id="trendSection">
+      <div class="section__head rv">
+        <h2><span class="no">01</span>Évolution mensuelle</h2>
+        <span class="note" id="trendNote">Total du compte, mois par mois</span>
+      </div>
+      <div class="card trend rv" id="trendCard">
+        <div class="trend__tabs" role="group" aria-label="Indicateur affiché" id="trendTabs">
+          <button class="btn-ghost" type="button" data-m="spend" aria-pressed="true">Dépense</button>
+          <button class="btn-ghost" type="button" data-m="impressions" aria-pressed="false">Impressions</button>
+          <button class="btn-ghost" type="button" data-m="reach" aria-pressed="false">Portée</button>
+          <button class="btn-ghost" type="button" data-m="clicks" aria-pressed="false">Clics</button>
+          <button class="btn-ghost" type="button" data-m="cpm" aria-pressed="false">CPM</button>
+        </div>
+        <div id="trendChart"></div>
+        <div class="cap" id="trendCap"></div>
+      </div>
+      <div class="tablewrap rv" style="margin-top:1.2rem;">
+        <table id="htbl">
+          <thead>
+            <tr>
+              <th>Mois</th><th>Dépense</th><th>Portée</th><th>Impressions</th>
+              <th>Clics</th><th>CTR</th><th>CPM</th><th>CPC</th>
+            </tr>
+          </thead>
+          <tbody id="hbody"></tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- DIFFUSION QUOTIDIENNE -->
     <section class="section">
       <div class="section__head rv">
-        <h2><span class="no">01</span>Diffusion quotidienne</h2>
+        <h2><span class="no">02</span>Diffusion quotidienne</h2>
         <span class="note">Impressions par jour, empilées par campagne</span>
       </div>
       <div class="card daily rv" id="dailyCard">
@@ -305,7 +352,7 @@ tfoot td{ font-weight:700; border-top:2px solid var(--ink); border-bottom:0; bac
     <!-- PORTÉE & IMPRESSIONS -->
     <section class="section">
       <div class="section__head rv">
-        <h2><span class="no">02</span>Portée &amp; impressions par campagne</h2>
+        <h2><span class="no">03</span>Portée &amp; impressions par campagne</h2>
         <span class="note">Barres proportionnelles au maximum du mois</span>
       </div>
       <div class="card rv">
@@ -320,7 +367,7 @@ tfoot td{ font-weight:700; border-top:2px solid var(--ink); border-bottom:0; bac
     <!-- RÉPARTITION -->
     <section class="section">
       <div class="section__head rv">
-        <h2><span class="no">03</span>Répartition des impressions</h2>
+        <h2><span class="no">04</span>Répartition des impressions</h2>
         <span class="note">Part de chaque campagne dans le volume total</span>
       </div>
       <div class="card rv">
@@ -332,7 +379,7 @@ tfoot td{ font-weight:700; border-top:2px solid var(--ink); border-bottom:0; bac
     <!-- TABLE -->
     <section class="section">
       <div class="section__head rv">
-        <h2><span class="no">04</span>Détail par campagne</h2>
+        <h2><span class="no">05</span>Détail par campagne</h2>
         <span class="note">CPM = coût / 1 000 impressions · Fréq. = impressions ÷ portée</span>
       </div>
       <div class="tablewrap rv">
@@ -373,29 +420,41 @@ tfoot td{ font-weight:700; border-top:2px solid var(--ink); border-bottom:0; bac
 </main>
 
 <script type="application/json" id="dashData">
-{"generated_at":"2026-07-14","account_id":"act_308427730113482","account_label":"Probaclac (Nicar Canada)","period":{"label":"Juin 2026","label_en":"June 2026","since":"2026-06-01","until":"2026-06-30"},"totals":{"spend":299.94,"impressions":175687,"reach":164857,"clicks":156,"ctr":0.0008879399999999999,"cpm":1.707241,"cpc":1.922692,"frequency":1.065693},"previous":{"label":"Mai 2026","since":"2026-05-01","until":"2026-05-31","spend":22.9,"impressions":985,"reach":823,"clicks":12,"ctr":0.012182740000000001,"cpm":23.248731,"cpc":1.908333,"frequency":1.196841},"campaigns":[{"id":"120250504230560310","name":"costco 22 juin","objective":"OUTCOME_AWARENESS","objective_label":"Notoriété","spend":199.99,"impressions":131518,"reach":120988,"clicks":115,"ctr":0.00087441,"cpc":1.739043,"cpm":1.520628,"frequency":1.087033},{"id":"120249686130370310","name":"produit québec","objective":"OUTCOME_AWARENESS","objective_label":"Notoriété","spend":99.95,"impressions":44169,"reach":43798,"clicks":41,"ctr":0.00092825,"cpc":2.437805,"cpm":2.262899,"frequency":1.008471}],"daily":{"dates":["2026-06-01","2026-06-02","2026-06-03","2026-06-04","2026-06-05","2026-06-06","2026-06-07","2026-06-08","2026-06-09","2026-06-10","2026-06-11","2026-06-12","2026-06-13","2026-06-14","2026-06-15","2026-06-16","2026-06-17","2026-06-18","2026-06-19","2026-06-20","2026-06-21","2026-06-22","2026-06-23","2026-06-24","2026-06-25","2026-06-26","2026-06-27","2026-06-28","2026-06-29","2026-06-30"],"series":[{"id":"120249686130370310","name":"produit québec","impressions":[0,0,0,0,0,0,0,0,0,0,0,32596,11573,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"reach":[0,0,0,0,0,0,0,0,0,0,0,32596,11310,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},{"id":"120250504230560310","name":"costco 22 juin","impressions":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2438,2608,69706,56766,0,0,0,0,0,0],"reach":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2409,2563,68595,54027,0,0,0,0,0,0]}]}}
+{"v":1,"alg":"AES-256-GCM","kdf":"PBKDF2-SHA256","iter":600000,"salt":"46mxTrrWpTNhwcoPeOrsWA==","iv":"snjIg1kU9cyAnUTL","ct":"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"}
 </script>
 <script>
-/* ══════════ Gate (couche douce — la vraie serrure = mot de passe Netlify) ══════════ */
-const PW_HASH = "b0164ba0a3751dd64ed955879cfcfb28f6fdacf078469c0bab95ece096e45086";
+/* ══════════ Gate : les données sont chiffrées (AES-256-GCM), le mot de passe est la clé ══════════
+   dashboard-data.json et le snapshot ci-dessus ne contiennent que du chiffré.
+   Sans le bon mot de passe, il n'y a rien à lire, ni dans la page ni dans le dépôt. */
 const gate = document.getElementById('gate'), dash = document.getElementById('dash');
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
-async function sha256(s){
-  const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
-  return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+const b64d = s => Uint8Array.from(atob(s), c=>c.charCodeAt(0));
+async function getSealed(){
+  /* 1. JSON frais (serveur) → 2. snapshot intégré à la page (file://, hors-ligne) */
+  try { const r = await fetch('dashboard-data.json?t='+Date.now()); if (r.ok){ const j = await r.json(); if (j && j.ct) return j; } } catch(e){}
+  try { const s = JSON.parse(document.getElementById('dashData').textContent); if (s && s.ct) return s; } catch(e){}
+  return null;
 }
-function unlock(instant){
+async function decrypt(sealed, pw){
+  const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+  const key = await crypto.subtle.deriveKey({name:'PBKDF2', salt:b64d(sealed.salt), iterations:sealed.iter, hash:'SHA-256'}, base, {name:'AES-GCM', length:256}, false, ['decrypt']);
+  const pt = await crypto.subtle.decrypt({name:'AES-GCM', iv:b64d(sealed.iv)}, key, b64d(sealed.ct));
+  return JSON.parse(new TextDecoder().decode(pt));
+}
+function unlock(d){
   dash.classList.add('on'); dash.setAttribute('aria-hidden','false');
-  if (instant || REDUCED){ gate.hidden = true; }
+  if (REDUCED){ gate.hidden = true; }
   else { gate.classList.add('out'); setTimeout(()=>gate.hidden=true, 750); }
-  loadData();
+  loadData(d);
 }
-if (sessionStorage.getItem('pbl_dash_ok') === '1') unlock(true);
 document.getElementById('gateForm').addEventListener('submit', async (e)=>{
   e.preventDefault();
-  const h = await sha256(document.getElementById('pw').value);
-  if (h === PW_HASH){ sessionStorage.setItem('pbl_dash_ok','1'); unlock(false); }
-  else { document.getElementById('err').textContent = 'Mot de passe incorrect.'; document.getElementById('pw').value=''; }
+  const pw = document.getElementById('pw'), btn = e.target.querySelector('button'), err = document.getElementById('err');
+  err.textContent = ''; btn.disabled = true; const label = btn.textContent; btn.textContent = 'Ouverture…';
+  const sealed = await getSealed();
+  if (!sealed){ err.textContent = 'Données du rapport introuvables.'; btn.disabled = false; btn.textContent = label; return; }
+  try { unlock(await decrypt(sealed, pw.value)); }
+  catch { err.textContent = 'Mot de passe incorrect.'; pw.value = ''; pw.focus(); btn.disabled = false; btn.textContent = label; }
 });
 
 /* ══════════ Format fr-CA ══════════ */
@@ -445,13 +504,8 @@ const io = new IntersectionObserver(es=>es.forEach(e=>{
 function forceReveal(){ document.querySelectorAll('.rv').forEach(animateIn); }
 
 /* ══════════ Render ══════════ */
-async function loadData(){
-  /* 1. JSON frais (serveur) → 2. snapshot intégré à la page (file://, hors-ligne) */
-  let d = null;
-  try { const r = await fetch('dashboard-data.json?t='+Date.now()); if (r.ok) d = await r.json(); } catch(e){}
-  if (!d || !d.totals){
-    try { const s = JSON.parse(document.getElementById('dashData').textContent); if (s && s.totals) d = s; } catch(e){}
-  }
+function loadData(d){
+  if (!d || !d.totals) d = null;
   const reveal = ()=>{
     document.querySelectorAll('.rv').forEach(el=>{
       if (el.classList.contains('in')) paint(el);   /* déjà révélé (re-render) : peindre le contenu neuf */
@@ -467,7 +521,7 @@ async function loadData(){
 
   const t = d.totals, prev = d.previous;
   const camps = [...d.campaigns].sort((a,b)=>b.impressions-a.impressions);
-  const COLORS = ['var(--accent)','var(--ink)','#8a8a8a','#c0392b','#1999d4'];
+  const COLORS = ['var(--accent)','var(--ink)','#1999d4','#ce3079','#f7c600','#00b5d2','#8a8a8a','#53a0ce','#c0392b','#5c5c5c'];
   const colorOf = {}; camps.forEach((c,i)=>colorOf[c.id]=COLORS[i%COLORS.length]);
 
   document.getElementById('hPeriod').textContent = d.period.label;
@@ -499,6 +553,72 @@ async function loadData(){
     kpi('Clics', t.clicks, 'int', `CTR ${fPct(t.ctr)}`, chip(t.clicks, prev?.clicks)) +
     kpi('CPM', t.cpm, 'money', 'coût / 1 000 impressions', chip(t.cpm, prev?.cpm)) +
     kpi('Fréquence', t.frequency, 'dec', 'impressions par personne', '');
+
+  /* — évolution mensuelle (historique du compte) — */
+  const hist = (d.history||[]);
+  if (hist.length > 1){
+    const METRICS = {
+      spend:{lbl:'Dépense', fmt:fMoney, short:n=>fK(n)+' $'},
+      impressions:{lbl:'Impressions', fmt:fInt, short:fK},
+      reach:{lbl:'Portée', fmt:fInt, short:fK},
+      clicks:{lbl:'Clics', fmt:fInt, short:fK},
+      cpm:{lbl:'CPM', fmt:fMoney, short:n=>fDec(n)+' $'}
+    };
+    const curKey = d.period.since.slice(0,7);
+    const shortMonth = h => { const [yy,mm]=h.month.split('-'); return `${MOIS[+mm-1]} ${yy.slice(2)}`; };
+    function drawTrend(mk){
+      const M = METRICS[mk], vals = hist.map(h=>h[mk]||0), max = Math.max(...vals, 1);
+      /* dessiné à la largeur réelle : libellés lisibles même sur téléphone */
+      const W=Math.max(300, document.getElementById('trendChart').clientWidth || 1000), H=W<520?220:280;
+      const padT=34, padB=34, plotH=H-padT-padB, n=hist.length;
+      const step=W/n, bw=Math.min(step*.52, 92);
+      curMetric = mk;
+      let out='';
+      [0.5,1].forEach(g=>{
+        const gy = padT + plotH - plotH*g;
+        out += `<line x1="0" x2="${W}" y1="${gy}" y2="${gy}" stroke="rgba(10,10,10,.08)" stroke-dasharray="2 5"/>`;
+      });
+      hist.forEach((h,i)=>{
+        const v = vals[i], bh = plotH*v/max, x = i*step+(step-bw)/2, yy = padT+plotH-bh, cur = h.month===curKey;
+        out += `<rect class="mbar" x="${x.toFixed(1)}" y="${yy.toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(bh,0).toFixed(1)}" rx="4" fill="${cur?'var(--accent)':'var(--ink)'}" style="transition-delay:${i*70}ms"><title>${h.label} : ${M.fmt(v)}</title></rect>`;
+        out += `<text x="${(i*step+step/2).toFixed(1)}" y="${(yy-10).toFixed(1)}" font-size="${W<520?11:13}" text-anchor="middle" fill="var(--ink)" font-weight="700">${v?M.short(v):'·'}</text>`;
+        out += `<text x="${(i*step+step/2).toFixed(1)}" y="${H-12}" font-size="12" text-anchor="middle" fill="${cur?'var(--ink)':'rgba(10,10,10,.45)'}" font-weight="700">${shortMonth(h)}</text>`;
+      });
+      document.getElementById('trendChart').innerHTML =
+        `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${M.lbl} par mois">
+          ${out}<line x1="0" x2="${W}" y1="${padT+plotH}" y2="${padT+plotH}" stroke="var(--rule-strong)"/>
+        </svg>`;
+      const best = hist[vals.indexOf(Math.max(...vals))];
+      document.getElementById('trendCap').textContent = `${M.lbl} · sommet : ${best.label} (${M.fmt(best[mk])}) · le mois du rapport est en orange`;
+    }
+    let curMetric = 'spend', rz;
+    drawTrend('spend');
+    addEventListener('resize', ()=>{ clearTimeout(rz); rz = setTimeout(()=>drawTrend(curMetric), 150); });
+    document.getElementById('trendTabs').addEventListener('click', e=>{
+      const b = e.target.closest('button[data-m]'); if (!b) return;
+      document.querySelectorAll('#trendTabs button').forEach(x=>x.setAttribute('aria-pressed', x===b?'true':'false'));
+      drawTrend(b.dataset.m);
+    });
+    document.getElementById('trendNote').textContent = `Total du compte · ${hist[0].label.toLowerCase()} à ${hist[hist.length-1].label.toLowerCase()}`;
+    const delta = (cur, pre) => {
+      if (!pre || !cur) return '';
+      const r = cur/pre, p = (r-1)*100;
+      const txt = r >= 2 ? `×${r>=10?fInt(r):fDec(r,1)}` : `${p>=0?'+':'−'}${fDec(Math.abs(p),0)} %`;
+      return ` <span class="delta">${txt}</span>`;
+    };
+    document.getElementById('hbody').innerHTML = hist.slice().reverse().map((h,ri,arr)=>{
+      const pre = arr[ri+1];
+      return `<tr class="${h.month===curKey?'cur':''}">
+        <td>${h.label}</td>
+        <td>${fMoney(h.spend)}${delta(h.spend, pre?.spend)}</td>
+        <td>${fInt(h.reach)}</td><td>${fInt(h.impressions)}${delta(h.impressions, pre?.impressions)}</td>
+        <td>${fInt(h.clicks)}</td><td>${h.impressions?fPct(h.ctr):'—'}</td>
+        <td>${h.impressions?fMoney(h.cpm):'—'}</td><td>${h.clicks?fMoney(h.cpc):'—'}</td>
+      </tr>`;
+    }).join('');
+  } else {
+    document.getElementById('trendSection').style.display='none';
+  }
 
   /* — diffusion quotidienne (SVG empilé) — */
   if (d.daily && d.daily.dates?.length){
